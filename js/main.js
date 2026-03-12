@@ -74,3 +74,4 @@ window.addEventListener('load', function () {
 	  logo.innerHTML = originalHTML;
 	});
   });
+  //tabs-services

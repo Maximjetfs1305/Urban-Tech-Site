@@ -1,6 +1,113 @@
 main{
   padding-top: clamp(70px,6vw,100px);
 }
+ 
+/* ### SERVICES-MENNU### */
+.services-nav {
+  width: 100%;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.services-nav__inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 34px;
+  padding: 0 0 18px;
+}
+
+/* затухающая нижняя линия */
+.services-nav__inner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(1100px, 100%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.08) 10%,
+    rgba(255, 255, 255, 0.16) 22%,
+    rgba(120, 170, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.16) 78%,
+    rgba(255, 255, 255, 0.08) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.services-nav__link {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 8px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  transition: color 0.3s ease;
+}
+
+.services-nav__link:hover {
+  color: #ffffff;
+}
+
+.services-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(62, 166, 255, 0) 0%,
+    #f8b500 50%,
+    rgba(62, 166, 255, 0) 100%
+  );
+  box-shadow: 0 0 14px rgba(62, 166, 255, 0.25);
+  transition: width 0.32s ease;
+}
+
+.services-nav__link:hover::after,
+.services-nav__link.active::after {
+  width: 120%;
+}
+
+.services-nav__link.active {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .services-nav {
+    padding: 0 12px;
+    margin-bottom: 28px;
+  }
+
+  .services-nav__inner {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 22px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+
+  .services-nav__inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-nav__link {
+    white-space: nowrap;
+    font-size: 14px;
+  }
+}
 
 /* ###FOOTER###*/
 .footer-urban {
