@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 
@@ -65,32 +65,31 @@
   </header>
   <!-- MAIN -->
   <main>
-    <section class="hero-wrap electric-bg js-fullheight">
+    <div class="hero-wrap electric-bg">
       <div class="container">
-        <div class="row justify-content-center"
-          data-scrollax-parent="true">
+        <div class="row justify-content-center" data-scrollax-parent="true">
           <div class="col-12 col-lg-10 col-xl-9 text-center hero-info-wrap">
 
             <h1 class="hero-main-title">URBAN TECH</h1>
-      
+
             <p class="hero-subtitle">
               Urban Tech — сучасні інженерні рішення для тих, хто цінує якість, технології та безпеку.
             </p>
-      
+
             <p class="hero-description">
               Ми проєктуємо та реалізуємо комплексні системи електромонтажу, відеоспостереження,
               контролю доступу та автоматизації для житлових, комерційних і промислових об’єктів.
             </p>
-      
+
             <p class="hero-description hero-description-secondary">
               Поєднуємо інженерну точність, сучасний підхід і відповідальність,
               створюючи інфраструктуру, що працює стабільно, безпечно та ефективно роками.
             </p>
-      
+
             <div class="hero-divider-text">
               ЕЛЕКТРОМОНТАЖ <span>•</span> БЕЗПЕКА <span>•</span> АВТОМАТИЗАЦІЯ
             </div>
-      
+
             <div class="row hero-advantages justify-content-center">
               <div class="col-12 col-md-4">
                 <div class="hero-adv-item">
@@ -98,14 +97,14 @@
                   <p>Від проєктування до запуску та технічного супроводу.</p>
                 </div>
               </div>
-      
+
               <div class="col-12 col-md-4">
                 <div class="hero-adv-item">
                   <h3>Технологічні рішення</h3>
                   <p>Сучасні системи для дому, бізнесу та промислових об’єктів.</p>
                 </div>
               </div>
-      
+
               <div class="col-12 col-md-4">
                 <div class="hero-adv-item">
                   <h3>Надійність у деталях</h3>
@@ -113,20 +112,19 @@
                 </div>
               </div>
             </div>
-      
+
             <div class="bttn-ctn">
               <a href="#" class="bttn-more">Дізнатися більше</a>
             </div>
-      
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
-  <footer class="footer-urban text-white">
+  <main class="footer-urban text-white">
     <div class="container">
       <div class="row gy-4 align-items-start">
-  
+
         <div class="col-12 col-lg-4">
           <div class="footer-brand-wrap">
             <h3 class="footer-brand mb-3">Urban Tech</h3>
@@ -136,108 +134,67 @@
             </p>
           </div>
         </div>
-  
+
         <div class="col-12 col-md-6 col-lg-4">
           <h5 class="footer-title">Контакти</h5>
-  
+
           <div class="footer-contact-item">
             <span class="footer-label">Телефон</span>
             <a href="tel:+380XXXXXXXXX" class="footer-link">+38 (0XX) XXX XX XX</a>
           </div>
-  
+
           <div class="footer-contact-item">
             <span class="footer-label">Адреса</span>
             <p class="footer-text mb-0">Київ, Україна</p>
           </div>
-  
+
           <div class="footer-contact-item">
             <span class="footer-label">Email</span>
             <a href="mailto:info@urbantech.ua" class="footer-link">info@urbantech.ua</a>
           </div>
         </div>
-  
+
         <div class="col-12 col-md-6 col-lg-4">
           <h5 class="footer-title">Соцмережі</h5>
-  
+
           <div class="footer-socials">
             <a href="#" class="footer-social" aria-label="Instagram">
               <i class="bi bi-instagram"></i>
             </a>
-  
+
             <a href="#" class="footer-social" aria-label="Facebook">
               <i class="bi bi-facebook"></i>
             </a>
-  
+
             <a href="#" class="footer-social" aria-label="Telegram">
               <i class="bi bi-telegram"></i>
             </a>
-  
+
             <a href="#" class="footer-social" aria-label="Viber">
               <i class="bi bi-chat-dots"></i>
             </a>
           </div>
-  
+
           <p class="footer-note mt-3 mb-0">
             Зв'яжіться з нами для консультації та підбору оптимального рішення під ваш об'єкт.
           </p>
         </div>
-  
+
       </div>
-  
+
       <div class="footer-bottom text-center">
         <p class="mb-0">
           © 2026 Urban Tech. Усі права захищені.
         </p>
       </div>
     </div>
-  </footer>
+  </main>
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-    window.addEventListener('load', function () {
 
-      const preloader = document.getElementById('preloader');
-
-      setTimeout(function () {
-
-        preloader.style.transition = "opacity 0.5s";
-        preloader.style.opacity = "0";
-
-        setTimeout(function () {
-          preloader.style.display = "none";
-        }, 500);
-
-      }, 1000);
-
-    });
-    // JS-анімація логотипу
-    window.addEventListener('DOMContentLoaded', () => {
-      const logo = document.querySelector('header .ut-navbar .logo-text');
-      if (!logo) return;
-
-      const originalHTML = logo.innerHTML;
-
-      logo.addEventListener('mouseenter', () => {
-        const text = logo.textContent;
-        logo.innerHTML = text.split('').map(l => {
-          if (l === ' ') return ' ';
-          if (l === 'T') return `<span class="highlight">${l}</span>`;
-          return `<span>${l}</span>`;
-        }).join('');
-
-        const spans = logo.querySelectorAll('span');
-        spans.forEach((span, i) => {
-          span.style.animation = `wave 0.6s ease-in-out forwards`;
-          span.style.animationDelay = `${i * 0.08}s`;
-        });
-      });
-
-      logo.addEventListener('mouseleave', () => {
-        logo.innerHTML = originalHTML;
-      });
-    });
   </script>
 </body>
 
