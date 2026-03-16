@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <title>Urban Tech — Докладніше</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <video autoplay loop muted playsinline class="back-video">
+    <source src="http://test-web/img/vid_11.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
+
+  <?php
+  ?>
+  <div class="page">
+    <nav id="colorlib-main-nav" role="navigation">
+      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
+      <div class="js-fullheight colorlib-table">
+        <div class="colorlib-table-cell js-fullheight">
+          <div class="row no-gutters">
+            <div class="col-md-12 text-center">
+              <h1 class="mb-4"><a href="index.html" class="logo">URBAN TECH</a></h1>
+              <ul>
+                <li class="active"><a href="index.html"><span>Головна</span></a></li>
+                <li><a href="magazine.php">
+                    <spa n>Магазин</span>
+                  </a></li>
+                <li><a href="blog.html"><span>Про нас</span></a></li>
+                <li><a href="contact.html"><span>Співробітництво</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="colorlib-page">
+      <header>
+        <div class="container">
+          <div class="colorlib-navbar-brand">
+            <a class="logo-text-white" href="index.html">URBAN</a><a class="logo-text-yellow" href="index.html">T</a><a
+              class="logo-text-white" href="index.html">ECH</a>
+          </div>
+          <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        </div>
+      </header>
+
+      <section class="bg-black js-fullheight">
+        <div class="container px-0">
+          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+            data-scrollax-parent="true">
+            <div class="col-md-12 ftco-animate text-center">
+              <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="electro">Електромережі</button>
+                <button class="tab-btn" data-tab="security">Системи безпеки</button>
+                <button class="tab-btn" data-tab="video">Відеоспостереження</button>
+                <button class="tab-btn" data-tab="access">СКУД</button>
+                <button class="tab-btn" data-tab="smart">Smart Дім</button>
+                <button class="tab-btn" data-tab="network">Мережі</button>
+                <button class="tab-btn" data-tab="service">Сервіс</button>
+              </div>
+              <div class="tab-content active" id="electro">
+                <div class="hero-block">
+                  <div class="hero-text">
+                    <span class="hero-kicker">Інженерна інфраструктура</span>
+                    <h2>Електромережі 220В</h2>
+                    <p class="hero-lead">
+                      Комплексне проєктування, монтаж і модернізація електричних мереж для житлових, комерційних та
+                      промислових
+                      об’єктів.
+                    </p>
+                    <p>
+                      Ми виконуємо повний спектр робіт з електромереж 220В — від продуманого проєктування до акуратного
+                      монтажу
+                      та запуску системи в роботу.
+                      Працюємо з квартирами, приватними будинками, офісами, магазинами, складами, технічними та
+                      виробничими
+                      приміщеннями.
+                    </p>
+                    <p>
+                      Для нас електромережа — це не просто кабель і автоматика, а основа стабільної роботи всього
+                      об’єкта.
+                      Саме тому ми приділяємо увагу логіці розподілу ліній, якості захисту, правильному підбору
+                      обладнання та
+                      акуратності виконання кожного вузла.
+                    </p>
+                  </div>
+
+                  <div class="hero-visual visual-electro">
+                    <div class="visual-badge">220В</div>
+                  </div>
+                </div>
+
+                <div class="info-grid">
+                  <div class="info-card large">
+                    <div class="card-title-row">
+                      <span class="card-title-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path d="M12 2v20"></path>
+                          <path d="M2 12h20"></path>
+                          <path d="M5 5l14 14"></path>
+                          <path d="M19 5l-14 14"></path>
+                        </svg>
+                      </span>
+                      <h3>Що ми виконуємо</h3>
+                    </div>
+                    <ul>
+                      <li>проєктування електромереж 220В</li>
+                      <li>розведення силової та освітлювальної проводки</li>
+                      <li>монтаж і збірка електрощитів</li>
+                      <li>встановлення автоматів захисту, УЗО та дифавтоматів</li>
+                      <li>підключення розеткових груп, освітлення та обладнання</li>
+                      <li>монтаж кабельних трас, коробів, гофри та закладних</li>
+                      <li>заміна та модернізація старої проводки</li>
+                      <li>діагностика несправностей і пошук пошкоджень</li>
+                      <li>підготовка мереж під побутове, комерційне й технічне обладнання</li>
+                    </ul>
+                  </div>
+
+                  <div class="info-card">
+                    <div class="card-title-row">
+                      <span class="card-title-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path d="M3 10l9-6 9 6"></path>
+                          <path d="M5 10v10h14V10"></path>
+                          <path d="M9 20v-6h6v6"></path>
+                        </svg>
+                      </span>
+                      <h3>Для яких об’єктів</h3>
+                    </div>
+                    <ul>
+                      <li>квартири та приватні будинки</li>
+                      <li>офіси та комерційні приміщення</li>
+                      <li>магазини, салони, клініки</li>
+                      <li>склади та технічні приміщення</li>
+                      <li>виробничі та допоміжні зони</li>
+                    </ul>
+                  </div>
+
+                  <div class="info-card">
+                    <div class="card-title-row">
+                      <span class="card-title-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path d="M12 21s-7-4.35-7-10V5l7-2 7 2v6c0 5.65-7 10-7 10z"></path>
+                          <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                      </span>
+                      <h3>Що отримує клієнт</h3>
+                    </div>
+                    <ul>
+                      <li>безпечну та стабільну електромережу</li>
+                      <li>правильний розподіл навантаження</li>
+                      <li>запас по потужності на майбутнє</li>
+                      <li>акуратний і професійний монтаж</li>
+                      <li>систему, що працює роками без зайвих проблем</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Системи безпеки -->
+                <div class="tab-content" id="security">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Захист об’єкта</span>
+                      <h2>Системи безпеки</h2>
+                      <p class="hero-lead">
+                        Комплексний захист об’єктів за допомогою сучасних охоронних і пожежних систем.
+                      </p>
+                      <p>
+                        Ми проєктуємо та встановлюємо системи безпеки, які дозволяють контролювати ситуацію на об’єкті,
+                        швидко
+                        реагувати на загрози та знижувати ризики для майна, персоналу й бізнесу.
+                      </p>
+                      <p>
+                        У роботі ми враховуємо не лише технічну частину, а й реальні сценарії експлуатації: які зони
+                        потребують
+                        посиленого контролю, де необхідне раннє виявлення загроз і як зробити систему зручною в
+                        щоденному
+                        використанні.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-security"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>монтаж охоронної сигналізації</li>
+                        <li>монтаж пожежної сигналізації</li>
+                        <li>встановлення датчиків руху, відкриття, розбиття скла та задимлення</li>
+                        <li>налаштування систем сповіщення</li>
+                        <li>підключення до пульта централізованого спостереження</li>
+                        <li>модернізація існуючих систем безпеки</li>
+                        <li>інтеграція декількох підсистем в єдиний комплекс</li>
+                        <li>сервісне обслуговування та перевірка працездатності</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Переваги</h3>
+                      <ul>
+                        <li>своєчасне виявлення загроз</li>
+                        <li>контроль критичних зон</li>
+                        <li>зручне керування системою</li>
+                        <li>підвищений рівень безпеки об’єкта</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Де застосовується</h3>
+                      <ul>
+                        <li>квартири та будинки</li>
+                        <li>офіси й бізнес-центри</li>
+                        <li>магазини та салони</li>
+                        <li>склади та технічні об’єкти</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Відеоспостереження -->
+                <div class="tab-content" id="video">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Візуальний контроль</span>
+                      <h2>Відеоспостереження</h2>
+                      <p class="hero-lead">
+                        Сучасні системи відеоспостереження для контролю, безпеки та віддаленого доступу до об’єкта.
+                      </p>
+                      <p>
+                        Ми встановлюємо системи відеоспостереження, які дають клієнту повний візуальний контроль над
+                        об’єктом у
+                        будь-який час і з будь-якої точки.
+                        Підбираємо рішення під конкретні задачі: контроль входів і периметра, моніторинг персоналу,
+                        фіксація подій
+                        та віддалений перегляд.
+                      </p>
+                      <p>
+                        Працюємо як із сучасними IP-рішеннями, так і з модернізацією існуючих аналогових систем, коли
+                        потрібно
+                        покращити якість і функціональність без повної заміни інфраструктури.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-video"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>монтаж IP-камер і відеореєстраторів</li>
+                        <li>монтаж аналогових систем AHD / TVI / CVI</li>
+                        <li>підбір камер під внутрішні та зовнішні зони</li>
+                        <li>налаштування запису, архіву та віддаленого доступу</li>
+                        <li>модернізація старих систем відеонагляду</li>
+                        <li>організація перегляду зі смартфона, планшета та ПК</li>
+                        <li>інтеграція відеоспостереження з іншими системами безпеки</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Що отримує клієнт</h3>
+                      <ul>
+                        <li>постійний візуальний контроль об’єкта</li>
+                        <li>доступ до камер з будь-якої точки</li>
+                        <li>фіксацію подій і зручний пошук архіву</li>
+                        <li>якісне та стабільне зображення</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Основні задачі</h3>
+                      <ul>
+                        <li>контроль входів і периметра</li>
+                        <li>нагляд за касовими та складськими зонами</li>
+                        <li>фіксація інцидентів</li>
+                        <li>віддалений моніторинг</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- СКУД -->
+                <div class="tab-content" id="access">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Керування доступом</span>
+                      <h2>Контроль доступу (СКУД)</h2>
+                      <p class="hero-lead">
+                        Системи контролю доступу для безпечного управління приміщеннями, персоналом і точками входу.
+                      </p>
+                      <p>
+                        Ми впроваджуємо системи контролю доступу, які дозволяють чітко регулювати, хто, коли і куди може
+                        потрапити
+                        на об’єкті.
+                        Це актуально для офісів, складів, технічних приміщень, комерційних об’єктів і зон з обмеженим
+                        доступом.
+                      </p>
+                      <p>
+                        Залежно від задач клієнта ми реалізуємо як прості автономні рішення, так і мережеві системи з
+                        обліком
+                        робочого часу, журналами подій і розмежуванням доступу.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-access"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>встановлення магнітних замків і електрозасувок</li>
+                        <li>монтаж кодових панелей і зчитувачів карт</li>
+                        <li>впровадження мережевих систем контролю доступу</li>
+                        <li>налаштування обліку робочого часу</li>
+                        <li>біометричний доступ за відбитком пальця або розпізнаванням обличчя</li>
+                        <li>розмежування прав доступу по зонах</li>
+                        <li>інтеграція з дверима, турнікетами, хвіртками та шлагбаумами</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Що отримує клієнт</h3>
+                      <ul>
+                        <li>контроль усіх точок доступу</li>
+                        <li>обмеження входу в потрібні зони</li>
+                        <li>журнал подій і фіксацію проходів</li>
+                        <li>облік часу персоналу</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Оптимально для</h3>
+                      <ul>
+                        <li>офісів</li>
+                        <li>складів</li>
+                        <li>бізнес-центрів</li>
+                        <li>технічних і службових зон</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Smart Дім -->
+                <div class="tab-content" id="smart">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Автоматизація</span>
+                      <h2>Smart Дім</h2>
+                      <p class="hero-lead">
+                        Автоматизація інженерних систем для підвищення комфорту, енергоефективності та зручності
+                        управління.
+                      </p>
+                      <p>
+                        Ми впроваджуємо рішення автоматизації, які роблять керування об’єктом більш зручним, сучасним і
+                        логічним.
+                        Освітлення, клімат, штори, сценарії роботи, датчики та дистанційне керування — усе це
+                        об’єднується в єдину
+                        систему.
+                      </p>
+                      <p>
+                        Розумний дім — це не просто набір модних функцій, а реальний інструмент контролю, безпеки й
+                        енергоефективності.
+                        Ми підбираємо рішення під стиль життя, формат об’єкта та практичні задачі клієнта.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-smart"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>автоматизацію освітлення</li>
+                        <li>керування кліматом та опаленням</li>
+                        <li>управління шторами, ролетами та приводами</li>
+                        <li>встановлення датчиків протікання, руху, відкриття</li>
+                        <li>налаштування сценаріїв роботи</li>
+                        <li>інтеграцію з мобільним додатком</li>
+                        <li>централізоване керування декількома системами</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Що отримує клієнт</h3>
+                      <ul>
+                        <li>зручне керування з одного інтерфейсу</li>
+                        <li>підвищений комфорт</li>
+                        <li>автоматизацію рутинних процесів</li>
+                        <li>контроль споживання ресурсів</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Можливості</h3>
+                      <ul>
+                        <li>сценарії “Дім”, “Ніч”, “Відпустка”</li>
+                        <li>віддалене керування</li>
+                        <li>автоматичні реакції на події</li>
+                        <li>інтеграція з безпекою</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Мережі -->
+                <div class="tab-content" id="network">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Цифрова інфраструктура</span>
+                      <h2>Мережі та Wi-Fi</h2>
+                      <p class="hero-lead">
+                        Побудова надійної мережевої інфраструктури для стабільного зв’язку, інтернету та роботи цифрових
+                        систем.
+                      </p>
+                      <p>
+                        Ми створюємо мережеву інфраструктуру, яка забезпечує стабільну роботу інтернету, локальних
+                        мереж, Wi-Fi
+                        покриття та всіх цифрових сервісів на об’єкті.
+                      </p>
+                      <p>
+                        Якісна мережа — це основа роботи відеоспостереження, систем контролю доступу, серверного
+                        обладнання,
+                        автоматизації та офісної техніки.
+                        Саме тому ми продумуємо структуру мережі наперед.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-network"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>побудову локальних мереж LAN</li>
+                        <li>організацію інтернет-інфраструктури на об’єкті</li>
+                        <li>монтаж і налаштування Wi-Fi покриття</li>
+                        <li>створення безшовних мереж для великих приміщень</li>
+                        <li>монтаж комутаційних вузлів та шаф</li>
+                        <li>налаштування маршрутизаторів, комутаторів і точок доступу</li>
+                        <li>діагностику та оптимізацію існуючих мереж</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Що отримує клієнт</h3>
+                      <ul>
+                        <li>стабільний інтернет і мережеве з’єднання</li>
+                        <li>якісне Wi-Fi покриття без “мертвих зон”</li>
+                        <li>правильну логіку підключення всіх систем</li>
+                        <li>інфраструктуру, готову до масштабування</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Підходить для</h3>
+                      <ul>
+                        <li>будинків і квартир</li>
+                        <li>офісів</li>
+                        <li>комерційних об’єктів</li>
+                        <li>складів і великих приміщень</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Сервіс -->
+                <div class="tab-content" id="service">
+                  <div class="hero-block">
+                    <div class="hero-text">
+                      <span class="hero-kicker">Супровід та модернізація</span>
+                      <h2>Сервіс, ремонт і модернізація</h2>
+                      <p class="hero-lead">
+                        Технічний супровід, діагностика та оновлення інженерних систем для стабільної роботи об’єкта.
+                      </p>
+                      <p>
+                        Окрім монтажу нових систем, ми займаємось сервісним обслуговуванням, ремонтом і модернізацією
+                        вже існуючої
+                        інфраструктури.
+                      </p>
+                      <p>
+                        Наш підхід полягає в тому, щоб не просто усунути проблему, а зрозуміти її причину, оцінити стан
+                        системи в
+                        цілому й запропонувати ефективне рішення для подальшої експлуатації.
+                      </p>
+                    </div>
+
+                    <div class="hero-visual visual-service"></div>
+                  </div>
+
+                  <div class="info-grid">
+                    <div class="info-card large">
+                      <h3>Що ми виконуємо</h3>
+                      <ul>
+                        <li>діагностику електромереж і слаботочних систем</li>
+                        <li>ремонт несправних вузлів і ліній</li>
+                        <li>заміни пошкодженого обладнання</li>
+                        <li>модернізацію старих систем</li>
+                        <li>перевірку працездатності після ремонту</li>
+                        <li>планове технічне обслуговування</li>
+                        <li>оптимізацію інфраструктури під нові задачі</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Що отримує клієнт</h3>
+                      <ul>
+                        <li>швидке виявлення причин несправностей</li>
+                        <li>відновлення стабільної роботи систем</li>
+                        <li>зменшення ризику повторних поломок</li>
+                        <li>технічну підтримку та супровід</li>
+                      </ul>
+                    </div>
+
+                    <div class="info-card">
+                      <h3>Коли це потрібно</h3>
+                      <ul>
+                        <li>збої в роботі систем</li>
+                        <li>застаріле обладнання</li>
+                        <li>потреба в розширенні функціоналу</li>
+                        <li>планове обслуговування об’єкта</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+    <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(item => item.classList.remove('active'));
+        contents.forEach(item => item.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
