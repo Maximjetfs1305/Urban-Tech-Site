@@ -31,19 +31,29 @@
 
 })(jQuery);
 
-window.addEventListener('load', function () {
-  const preloader = document.getElementById('preloader');
-  if (!preloader) return;
+// PRELOADER — ховаємо по факту повного завантаження сторінки, без фіксованої затримки
+(function () {
+  const hidePreloader = () => {
+    const preloader = document.getElementById('preloader');
+    if (!preloader || preloader.classList.contains('is-hidden')) return;
 
-  setTimeout(function () {
-    preloader.style.transition = 'opacity 0.5s';
+    preloader.classList.add('is-hidden');
+    preloader.style.transition = 'opacity 0.45s ease, visibility 0.45s ease';
     preloader.style.opacity = '0';
+    preloader.style.visibility = 'hidden';
+    preloader.style.pointerEvents = 'none';
 
-    setTimeout(function () {
+    window.setTimeout(() => {
       preloader.style.display = 'none';
-    }, 500);
-  }, 800);
-});
+    }, 460);
+  };
+
+  if (document.readyState === 'complete') {
+    window.requestAnimationFrame(hidePreloader);
+  } else {
+    window.addEventListener('load', hidePreloader, { once: true });
+  }
+})();
 
 // JS-анімація логотипу
 window.addEventListener('DOMContentLoaded', () => {
@@ -114,28 +124,70 @@ window.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('[data-service-tab]');
   const panels = document.querySelectorAll('[data-service-panel]');
   const content = document.getElementById('servicesContent');
+  const mobileNav = document.querySelector('.services-mobile-nav');
+  const mobileToggle = document.querySelector('.services-mobile-nav__toggle');
+  const mobileCurrent = document.querySelector('[data-service-mobile-current]');
 
   if (!tabs.length || !panels.length) return;
 
+  const setActiveService = (target, clickedTab = null) => {
+    tabs.forEach((item) => {
+      item.classList.toggle('active', item.dataset.serviceTab === target);
+    });
+
+    panels.forEach((panel) => {
+      panel.classList.toggle('active', panel.dataset.servicePanel === target);
+    });
+
+    const activeText = clickedTab?.textContent?.trim() ||
+      document.querySelector(`.services-nav__link[data-service-tab="${target}"]`)?.textContent?.trim();
+
+    if (mobileCurrent && activeText) {
+      mobileCurrent.textContent = activeText;
+    }
+
+    if (mobileNav) {
+      mobileNav.classList.remove('is-open');
+    }
+
+    if (mobileToggle) {
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (
+      clickedTab &&
+      clickedTab.classList.contains('services-nav__link') &&
+      window.innerWidth < 1200 &&
+      typeof clickedTab.scrollIntoView === 'function'
+    ) {
+      clickedTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    if (content && window.innerWidth < 768) {
+      const top = content.getBoundingClientRect().top + window.scrollY - 78;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const target = tab.dataset.serviceTab;
-
-      tabs.forEach((item) => item.classList.toggle('active', item === tab));
-      panels.forEach((panel) => {
-        panel.classList.toggle('active', panel.dataset.servicePanel === target);
-      });
-
-      if (window.innerWidth < 1200 && typeof tab.scrollIntoView === 'function') {
-        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
-
-      if (content && window.innerWidth < 768) {
-        const top = content.getBoundingClientRect().top + window.scrollY - 78;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      setActiveService(tab.dataset.serviceTab, tab);
     });
   });
+
+  if (mobileToggle && mobileNav) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!mobileNav.contains(event.target)) {
+        mobileNav.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });
 
 // CONTACT BUTTON — premium JS auto-animation
