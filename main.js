@@ -31,56 +31,19 @@
 
 })(jQuery);
 
-// PRELOADER — мінімум 0.9 секунди + ховаємо тільки після повного завантаження сторінки
-(function () {
-  const MIN_PRELOADER_TIME = 900; // мінімальний час показу preloader, мс
-  const pageStartTime = (window.performance && performance.timing && performance.timing.navigationStart)
-    ? performance.timing.navigationStart
-    : Date.now();
+window.addEventListener('load', function () {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
 
-  let pageLoaded = document.readyState === 'complete';
-  let minTimePassed = false;
-  let preloaderHidden = false;
-
-  const hidePreloader = () => {
-    const preloader = document.getElementById('preloader');
-    if (!preloader || preloaderHidden || preloader.classList.contains('is-hidden')) return;
-
-    preloaderHidden = true;
-    preloader.classList.add('is-hidden');
-    preloader.style.transition = 'opacity 0.45s ease, visibility 0.45s ease';
+  setTimeout(function () {
+    preloader.style.transition = 'opacity 0.5s';
     preloader.style.opacity = '0';
-    preloader.style.visibility = 'hidden';
-    preloader.style.pointerEvents = 'none';
 
-    window.setTimeout(() => {
+    setTimeout(function () {
       preloader.style.display = 'none';
-    }, 450);
-  };
-
-  const tryHidePreloader = () => {
-    if (pageLoaded && minTimePassed) {
-      window.requestAnimationFrame(hidePreloader);
-    }
-  };
-
-  const elapsed = Date.now() - pageStartTime;
-  const remainingTime = Math.max(MIN_PRELOADER_TIME - elapsed, 0);
-
-  window.setTimeout(() => {
-    minTimePassed = true;
-    tryHidePreloader();
-  }, remainingTime);
-
-  if (pageLoaded) {
-    tryHidePreloader();
-  } else {
-    window.addEventListener('load', () => {
-      pageLoaded = true;
-      tryHidePreloader();
-    }, { once: true });
-  }
-})();
+    }, 500);
+  }, 800);
+});
 
 // JS-анімація логотипу
 window.addEventListener('DOMContentLoaded', () => {
@@ -151,95 +114,28 @@ window.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('[data-service-tab]');
   const panels = document.querySelectorAll('[data-service-panel]');
   const content = document.getElementById('servicesContent');
-  const mobileNav = document.querySelector('.services-mobile-nav');
-  const mobileToggle = document.querySelector('.services-mobile-nav__toggle');
-  const mobileCurrent = document.querySelector('[data-service-mobile-current]');
 
   if (!tabs.length || !panels.length) return;
-
-  const setActiveService = (target, clickedTab = null) => {
-    tabs.forEach((item) => {
-      item.classList.toggle('active', item.dataset.serviceTab === target);
-    });
-
-    panels.forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.servicePanel === target);
-    });
-
-    const activeText = clickedTab?.textContent?.trim() ||
-      document.querySelector(`.services-nav__link[data-service-tab="${target}"]`)?.textContent?.trim();
-
-    if (mobileCurrent && activeText) {
-      mobileCurrent.textContent = activeText;
-    }
-
-    if (mobileNav) {
-      mobileNav.classList.remove('is-open');
-    }
-
-    if (mobileToggle) {
-      mobileToggle.setAttribute('aria-expanded', 'false');
-    }
-
-    if (
-      clickedTab &&
-      clickedTab.classList.contains('services-nav__link') &&
-      window.innerWidth < 1200 &&
-      typeof clickedTab.scrollIntoView === 'function'
-    ) {
-      clickedTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-
-    if (content && window.innerWidth < 768) {
-      const top = content.getBoundingClientRect().top + window.scrollY - 78;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
-  const validServiceTabs = Array.from(new Set(
-    Array.from(panels).map((panel) => panel.dataset.servicePanel)
-  ));
-
-  const normalizeHash = () => window.location.hash.replace('#', '').trim();
-
-  const setServiceFromHash = () => {
-    const target = normalizeHash();
-    if (target && validServiceTabs.includes(target)) {
-      setActiveService(target);
-      if (content) {
-        const top = content.getBoundingClientRect().top + window.scrollY - 78;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }
-  };
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.serviceTab;
-      setActiveService(target, tab);
 
-      if (target && validServiceTabs.includes(target)) {
-        history.replaceState(null, '', `${window.location.pathname}#${target}`);
+      tabs.forEach((item) => item.classList.toggle('active', item === tab));
+      panels.forEach((panel) => {
+        panel.classList.toggle('active', panel.dataset.servicePanel === target);
+      });
+
+      if (window.innerWidth < 1200 && typeof tab.scrollIntoView === 'function') {
+        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+
+      if (content && window.innerWidth < 768) {
+        const top = content.getBoundingClientRect().top + window.scrollY - 78;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
-
-  setServiceFromHash();
-  window.addEventListener('hashchange', setServiceFromHash);
-
-  if (mobileToggle && mobileNav) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('is-open');
-      mobileToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!mobileNav.contains(event.target)) {
-        mobileNav.classList.remove('is-open');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
 });
 
 // CONTACT BUTTON — premium JS auto-animation
