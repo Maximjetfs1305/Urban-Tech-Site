@@ -114,28 +114,65 @@ window.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('[data-service-tab]');
   const panels = document.querySelectorAll('[data-service-panel]');
   const content = document.getElementById('servicesContent');
+  const nav = document.querySelector('.services-nav');
+  const mobileToggle = document.querySelector('[data-services-mobile-toggle]');
+  const mobileLabel = document.querySelector('[data-services-mobile-label]');
 
   if (!tabs.length || !panels.length) return;
 
+  const setActiveService = (target, clickedTab = null, shouldScroll = true) => {
+    const activeTab = clickedTab || Array.from(tabs).find((tab) => tab.dataset.serviceTab === target);
+    if (!activeTab) return;
+
+    tabs.forEach((item) => item.classList.toggle('active', item === activeTab));
+    panels.forEach((panel) => {
+      panel.classList.toggle('active', panel.dataset.servicePanel === target);
+    });
+
+    if (mobileLabel) {
+      mobileLabel.textContent = activeTab.textContent.trim();
+    }
+
+    if (nav) nav.classList.remove('is-open');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+
+    if (window.innerWidth < 1200 && window.innerWidth >= 768 && typeof activeTab.scrollIntoView === 'function') {
+      activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    if (shouldScroll && content && window.innerWidth < 768) {
+      const top = content.getBoundingClientRect().top + window.scrollY - 78;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  const activeOnLoad = document.querySelector('[data-service-tab].active');
+  if (activeOnLoad && mobileLabel) {
+    mobileLabel.textContent = activeOnLoad.textContent.trim();
+  }
+
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
-      const target = tab.dataset.serviceTab;
-
-      tabs.forEach((item) => item.classList.toggle('active', item === tab));
-      panels.forEach((panel) => {
-        panel.classList.toggle('active', panel.dataset.servicePanel === target);
-      });
-
-      if (window.innerWidth < 1200 && typeof tab.scrollIntoView === 'function') {
-        tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
-
-      if (content && window.innerWidth < 768) {
-        const top = content.getBoundingClientRect().top + window.scrollY - 78;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      setActiveService(tab.dataset.serviceTab, tab, true);
     });
   });
+
+  if (mobileToggle && nav) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.addEventListener('click', (event) => {
+      const isInsideNav = nav.contains(event.target);
+      const isToggle = mobileToggle.contains(event.target);
+
+      if (!isInsideNav && !isToggle) {
+        nav.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 });
 
 // CONTACT BUTTON — premium JS auto-animation

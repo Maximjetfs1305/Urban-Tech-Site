@@ -3785,3 +3785,480 @@ button.services-nav__link.active,
     max-width: 78%;
   }
 }
+
+
+/* =========================================================
+   FIX v24 — mobile card text + services dropdown
+========================================================= */
+
+/* Services mobile dropdown hidden on desktop */
+.services-mobile-select {
+  display: none;
+}
+
+/* More premium text placement in image cards */
+.hero-adv-item,
+.home-service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.hero-adv-item h3,
+.hero-adv-item p,
+.home-service-card h3,
+.home-service-card p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile: text should sit cleanly on the left, image on the right */
+@media (max-width: 767.98px) {
+  .hero-adv-item {
+    min-height: 218px !important;
+    padding: 28px 22px !important;
+    margin-bottom: 18px !important;
+    justify-content: center;
+    text-align: left !important;
+    border-color: rgba(248, 181, 0, 0.24) !important;
+  }
+
+  .hero-adv-item h3 {
+    max-width: 64% !important;
+    margin: 0 0 10px !important;
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+
+  .hero-adv-item p {
+    max-width: 66% !important;
+    margin: 0 !important;
+    font-size: 13.5px !important;
+    line-height: 1.65 !important;
+    color: rgba(255, 255, 255, 0.76) !important;
+    text-align: left !important;
+  }
+
+  .hero-adv-item::before {
+    background-image:
+      linear-gradient(90deg, rgba(5, 7, 10, 0.99) 0%, rgba(5, 7, 10, 0.93) 43%, rgba(5, 7, 10, 0.34) 100%),
+      var(--ut-card-visual) !important;
+    background-position: center right !important;
+    opacity: 0.96 !important;
+  }
+
+  .hero-adv-item::after {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+      radial-gradient(circle at 82% 15%, rgba(248, 181, 0, 0.16), transparent 32%) !important;
+  }
+
+  .home-service-card {
+    min-height: 232px !important;
+    padding: 24px 20px !important;
+    justify-content: flex-end;
+    text-align: left !important;
+  }
+
+  .home-service-card h3 {
+    max-width: 76% !important;
+    margin: 0 0 10px !important;
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+  }
+
+  .home-service-card p {
+    max-width: 78% !important;
+    font-size: 13.4px !important;
+    line-height: 1.62 !important;
+    color: rgba(255, 255, 255, 0.74) !important;
+  }
+
+  .home-service-card::before {
+    background-image:
+      linear-gradient(90deg, rgba(5, 7, 10, 0.99) 0%, rgba(5, 7, 10, 0.91) 48%, rgba(5, 7, 10, 0.24) 100%),
+      var(--ut-card-visual) !important;
+    background-position: center right !important;
+  }
+
+  /* Services category dropdown */
+  .services-mobile-select {
+    display: block;
+    width: 100%;
+    max-width: 430px;
+    margin: 24px auto 0;
+  }
+
+  .services-mobile-select__button {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(248, 181, 0, 0.38);
+    border-radius: 0;
+    background:
+      linear-gradient(180deg, rgba(248, 181, 0, 0.12), rgba(255, 255, 255, 0.03)),
+      rgba(8, 10, 12, 0.86);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-align: left;
+    box-shadow:
+      0 18px 46px rgba(0, 0, 0, 0.34),
+      0 0 24px rgba(248, 181, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .services-mobile-select__button i {
+    color: var(--ut-gold);
+    transition: transform 0.25s ease;
+  }
+
+  .services-mobile-select__button[aria-expanded="true"] i {
+    transform: rotate(180deg);
+  }
+
+  .services-nav {
+    width: 100% !important;
+    max-width: 430px;
+    margin: 10px auto 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: relative;
+    z-index: 6;
+  }
+
+  .services-nav__inner {
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    padding: 8px !important;
+    border: 1px solid rgba(248, 181, 0, 0.24);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+      rgba(8, 10, 12, 0.94);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .services-nav.is-open .services-nav__inner {
+    display: flex !important;
+  }
+
+  .services-nav__link {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    min-height: 44px;
+    padding: 12px 12px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  .services-nav__link + .services-nav__link {
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .services-nav__link.active {
+    color: #ffffff !important;
+    background: rgba(248, 181, 0, 0.10) !important;
+  }
+
+  .services-nav__link::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-adv-item h3,
+  .hero-adv-item p {
+    max-width: 72% !important;
+  }
+
+  .home-service-card h3,
+  .home-service-card p {
+    max-width: 82% !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .hero-adv-item h3,
+  .hero-adv-item p,
+  .home-service-card h3,
+  .home-service-card p {
+    max-width: 88% !important;
+  }
+
+  .hero-adv-item::before,
+  .home-service-card::before {
+    opacity: 0.78 !important;
+  }
+}
+
+
+/* =========================================================
+   FIX v25 — mobile overflow / text layout safety
+========================================================= */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.container,
+.container-fluid,
+.row,
+[class*="col-"] {
+  min-width: 0;
+}
+
+/* Текст не має вилазити за блоки */
+.hero-adv-item,
+.home-service-card,
+.service-hero-card,
+.service-info-card,
+.ut-extra-card,
+.advice-card,
+.related-advice-card,
+.faq-item,
+.ut-contact-card,
+.ut-consult-card,
+.glass-card {
+  min-width: 0;
+}
+
+.hero-adv-item h3,
+.hero-adv-item p,
+.home-service-card h3,
+.home-service-card p,
+.service-hero-card h2,
+.service-hero-card p,
+.service-info-card h3,
+.service-info-card p,
+.ut-extra-card h3,
+.ut-extra-card p,
+.advice-card h3,
+.advice-card p,
+.related-advice-card h3,
+.related-advice-card p,
+.faq-item summary,
+.faq-item p,
+.services-title,
+.hero-main-title,
+.section-head h2,
+.section-head p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* iPhone / mobile: картки "Що ми виконуємо" краще робити в 1 колонку */
+@media (max-width: 767.98px) {
+  .home-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .home-service-card {
+    width: 100% !important;
+    min-height: 230px !important;
+    padding: 24px 20px !important;
+  }
+
+  .home-service-card h3 {
+    max-width: min(86%, 340px) !important;
+    font-size: clamp(19px, 5.6vw, 24px) !important;
+    line-height: 1.22 !important;
+  }
+
+  .home-service-card p {
+    max-width: min(88%, 360px) !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+
+  .home-service-card::before {
+    background-image:
+      linear-gradient(90deg, rgba(5, 7, 10, 0.99) 0%, rgba(5, 7, 10, 0.93) 48%, rgba(5, 7, 10, 0.28) 100%),
+      var(--ut-card-visual) !important;
+    background-position: center right !important;
+  }
+
+  .services-nav__link,
+  .services-mobile-select__button,
+  .bttn-more {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+  }
+
+  .services-title,
+  .hero-main-title {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+/* Дуже вузькі екрани: тексту даємо більше місця, картинку сильніше затемнюємо */
+@media (max-width: 390px) {
+  .hero-adv-item h3,
+  .hero-adv-item p,
+  .home-service-card h3,
+  .home-service-card p {
+    max-width: 92% !important;
+  }
+
+  .hero-adv-item::before,
+  .home-service-card::before {
+    opacity: 0.78 !important;
+  }
+}
+
+/* Планшет: 2 колонки залишаються, але текст не обрізається */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .home-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .home-service-card h3,
+  .home-service-card p {
+    max-width: 82% !important;
+  }
+}
+
+
+/* =========================================================
+   FIX v26 — iPad services dropdown menu
+========================================================= */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .services-mobile-select {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    margin: 28px auto 0;
+  }
+
+  .services-mobile-select__button {
+    width: 100%;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 15px 18px;
+    border: 1px solid rgba(248, 181, 0, 0.38);
+    border-radius: 0;
+    background:
+      linear-gradient(180deg, rgba(248, 181, 0, 0.12), rgba(255, 255, 255, 0.03)),
+      rgba(8, 10, 12, 0.86);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-align: left;
+    box-shadow:
+      0 18px 46px rgba(0, 0, 0, 0.34),
+      0 0 24px rgba(248, 181, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .services-mobile-select__button i {
+    color: var(--ut-gold);
+    transition: transform 0.25s ease;
+  }
+
+  .services-mobile-select__button[aria-expanded="true"] i {
+    transform: rotate(180deg);
+  }
+
+  .services-nav {
+    width: 100% !important;
+    max-width: 520px;
+    margin: 10px auto 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    position: relative;
+    z-index: 6;
+  }
+
+  .services-nav__inner {
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    padding: 8px !important;
+    border: 1px solid rgba(248, 181, 0, 0.24);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+      rgba(8, 10, 12, 0.94);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .services-nav.is-open .services-nav__inner {
+    display: flex !important;
+  }
+
+  .services-nav__link {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    min-height: 46px;
+    padding: 13px 14px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    text-align: left !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+  }
+
+  .services-nav__link + .services-nav__link {
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .services-nav__link.active {
+    color: #ffffff !important;
+    background: rgba(248, 181, 0, 0.10) !important;
+  }
+
+  .services-nav__link::after {
+    display: none !important;
+  }
+}
