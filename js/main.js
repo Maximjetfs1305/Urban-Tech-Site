@@ -90,19 +90,24 @@
 
 })(jQuery);
 
-window.addEventListener('load', function () {
+function hidePreloaderWhenLoaded() {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
 
-  setTimeout(function () {
-    preloader.style.transition = 'opacity 0.12s ease';
-    preloader.style.opacity = '0';
+  const removePreloader = () => {
+    preloader.style.display = 'none';
+  };
 
-    setTimeout(function () {
-      preloader.style.display = 'none';
-    }, 120);
-  }, 180);
-});
+  preloader.style.transition = 'opacity 0.18s ease';
+  preloader.style.opacity = '0';
+  preloader.addEventListener('transitionend', removePreloader, { once: true });
+}
+
+if (document.readyState === 'complete') {
+  hidePreloaderWhenLoaded();
+} else {
+  window.addEventListener('load', hidePreloaderWhenLoaded, { once: true });
+}
 
 // JS-анімація логотипу
 window.addEventListener('DOMContentLoaded', () => {
