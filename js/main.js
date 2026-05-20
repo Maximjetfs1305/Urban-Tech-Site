@@ -1,3 +1,141 @@
+(function () {
+  "use strict";
+
+  const styleId = 'ut-header-contact-fixes';
+  if (document.getElementById(styleId)) return;
+
+  const style = document.createElement('style');
+  style.id = styleId;
+  style.textContent = `
+    /* FIX: compact header + centered contact modal */
+    header {
+      padding: clamp(5px, 0.8vw, 10px) 0 !important;
+    }
+
+    main {
+      padding-top: clamp(58px, 4.4vw, 76px) !important;
+    }
+
+    header .container {
+      min-height: 0 !important;
+    }
+
+    header .ut-navbar .logo-text {
+      line-height: 1.15 !important;
+      font-size: clamp(14px, 1.7vw, 17px) !important;
+    }
+
+    header > .container > .ut-nav-toggle {
+      width: 36px !important;
+      height: 36px !important;
+      flex-basis: 36px !important;
+    }
+
+    header > .container > .ut-nav-toggle i {
+      width: 18px !important;
+    }
+
+    header > .container > .ut-nav-toggle i::before,
+    header > .container > .ut-nav-toggle i::after {
+      width: 26px !important;
+    }
+
+    .ut-contact-modal {
+      align-items: center !important;
+      justify-content: center !important;
+      padding: clamp(14px, 3vw, 22px) !important;
+    }
+
+    .ut-contact-modal__dialog {
+      width: min(520px, calc(100vw - 28px)) !important;
+      max-height: calc(100dvh - 44px) !important;
+      padding: clamp(24px, 3.2vw, 34px) !important;
+      scrollbar-width: none;
+    }
+
+    .ut-contact-modal__dialog::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .ut-contact-modal h2,
+    #utContactTitle {
+      white-space: nowrap !important;
+      font-size: clamp(28px, 3vw, 38px) !important;
+      margin-right: 46px !important;
+    }
+
+    @media (min-width: 992px) {
+      .ut-contact-modal__dialog {
+        overflow: visible !important;
+        max-height: none !important;
+      }
+
+      .ut-contact-list {
+        margin: 20px 0 16px !important;
+      }
+
+      .ut-contact-item {
+        padding: 12px 14px !important;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      header {
+        padding: 7px 0 !important;
+      }
+
+      main {
+        padding-top: 62px !important;
+      }
+
+      .ut-contact-modal {
+        align-items: center !important;
+        padding: 14px !important;
+      }
+
+      .ut-contact-modal__dialog {
+        transform: translateY(-3vh) scale(0.98) !important;
+        border-radius: 22px !important;
+      }
+
+      .ut-contact-modal.is-open .ut-contact-modal__dialog {
+        transform: translateY(-3vh) scale(1) !important;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .ut-contact-modal__dialog {
+        width: min(100%, calc(100vw - 20px)) !important;
+        padding: 24px 18px 20px !important;
+      }
+
+      .ut-contact-modal h2,
+      #utContactTitle {
+        font-size: clamp(24px, 7vw, 30px) !important;
+        margin-right: 42px !important;
+      }
+
+      .ut-contact-list {
+        gap: 8px !important;
+        margin: 18px 0 14px !important;
+      }
+
+      .ut-contact-item {
+        padding: 11px !important;
+      }
+    }
+
+    @media (max-width: 374.98px) {
+      .ut-contact-modal h2,
+      #utContactTitle {
+        white-space: normal !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 (function($) {
 
   "use strict";
