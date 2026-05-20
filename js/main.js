@@ -1,26 +1,219 @@
 (function () {
   "use strict";
 
-  const styleId = 'ut-header-contact-fixes';
+  const styleId = "ut-site-runtime-fixes";
   if (document.getElementById(styleId)) return;
 
-  const heroBgPath = "assets/gif/hero-bg.gif";
+  const heroVideoPath = "assets/video/hero-bg.mp4";
 
-  const style = document.createElement('style');
+  const ensureHeroVideo = () => {
+    if (document.querySelector(".hero-bg-video")) return;
+
+    const video = document.createElement("video");
+    video.className = "hero-bg-video";
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("preload", "metadata");
+    video.setAttribute("aria-hidden", "true");
+    video.tabIndex = -1;
+
+    const source = document.createElement("source");
+    source.src = heroVideoPath;
+    source.type = "video/mp4";
+    video.appendChild(source);
+
+    const overlay = document.createElement("div");
+    overlay.className = "hero-bg-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+
+    document.body.insertBefore(overlay, document.body.firstChild);
+    document.body.insertBefore(video, overlay);
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    };
+
+    if (document.readyState === "complete") {
+      tryPlay();
+    } else {
+      window.addEventListener("load", tryPlay, { once: true });
+    }
+  };
+
+  const style = document.createElement("style");
   style.id = styleId;
   style.textContent = `
-    /* URBAN TECH: editable animated hero background + contact modal fixes */
-    .hero-wrap {
-      background:
-        linear-gradient(180deg, rgba(3, 5, 10, 0.78) 0%, rgba(3, 5, 10, 0.91) 52%, rgba(1, 2, 5, 0.97) 100%),
-        radial-gradient(circle at 50% 0%, rgba(248, 181, 0, 0.10), rgba(248, 181, 0, 0) 38%),
-        url("${heroBgPath}") !important;
-      background-size: cover !important;
-      background-position: center top !important;
-      background-repeat: no-repeat !important;
-      background-attachment: fixed !important;
+    /* URBAN TECH: replaceable MP4 hero video + layout fixes */
+    html,
+    body {
+      min-height: 100%;
+      background: #020408 !important;
     }
 
+    body.hero-wrap {
+      background: #020408 !important;
+      background-image: none !important;
+      overflow-x: hidden;
+    }
+
+    .hero-bg-video,
+    .hero-bg-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .hero-bg-video {
+      z-index: 0;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.86;
+      background: #020408;
+    }
+
+    .hero-bg-overlay {
+      z-index: 0;
+      background:
+        linear-gradient(180deg, rgba(3, 5, 10, 0.76) 0%, rgba(3, 5, 10, 0.91) 52%, rgba(1, 2, 5, 0.98) 100%),
+        radial-gradient(circle at 50% 0%, rgba(248, 181, 0, 0.10), rgba(248, 181, 0, 0) 38%);
+    }
+
+    header,
+    main,
+    footer {
+      position: relative;
+    }
+
+    header {
+      z-index: 9;
+    }
+
+    main {
+      z-index: 1;
+    }
+
+    footer {
+      z-index: 9;
+    }
+
+    /* Header: logo left, MENU + burger right */
+    body.hero-wrap header {
+      padding: 8px 0 !important;
+      min-height: 0 !important;
+    }
+
+    body.hero-wrap main {
+      padding-top: 68px !important;
+    }
+
+    body.hero-wrap header > .container {
+      position: relative !important;
+      height: 46px !important;
+      min-height: 46px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 18px !important;
+    }
+
+    body.hero-wrap header .ut-navbar {
+      position: absolute !important;
+      left: 12px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      display: flex !important;
+      align-items: center !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1 !important;
+    }
+
+    body.hero-wrap header .ut-navbar .logo-text {
+      display: inline-flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1 !important;
+      font-size: clamp(14px, 1.6vw, 17px) !important;
+      letter-spacing: clamp(2px, 0.35vw, 3px) !important;
+      white-space: nowrap !important;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle {
+      position: absolute !important;
+      right: 12px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: auto !important;
+      min-width: 88px !important;
+      height: 38px !important;
+      flex: 0 0 auto !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: flex-end !important;
+      gap: 11px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1 !important;
+      text-decoration: none !important;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle::before {
+      content: "МЕНЮ";
+      display: inline-block;
+      color: rgba(255, 255, 255, 0.78);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 1;
+      transition: color 0.25s ease, text-shadow 0.25s ease;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle:hover::before {
+      color: #f8b500;
+      text-shadow: 0 0 8px rgba(248, 181, 0, 0.35);
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle i {
+      position: relative !important;
+      width: 18px !important;
+      height: 2px !important;
+      display: block !important;
+      margin: 0 !important;
+      top: auto !important;
+      left: auto !important;
+      line-height: 0 !important;
+      text-indent: 0 !important;
+      flex: 0 0 18px !important;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle i::before,
+    body.hero-wrap header > .container > .ut-nav-toggle i::after {
+      width: 26px !important;
+      height: 2px !important;
+      left: -8px !important;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle i::before {
+      top: -8px !important;
+    }
+
+    body.hero-wrap header > .container > .ut-nav-toggle i::after {
+      bottom: -8px !important;
+    }
+
+    /* Contact modal fixes */
     .ut-contact-modal {
       align-items: center !important;
       justify-content: center !important;
@@ -61,27 +254,36 @@
       }
     }
 
-    @media (max-width: 991.98px) {
-      .hero-wrap {
-        background-attachment: scroll !important;
-      }
-
-      .ut-contact-modal {
-        align-items: center !important;
-        padding: 14px !important;
-      }
-
-      .ut-contact-modal__dialog {
-        transform: translateY(-3vh) scale(0.98) !important;
-        border-radius: 22px !important;
-      }
-
-      .ut-contact-modal.is-open .ut-contact-modal__dialog {
-        transform: translateY(-3vh) scale(1) !important;
-      }
-    }
-
     @media (max-width: 575.98px) {
+      body.hero-wrap header {
+        padding: 6px 0 !important;
+      }
+
+      body.hero-wrap main {
+        padding-top: 62px !important;
+      }
+
+      body.hero-wrap header > .container {
+        height: 42px !important;
+        min-height: 42px !important;
+      }
+
+      body.hero-wrap header .ut-navbar {
+        left: 10px !important;
+      }
+
+      body.hero-wrap header > .container > .ut-nav-toggle {
+        right: 10px !important;
+        min-width: 76px !important;
+        height: 34px !important;
+        gap: 9px !important;
+      }
+
+      body.hero-wrap header > .container > .ut-nav-toggle::before {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
       .ut-contact-modal__dialog {
         width: min(100%, calc(100vw - 20px)) !important;
         padding: 24px 18px 20px !important;
@@ -110,151 +312,9 @@
       }
     }
   `;
+
   document.head.appendChild(style);
-
-  /* This runs after page inline styles, so the menu stays on the right, not near the logo. */
-  setTimeout(() => {
-    const finalHeaderStyle = document.createElement('style');
-    finalHeaderStyle.id = 'ut-header-final-position-fix';
-    finalHeaderStyle.textContent = `
-      body.hero-wrap header {
-        padding: 8px 0 !important;
-        min-height: 0 !important;
-      }
-
-      body.hero-wrap main {
-        padding-top: 68px !important;
-      }
-
-      body.hero-wrap header > .container {
-        position: relative !important;
-        height: 46px !important;
-        min-height: 46px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-      }
-
-      body.hero-wrap header .ut-navbar {
-        position: absolute !important;
-        left: 12px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        display: flex !important;
-        align-items: center !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;
-      }
-
-      body.hero-wrap header .ut-navbar .logo-text {
-        display: inline-flex !important;
-        align-items: center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;
-        font-size: clamp(14px, 1.6vw, 17px) !important;
-        letter-spacing: clamp(2px, 0.35vw, 3px) !important;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle {
-        position: absolute !important;
-        right: 12px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: auto !important;
-        min-width: 88px !important;
-        height: 38px !important;
-        flex: 0 0 auto !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: flex-end !important;
-        gap: 11px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;
-        text-decoration: none !important;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle::before {
-        content: "МЕНЮ";
-        display: inline-block;
-        color: rgba(255, 255, 255, 0.78);
-        font-family: "Montserrat", Arial, sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        line-height: 1;
-        transition: color 0.25s ease, text-shadow 0.25s ease;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle:hover::before {
-        color: #f8b500;
-        text-shadow: 0 0 8px rgba(248, 181, 0, 0.35);
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle i {
-        position: relative !important;
-        width: 18px !important;
-        height: 2px !important;
-        display: block !important;
-        margin: 0 !important;
-        top: auto !important;
-        left: auto !important;
-        line-height: 0 !important;
-        text-indent: 0 !important;
-        flex: 0 0 18px !important;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle i::before,
-      body.hero-wrap header > .container > .ut-nav-toggle i::after {
-        width: 26px !important;
-        height: 2px !important;
-        left: -8px !important;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle i::before {
-        top: -8px !important;
-      }
-
-      body.hero-wrap header > .container > .ut-nav-toggle i::after {
-        bottom: -8px !important;
-      }
-
-      @media (max-width: 575.98px) {
-        body.hero-wrap header {
-          padding: 6px 0 !important;
-        }
-
-        body.hero-wrap main {
-          padding-top: 62px !important;
-        }
-
-        body.hero-wrap header > .container {
-          height: 42px !important;
-          min-height: 42px !important;
-        }
-
-        body.hero-wrap header .ut-navbar {
-          left: 10px !important;
-        }
-
-        body.hero-wrap header > .container > .ut-nav-toggle {
-          right: 10px !important;
-          min-width: 76px !important;
-          height: 34px !important;
-          gap: 9px !important;
-        }
-
-        body.hero-wrap header > .container > .ut-nav-toggle::before {
-          font-size: 10px;
-          letter-spacing: 1.5px;
-        }
-      }
-    `;
-    document.head.appendChild(finalHeaderStyle);
-  }, 0);
+  ensureHeroVideo();
 })();
 
 (function($) {
