@@ -54,7 +54,7 @@ main {
   z-index: 1;
 }
 
-/* Header: logo left, MENU + burger right */
+/* Header: logo left, burger right */
 body.hero-wrap header {
   padding: 8px 0 !important;
   min-height: 0 !important;
@@ -110,14 +110,14 @@ body.hero-wrap header > .container > .ut-nav-toggle {
   right: auto !important;
   top: auto !important;
   transform: none !important;
-  width: auto !important;
-  min-width: 88px !important;
+  width: 36px !important;
+  min-width: 36px !important;
   height: 38px !important;
-  flex: 0 0 auto !important;
+  flex: 0 0 36px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  gap: 11px !important;
+  gap: 0 !important;
   margin: 0 0 0 auto !important;
   padding: 0 !important;
   line-height: 1 !important;
@@ -127,20 +127,21 @@ body.hero-wrap header > .container > .ut-nav-toggle {
 }
 
 body.hero-wrap header > .container > .ut-nav-toggle::before {
-  content: "МЕНЮ" !important;
-  display: inline-block !important;
-  color: rgba(255, 255, 255, 0.78) !important;
-  font-family: "Montserrat", Arial, sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px !important;
-  line-height: 1 !important;
-  transition: color 0.25s ease, text-shadow 0.25s ease !important;
+  content: none !important;
+  display: none !important;
 }
 
-body.hero-wrap header > .container > .ut-nav-toggle:hover::before {
-  color: #f8b500 !important;
-  text-shadow: 0 0 8px rgba(248, 181, 0, 0.35) !important;
+/* Higher specificity override for the old inline style that may still exist in index.html */
+html body.hero-wrap header > .container > a.js-ut-nav-toggle.ut-nav-toggle {
+  width: 36px !important;
+  min-width: 36px !important;
+  flex-basis: 36px !important;
+  gap: 0 !important;
+}
+
+html body.hero-wrap header > .container > a.js-ut-nav-toggle.ut-nav-toggle::before {
+  content: none !important;
+  display: none !important;
 }
 
 body.hero-wrap header > .container > .ut-nav-toggle i {
@@ -227,14 +228,23 @@ body.hero-wrap header > .container > .ut-nav-toggle i::after {
   }
 
   body.hero-wrap header > .container > .ut-nav-toggle {
-    min-width: 76px !important;
+    width: 34px !important;
+    min-width: 34px !important;
     height: 34px !important;
-    gap: 9px !important;
+    flex-basis: 34px !important;
+    gap: 0 !important;
   }
 
-  body.hero-wrap header > .container > .ut-nav-toggle::before {
-    font-size: 10px !important;
-    letter-spacing: 1.5px !important;
+  html body.hero-wrap header > .container > a.js-ut-nav-toggle.ut-nav-toggle {
+    width: 34px !important;
+    min-width: 34px !important;
+    flex-basis: 34px !important;
+  }
+
+  body.hero-wrap header > .container > .ut-nav-toggle::before,
+  html body.hero-wrap header > .container > a.js-ut-nav-toggle.ut-nav-toggle::before {
+    content: none !important;
+    display: none !important;
   }
 
   .ut-contact-modal__dialog {
