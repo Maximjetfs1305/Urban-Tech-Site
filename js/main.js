@@ -95,13 +95,13 @@ window.addEventListener('load', function () {
   if (!preloader) return;
 
   setTimeout(function () {
-    preloader.style.transition = 'opacity 0.5s';
+    preloader.style.transition = 'opacity 0.12s ease';
     preloader.style.opacity = '0';
 
     setTimeout(function () {
       preloader.style.display = 'none';
-    }, 500);
-  }, 800);
+    }, 120);
+  }, 180);
 });
 
 // JS-анімація логотипу
