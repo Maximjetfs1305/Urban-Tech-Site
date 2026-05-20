@@ -109,41 +109,60 @@ if (document.readyState === 'complete') {
   window.addEventListener('load', hidePreloaderWhenLoaded, { once: true });
 }
 
-// MAIN MENU — make sure FAQ page is visible across all pages
+// MAIN MENU — make sure FAQ and Contacts pages are visible across all pages
 window.addEventListener('DOMContentLoaded', () => {
   const menuLists = document.querySelectorAll('#ut-main-nav ul');
   if (!menuLists.length) return;
 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-  menuLists.forEach((menuList) => {
-    let faqLink = menuList.querySelector('a[href="faq.html"]');
+  const ensureMenuItem = (menuList, href, label, options = {}) => {
+    let link = menuList.querySelector(`a[href="${href}"]`);
 
-    if (!faqLink) {
-      const faqItem = document.createElement('li');
-      faqItem.innerHTML = '<a href="faq.html"><span>Часті запитання</span></a>';
+    if (!link) {
+      const item = document.createElement('li');
+      item.innerHTML = `<a href="${href}"><span>${label}</span></a>`;
 
-      const priceItem = Array.from(menuList.children).find((item) => {
-        const text = item.textContent.trim().toLowerCase();
-        return text.includes('прайс');
-      });
+      if (options.beforeText) {
+        const beforeItem = Array.from(menuList.children).find((child) => {
+          const text = child.textContent.trim().toLowerCase();
+          return text.includes(options.beforeText.toLowerCase());
+        });
 
-      if (priceItem) {
-        menuList.insertBefore(faqItem, priceItem);
+        if (beforeItem) {
+          menuList.insertBefore(item, beforeItem);
+        } else {
+          menuList.appendChild(item);
+        }
       } else {
-        menuList.appendChild(faqItem);
+        menuList.appendChild(item);
       }
 
-      faqLink = faqItem.querySelector('a');
+      link = item.querySelector('a');
     } else {
-      const label = faqLink.querySelector('span') || faqLink;
-      label.textContent = 'Часті запитання';
+      const labelNode = link.querySelector('span') || link;
+      labelNode.textContent = label;
     }
 
-    const faqItem = faqLink.closest('li');
-    if (currentPage === 'faq.html' && faqItem) {
-      menuList.querySelectorAll('li.active').forEach((item) => item.classList.remove('active'));
-      faqItem.classList.add('active');
+    const item = link.closest('li');
+    if (currentPage === href && item) {
+      menuList.querySelectorAll('li.active').forEach((activeItem) => activeItem.classList.remove('active'));
+      item.classList.add('active');
+    }
+
+    return link;
+  };
+
+  menuLists.forEach((menuList) => {
+    ensureMenuItem(menuList, 'faq.html', 'Часті запитання', { beforeText: 'прайс' });
+    ensureMenuItem(menuList, 'contacts.html', 'Контакти');
+
+    const oldPopupContact = Array.from(menuList.querySelectorAll('a[href="#"][data-contact-open]')).find((link) => {
+      return link.textContent.trim().toLowerCase().includes('контак');
+    });
+
+    if (oldPopupContact && !oldPopupContact.closest('li')?.classList.contains('active')) {
+      oldPopupContact.closest('li')?.remove();
     }
   });
 });
