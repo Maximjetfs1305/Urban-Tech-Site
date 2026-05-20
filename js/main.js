@@ -109,6 +109,45 @@ if (document.readyState === 'complete') {
   window.addEventListener('load', hidePreloaderWhenLoaded, { once: true });
 }
 
+// MAIN MENU — make sure FAQ page is visible across all pages
+window.addEventListener('DOMContentLoaded', () => {
+  const menuLists = document.querySelectorAll('#ut-main-nav ul');
+  if (!menuLists.length) return;
+
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  menuLists.forEach((menuList) => {
+    let faqLink = menuList.querySelector('a[href="faq.html"]');
+
+    if (!faqLink) {
+      const faqItem = document.createElement('li');
+      faqItem.innerHTML = '<a href="faq.html"><span>Часті запитання</span></a>';
+
+      const priceItem = Array.from(menuList.children).find((item) => {
+        const text = item.textContent.trim().toLowerCase();
+        return text.includes('прайс');
+      });
+
+      if (priceItem) {
+        menuList.insertBefore(faqItem, priceItem);
+      } else {
+        menuList.appendChild(faqItem);
+      }
+
+      faqLink = faqItem.querySelector('a');
+    } else {
+      const label = faqLink.querySelector('span') || faqLink;
+      label.textContent = 'Часті запитання';
+    }
+
+    const faqItem = faqLink.closest('li');
+    if (currentPage === 'faq.html' && faqItem) {
+      menuList.querySelectorAll('li.active').forEach((item) => item.classList.remove('active'));
+      faqItem.classList.add('active');
+    }
+  });
+});
+
 // JS-анімація логотипу
 window.addEventListener('DOMContentLoaded', () => {
   const logo = document.querySelector('header .ut-navbar .logo-text');
