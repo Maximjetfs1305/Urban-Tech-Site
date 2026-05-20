@@ -9,35 +9,80 @@
   style.textContent = `
     /* FIX: compact header + centered contact modal */
     header {
-      padding: clamp(5px, 0.8vw, 10px) 0 !important;
-    }
-
-    main {
-      padding-top: clamp(58px, 4.4vw, 76px) !important;
-    }
-
-    header .container {
+      padding: clamp(2px, 0.45vw, 6px) 0 !important;
       min-height: 0 !important;
     }
 
+    main {
+      padding-top: clamp(44px, 3.2vw, 58px) !important;
+    }
+
+    header .container {
+      min-height: 32px !important;
+      height: 32px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 14px !important;
+    }
+
+    header .ut-navbar {
+      display: flex !important;
+      align-items: center !important;
+      height: 100% !important;
+      line-height: 1 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
     header .ut-navbar .logo-text {
-      line-height: 1.15 !important;
-      font-size: clamp(14px, 1.7vw, 17px) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      line-height: 1 !important;
+      font-size: clamp(13px, 1.45vw, 16px) !important;
+      letter-spacing: clamp(2px, 0.35vw, 3px) !important;
     }
 
     header > .container > .ut-nav-toggle {
-      width: 36px !important;
-      height: 36px !important;
-      flex-basis: 36px !important;
+      width: 30px !important;
+      height: 30px !important;
+      flex: 0 0 30px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      align-self: center !important;
+      margin: 0 0 0 auto !important;
+      padding: 0 !important;
+      top: auto !important;
+      right: auto !important;
+      line-height: 1 !important;
     }
 
     header > .container > .ut-nav-toggle i {
-      width: 18px !important;
+      width: 17px !important;
+      height: 2px !important;
+      display: block !important;
+      margin: 0 !important;
+      top: auto !important;
+      left: auto !important;
+      line-height: 0 !important;
+      text-indent: 0 !important;
     }
 
     header > .container > .ut-nav-toggle i::before,
     header > .container > .ut-nav-toggle i::after {
-      width: 26px !important;
+      width: 25px !important;
+      height: 2px !important;
+    }
+
+    header > .container > .ut-nav-toggle i::before {
+      top: -7px !important;
+    }
+
+    header > .container > .ut-nav-toggle i::after {
+      bottom: -7px !important;
     }
 
     .ut-contact-modal {
@@ -82,11 +127,16 @@
 
     @media (max-width: 991.98px) {
       header {
-        padding: 7px 0 !important;
+        padding: 3px 0 !important;
       }
 
       main {
-        padding-top: 62px !important;
+        padding-top: 50px !important;
+      }
+
+      header .container {
+        height: 32px !important;
+        min-height: 32px !important;
       }
 
       .ut-contact-modal {
@@ -105,6 +155,21 @@
     }
 
     @media (max-width: 575.98px) {
+      main {
+        padding-top: 48px !important;
+      }
+
+      header .ut-navbar .logo-text {
+        font-size: 13px !important;
+        letter-spacing: 2px !important;
+      }
+
+      header > .container > .ut-nav-toggle {
+        width: 28px !important;
+        height: 28px !important;
+        flex-basis: 28px !important;
+      }
+
       .ut-contact-modal__dialog {
         width: min(100%, calc(100vw - 20px)) !important;
         padding: 24px 18px 20px !important;
