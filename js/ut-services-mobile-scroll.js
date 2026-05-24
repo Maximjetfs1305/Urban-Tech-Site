@@ -8,6 +8,31 @@ window.addEventListener('DOMContentLoaded', function () {
 
   if (!tabs.length || !panels.length) return;
 
+  var addWorkflowBlock = function () {
+    var cta = document.querySelector('.services-cta');
+    if (!cta || document.querySelector('.services-workflow')) return;
+
+    var section = document.createElement('section');
+    section.className = 'services-workflow glass-card';
+    section.innerHTML = '' +
+      '<div class="services-workflow__head">' +
+        '<span>Як ми працюємо</span>' +
+        '<h2>Від першого огляду до готової системи</h2>' +
+        '<p>Ми ведемо об’єкт поетапно: спочатку розбираємось із задачею, потім підбираємо рішення, монтуємо, налаштовуємо й передаємо систему в роботу.</p>' +
+      '</div>' +
+      '<div class="services-workflow__grid">' +
+        '<div class="services-workflow__item"><b>01</b><h3>Огляд об’єкта</h3><p>Вивчаємо задачу, приміщення, існуючі лінії, обладнання та можливі обмеження.</p></div>' +
+        '<div class="services-workflow__item"><b>02</b><h3>Підбір рішення</h3><p>Пропонуємо логіку системи, обладнання, кабельні траси та порядок виконання робіт.</p></div>' +
+        '<div class="services-workflow__item"><b>03</b><h3>Монтаж</h3><p>Прокладаємо кабелі, монтуємо обладнання, збираємо щити, шафи або вузли підключення.</p></div>' +
+        '<div class="services-workflow__item"><b>04</b><h3>Налаштування</h3><p>Перевіряємо лінії, налаштовуємо режими, доступи, сценарії, запис, мережу або автоматику.</p></div>' +
+        '<div class="services-workflow__item"><b>05</b><h3>Передача системи</h3><p>Тестуємо роботу, пояснюємо користування та залишаємо систему зрозумілою для сервісу.</p></div>' +
+      '</div>';
+
+    cta.parentNode.insertBefore(section, cta);
+  };
+
+  addWorkflowBlock();
+
   var isMobileOrTablet = function () {
     return window.innerWidth < 1200;
   };
