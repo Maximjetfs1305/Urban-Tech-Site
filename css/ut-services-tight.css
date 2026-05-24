@@ -29,6 +29,15 @@ body.services-body .service-hero-card {
     padding-top: 0 !important;
     margin-top: -8px !important;
   }
+
+  body.services-body button.services-nav__link::after {
+    border-radius: 0 !important;
+  }
+
+  body.services-body button.services-nav__link:hover::after,
+  body.services-body button.services-nav__link.active::after {
+    border-radius: 0 !important;
+  }
 }
 
 @media (max-width: 575.98px) {
