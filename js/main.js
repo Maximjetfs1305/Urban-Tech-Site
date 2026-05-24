@@ -191,6 +191,93 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// PAGE BREADCRUMBS — consistent path across pages
+window.addEventListener('DOMContentLoaded', () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  const breadcrumbsMap = {
+    'services.html': [
+      { href: 'index.html', label: 'Головна' },
+      { label: 'Послуги' }
+    ],
+    'porady-zamovnyku.html': [
+      { href: 'index.html', label: 'Головна' },
+      { label: 'Поради замовнику' }
+    ],
+    'faq.html': [
+      { href: 'index.html', label: 'Головна' },
+      { label: 'FAQ' }
+    ],
+    'contacts.html': [
+      { href: 'index.html', label: 'Головна' },
+      { label: 'Контакти' }
+    ],
+    'porady-rozetky.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Планування розеток' }
+    ],
+    'porady-osvitlennya.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Планування освітлення' }
+    ],
+    'porady-pered-elektromontazhem.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Перед початком робіт' }
+    ],
+    'porady-yak-pryymaty-roboty.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Як приймати роботу' }
+    ],
+    'porady-typovi-pomylky.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Типові помилки' }
+    ],
+    'porady-pytannya-do-pidryadnyka.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Питання до підрядника' }
+    ],
+    'porady-rezervne-zhyvlennya.html': [
+      { href: 'index.html', label: 'Головна' },
+      { href: 'porady-zamovnyku.html', label: 'Поради замовнику' },
+      { label: 'Резервне живлення' }
+    ]
+  };
+
+  const items = breadcrumbsMap[currentPage];
+  if (!items) return;
+
+  let target = document.querySelector('.advice-breadcrumbs');
+
+  if (!target) {
+    const heroContent = document.querySelector(
+      '.advice-article-hero .col-12, .advice-hero-section .hero-info-wrap, .services-hero-section .hero-info-wrap, .faq-hero-section .hero-info-wrap, .contact-hero-section .hero-info-wrap'
+    );
+
+    if (!heroContent) return;
+
+    target = document.createElement('nav');
+    target.className = 'advice-breadcrumbs';
+    target.setAttribute('aria-label', 'Навігація');
+    heroContent.insertBefore(target, heroContent.firstElementChild);
+  }
+
+  target.innerHTML = items.map((item, index) => {
+    const separator = index === 0 ? '' : '<span>/</span>';
+    const isLast = index === items.length - 1;
+    const itemHtml = item.href && !isLast
+      ? `<a href="${item.href}">${item.label}</a>`
+      : `<strong>${item.label}</strong>`;
+
+    return `${separator}${itemHtml}`;
+  }).join('');
+});
+
 // JS-анімація логотипу
 window.addEventListener('DOMContentLoaded', () => {
   const logo = document.querySelector('header .ut-navbar .logo-text');
