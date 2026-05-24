@@ -4,6 +4,7 @@
   display: none;
 }
 
+/* Custom service icons */
 body.services-body button.services-nav__link[data-service-tab="electro"] {
   --ut-service-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2 4 14h6l-1 8 11-14h-7l1-6Z'/%3E%3C/svg%3E");
 }
@@ -38,11 +39,17 @@ body.services-body button.services-nav__link::before {
   -webkit-mask: var(--ut-service-icon) center / contain no-repeat;
   mask: var(--ut-service-icon) center / contain no-repeat;
   opacity: 0.95;
-  transition:
-    color 0.24s ease,
-    background-color 0.24s ease,
-    filter 0.24s ease,
-    transform 0.24s ease;
+  transition: color 0.24s ease, background-color 0.24s ease, filter 0.24s ease, transform 0.24s ease;
+}
+
+/* Pull service content closer to the category menu */
+body.services-body .services-content-section {
+  padding-top: clamp(10px, 1.4vw, 18px) !important;
+}
+
+body.services-body .service-panel,
+body.services-body .service-hero-card {
+  margin-top: 0 !important;
 }
 
 @media (min-width: 1200px) {
@@ -53,7 +60,7 @@ body.services-body button.services-nav__link::before {
   body.services-body .services-nav {
     position: relative;
     width: 100% !important;
-    margin: clamp(24px, 3vw, 38px) 0 0 !important;
+    margin: clamp(22px, 2.7vw, 34px) 0 0 !important;
     padding: 0 !important;
     display: block !important;
     overflow: visible !important;
@@ -88,12 +95,15 @@ body.services-body button.services-nav__link::before {
     height: 1px;
     background: linear-gradient(
       90deg,
-      transparent,
-      rgba(255, 255, 255, 0.11),
-      rgba(248, 181, 0, 0.18),
-      rgba(255, 255, 255, 0.11),
-      transparent
+      transparent 0%,
+      rgba(255, 255, 255, 0.18) 18%,
+      rgba(255, 214, 79, 0.46) 50%,
+      rgba(255, 255, 255, 0.18) 82%,
+      transparent 100%
     );
+    box-shadow:
+      0 0 8px rgba(255, 214, 79, 0.30),
+      0 0 22px rgba(248, 181, 0, 0.12);
     pointer-events: none;
   }
 
@@ -119,7 +129,7 @@ body.services-body button.services-nav__link::before {
     border-radius: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
-    color: rgba(255, 255, 255, 0.70) !important;
+    color: rgba(255, 255, 255, 0.72) !important;
     font-family: "Montserrat", Arial, sans-serif !important;
     font-size: 12.6px !important;
     font-weight: 660 !important;
@@ -128,10 +138,7 @@ body.services-body button.services-nav__link::before {
     text-align: center !important;
     white-space: nowrap !important;
     cursor: pointer;
-    transition:
-      color 0.24s ease,
-      text-shadow 0.24s ease,
-      transform 0.24s ease;
+    transition: color 0.24s ease, text-shadow 0.24s ease, transform 0.24s ease;
   }
 
   body.services-body button.services-nav__link::before {
@@ -139,7 +146,7 @@ body.services-body button.services-nav__link::before {
     width: 19px;
     height: 19px;
     display: block !important;
-    color: rgba(255, 255, 255, 0.54);
+    color: rgba(255, 255, 255, 0.56);
     transform: none;
     filter: none;
   }
@@ -161,9 +168,7 @@ body.services-body button.services-nav__link::before {
       0 0 10px rgba(255, 214, 79, 0.72),
       0 0 24px rgba(248, 181, 0, 0.30),
       0 0 42px rgba(248, 181, 0, 0.16) !important;
-    transition:
-      transform 0.24s ease,
-      opacity 0.24s ease !important;
+    transition: transform 0.24s ease, opacity 0.24s ease !important;
   }
 
   body.services-body button.services-nav__link:hover,
@@ -213,6 +218,10 @@ body.services-body button.services-nav__link::before {
     margin: clamp(22px, 4vw, 34px) auto 0;
   }
 
+  body.services-body .services-content-section {
+    padding-top: 14px !important;
+  }
+
   body.services-body .services-mobile-select__button {
     position: relative;
     width: 100%;
@@ -241,10 +250,7 @@ body.services-body button.services-nav__link::before {
     line-height: 1.2;
     text-align: left;
     cursor: pointer;
-    transition:
-      border-color 0.24s ease,
-      background 0.24s ease,
-      box-shadow 0.24s ease;
+    transition: border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease;
   }
 
   body.services-body .services-mobile-select__button::before {
@@ -295,10 +301,7 @@ body.services-body button.services-nav__link::before {
     background: rgba(248, 181, 0, 0.045);
     color: #ffd64f;
     font-size: 15px;
-    transition:
-      transform 0.24s ease,
-      border-color 0.24s ease,
-      box-shadow 0.24s ease;
+    transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
   }
 
   body.services-body .services-mobile-select__button[aria-expanded="true"] {
@@ -324,10 +327,7 @@ body.services-body button.services-nav__link::before {
     overflow: hidden !important;
     opacity: 0;
     pointer-events: none;
-    transition:
-      grid-template-rows 0.28s ease,
-      opacity 0.22s ease,
-      margin-top 0.28s ease;
+    transition: grid-template-rows 0.28s ease, opacity 0.22s ease, margin-top 0.28s ease;
   }
 
   body.services-body .services-nav.is-open {
