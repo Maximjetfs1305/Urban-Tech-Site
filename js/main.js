@@ -85,16 +85,26 @@
   fullHeight();
 
   var burgerMenu = function() {
+    let menuCloseTimer = null;
+    const closeDelay = 420;
+
     $('.js-ut-nav-toggle').on('click', function(event) {
       event.preventDefault();
-      if( $('body').hasClass('menu-show') ) {
-        $('body').removeClass('menu-show');
+
+      if ($('body').hasClass('menu-show')) {
+        window.clearTimeout(menuCloseTimer);
+        $('body').addClass('menu-closing');
         $('#ut-main-nav > .js-ut-nav-toggle').removeClass('show');
+
+        menuCloseTimer = window.setTimeout(function() {
+          $('body').removeClass('menu-show menu-closing');
+        }, closeDelay);
       } else {
-        $('body').addClass('menu-show');
+        window.clearTimeout(menuCloseTimer);
+        $('body').removeClass('menu-closing').addClass('menu-show');
         setTimeout(function(){
           $('#ut-main-nav > .js-ut-nav-toggle').addClass('show');
-        }, 900);
+        }, 80);
       }
     });
   };
@@ -217,7 +227,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const openModal = (event) => {
     if (event) event.preventDefault();
-    document.body.classList.remove('menu-show');
+    document.body.classList.remove('menu-show', 'menu-closing');
     const navClose = document.querySelector('#ut-main-nav > .js-ut-nav-toggle');
     if (navClose) navClose.classList.remove('show');
 
