@@ -14,17 +14,29 @@
   -webkit-backdrop-filter: blur(2px) !important;
   transition:
     opacity 0.34s ease,
-    visibility 0s linear 0.38s !important;
+    visibility 0s linear 0.42s !important;
   overflow: hidden !important;
 }
 
-body.menu-show #ut-main-nav {
+body.menu-show #ut-main-nav,
+body.menu-closing #ut-main-nav {
   visibility: visible !important;
-  opacity: 1 !important;
   pointer-events: auto !important;
+}
+
+body.menu-show #ut-main-nav {
+  opacity: 1 !important;
   transition:
     opacity 0.28s ease,
     visibility 0s linear 0s !important;
+}
+
+body.menu-closing #ut-main-nav {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition:
+    opacity 0.38s ease,
+    visibility 0s linear 0.42s !important;
 }
 
 #ut-main-nav .ut-table,
@@ -65,8 +77,8 @@ body.menu-show #ut-main-nav {
     inset 1px 0 0 rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  transform: translateX(102%) !important;
-  transition: transform 0.38s cubic-bezier(.2, .8, .2, 1) !important;
+  transform: translateX(104%) !important;
+  transition: transform 0.40s cubic-bezier(.2, .8, .2, 1) !important;
 }
 
 #ut-main-nav .col-md-12::before {
@@ -92,8 +104,12 @@ body.menu-show #ut-main-nav {
   z-index: 2;
 }
 
-body.menu-show #ut-main-nav .col-md-12 {
+body.menu-show:not(.menu-closing) #ut-main-nav .col-md-12 {
   transform: translateX(0) !important;
+}
+
+body.menu-closing #ut-main-nav .col-md-12 {
+  transform: translateX(104%) !important;
 }
 
 #ut-main-nav .logo-text {
@@ -184,16 +200,16 @@ body.menu-show #ut-main-nav .col-md-12 {
   border-top: 1px solid rgba(255, 255, 255, 0.095) !important;
 }
 
-body.menu-show #ut-main-nav ul li {
+body.menu-show:not(.menu-closing) #ut-main-nav ul li {
   transform: translateX(0);
   opacity: 1;
 }
 
-body.menu-show #ut-main-nav ul li:nth-child(1) { transition-delay: 0.06s !important; }
-body.menu-show #ut-main-nav ul li:nth-child(2) { transition-delay: 0.09s !important; }
-body.menu-show #ut-main-nav ul li:nth-child(3) { transition-delay: 0.12s !important; }
-body.menu-show #ut-main-nav ul li:nth-child(4) { transition-delay: 0.15s !important; }
-body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(1) { transition-delay: 0.06s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(2) { transition-delay: 0.09s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(3) { transition-delay: 0.12s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(4) { transition-delay: 0.15s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !important; }
 
 #ut-main-nav ul li::before,
 #ut-main-nav ul li a::before {
