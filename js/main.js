@@ -132,6 +132,26 @@ window.addEventListener('DOMContentLoaded', () => {
       const ariaCurrent = isActive ? ' aria-current="page"' : '';
       return `<li class="${isActive ? 'active' : ''}"><a href="${item.href}"${ariaCurrent}><span>${item.label}</span></a></li>`;
     }).join('');
+
+    const panel = menuList.closest('.col-md-12');
+    if (panel && !panel.querySelector('.ut-menu-contacts')) {
+      const contacts = document.createElement('div');
+      contacts.className = 'ut-menu-contacts';
+      contacts.innerHTML = `
+        <a class="ut-menu-phone" href="tel:+380756337652">
+          <i class="bi bi-telephone"></i>
+          <span>+38 (075) 633 76 52</span>
+        </a>
+        <div class="ut-menu-socials" aria-label="Месенджери">
+          <a href="https://t.me/" aria-label="Telegram"><i class="bi bi-telegram"></i><span>Telegram</span></a>
+          <span class="ut-menu-dot" aria-hidden="true"></span>
+          <a href="viber://chat?number=%2B380756337652" aria-label="Viber"><i class="bi bi-telephone"></i><span>Viber</span></a>
+          <span class="ut-menu-dot" aria-hidden="true"></span>
+          <a href="https://wa.me/380756337652" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+        </div>
+      `;
+      panel.appendChild(contacts);
+    }
   });
 });
 
