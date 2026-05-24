@@ -4,6 +4,7 @@
   const runtimeCssPath = "css/ut-runtime.css";
   const menuTestCssPath = "css/ut-menu-test.css";
   const headerScrollCssPath = "css/ut-header-scroll.css";
+  const faqCssPath = "css/ut-faq.css";
   const heroVideoPath = "assets/video/hero-bg.mp4";
   const heroPosterPath = "assets/img/hero-poster.jpg";
 
@@ -61,6 +62,13 @@
   ensureStylesheet(runtimeCssPath);
   ensureStylesheet(menuTestCssPath);
   ensureStylesheet(headerScrollCssPath);
+  if (document.body && document.body.classList.contains("faq-body")) {
+    ensureStylesheet(faqCssPath);
+  } else {
+    document.addEventListener("DOMContentLoaded", () => {
+      if (document.body.classList.contains("faq-body")) ensureStylesheet(faqCssPath);
+    }, { once: true });
+  }
   ensureHeroVideo();
 })();
 
