@@ -1,4 +1,4 @@
-/* URBAN TECH — test right side menu like mockup variant 2, without numbers */
+/* URBAN TECH — right side menu like mockup variant 2, without numbers */
 #ut-main-nav {
   position: fixed !important;
   inset: 0 !important;
@@ -43,21 +43,21 @@ body.menu-show #ut-main-nav {
   right: 0 !important;
   bottom: 0 !important;
   left: auto !important;
-  width: min(356px, 100vw) !important;
-  max-width: 356px !important;
-  padding: 54px 30px 30px !important;
+  width: min(392px, 100vw) !important;
+  max-width: 392px !important;
+  padding: 34px 28px 28px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: stretch !important;
   text-align: left !important;
   overflow-y: auto !important;
   background:
-    linear-gradient(180deg, rgba(12, 14, 16, 0.96), rgba(2, 3, 6, 0.96)),
+    linear-gradient(180deg, rgba(8, 10, 13, 0.96), rgba(2, 3, 6, 0.97)),
     rgba(4, 5, 8, 0.96) !important;
   border-left: none !important;
   box-shadow:
     -26px 0 70px rgba(0, 0, 0, 0.68),
-    inset 1px 0 0 rgba(255, 255, 255, 0.055) !important;
+    inset 1px 0 0 rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   transform: translateX(102%) !important;
@@ -70,18 +70,18 @@ body.menu-show #ut-main-nav {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 1px;
+  width: 2px;
   background: linear-gradient(
     180deg,
-    rgba(248, 181, 0, 0.12) 0%,
-    rgba(248, 181, 0, 0.95) 18%,
-    rgba(248, 181, 0, 0.95) 82%,
-    rgba(248, 181, 0, 0.12) 100%
+    rgba(248, 181, 0, 0.10) 0%,
+    rgba(248, 181, 0, 0.82) 16%,
+    rgba(248, 181, 0, 0.92) 50%,
+    rgba(248, 181, 0, 0.82) 84%,
+    rgba(248, 181, 0, 0.10) 100%
   );
   box-shadow:
-    0 0 8px rgba(248, 181, 0, 0.45),
-    0 0 18px rgba(248, 181, 0, 0.25),
-    0 0 28px rgba(248, 181, 0, 0.14);
+    0 0 8px rgba(248, 181, 0, 0.28),
+    0 0 18px rgba(248, 181, 0, 0.14);
   pointer-events: none;
   z-index: 2;
 }
@@ -97,10 +97,10 @@ body.menu-show #ut-main-nav .col-md-12 {
   align-items: center !important;
   color: #ffffff !important;
   font-family: "Montserrat", Arial, sans-serif !important;
-  font-size: 18px !important;
+  font-size: 21px !important;
   font-weight: 760 !important;
   line-height: 1 !important;
-  letter-spacing: 3.5px !important;
+  letter-spacing: 3px !important;
   text-decoration: none !important;
 }
 
@@ -110,18 +110,18 @@ body.menu-show #ut-main-nav .col-md-12 {
   display: block;
   margin: 0 0 22px;
   padding-bottom: 24px;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.62);
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.55;
-  letter-spacing: 0.2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.115);
+  letter-spacing: 0.1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 #ut-main-nav ul {
   order: 2;
-  width: 100% !important;
-  margin: 0 !important;
+  width: calc(100% + 28px) !important;
+  margin: 0 0 0 -28px !important;
   padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -135,7 +135,7 @@ body.menu-show #ut-main-nav .col-md-12 {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.105) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
   transform: translateX(14px);
   opacity: 0;
   transition: transform 0.28s ease, opacity 0.28s ease !important;
@@ -144,30 +144,34 @@ body.menu-show #ut-main-nav .col-md-12 {
 #ut-main-nav ul li::after {
   content: "";
   position: absolute;
-  left: -30px;
+  left: 0;
   top: 50%;
   width: 2px;
   height: 0;
   transform: translateY(-50%);
-  background: #f8b500;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 214, 79, 0.95) 0%,
+    rgba(248, 181, 0, 1) 100%
+  );
   opacity: 0;
   box-shadow:
-    0 0 8px rgba(248, 181, 0, 0.65),
-    0 0 16px rgba(248, 181, 0, 0.42),
-    0 0 26px rgba(248, 181, 0, 0.22);
+    0 0 10px rgba(248, 181, 0, 0.95),
+    0 0 22px rgba(248, 181, 0, 0.55),
+    0 0 36px rgba(248, 181, 0, 0.30);
   transition: height 0.22s ease, opacity 0.22s ease;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
 }
 
 #ut-main-nav ul li:hover::after,
 #ut-main-nav ul li.active::after {
-  height: 36px;
+  height: 92px;
   opacity: 1;
 }
 
 #ut-main-nav ul li:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.105) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.10) !important;
 }
 
 body.menu-show #ut-main-nav ul li {
@@ -190,42 +194,33 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 #ut-main-nav ul li a {
   position: relative !important;
   width: 100% !important;
-  min-height: 56px !important;
-  padding: 0 0 0 18px !important;
+  min-height: 94px !important;
+  padding: 0 0 0 28px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  color: rgba(255, 255, 255, 0.82) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   font-family: "Montserrat", Arial, sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 560 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.35px !important;
+  font-size: 28px !important;
+  font-weight: 430 !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.2px !important;
   text-decoration: none !important;
   transition: color 0.22s ease, padding-left 0.22s ease, text-shadow 0.22s ease !important;
 }
 
 #ut-main-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(248, 181, 0, 0.8), rgba(248, 181, 0, 0));
-  transition: width 0.26s ease;
+  content: none !important;
+  display: none !important;
 }
 
 #ut-main-nav ul li a:hover,
 #ut-main-nav ul li.active a {
   color: #f8b500 !important;
-  padding-left: 24px !important;
-  text-shadow: 0 0 14px rgba(248, 181, 0, 0.18) !important;
-}
-
-#ut-main-nav ul li a:hover::after,
-#ut-main-nav ul li.active a::after {
-  width: 100%;
+  padding-left: 28px !important;
+  text-shadow:
+    0 0 10px rgba(248, 181, 0, 0.22),
+    0 0 20px rgba(248, 181, 0, 0.10) !important;
 }
 
 #ut-main-nav > .ut-nav-toggle {
@@ -338,9 +333,9 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 
 @media (max-width: 575.98px) {
   #ut-main-nav .col-md-12 {
-    width: min(330px, 92vw) !important;
+    width: min(340px, 92vw) !important;
     max-width: 92vw !important;
-    padding: 48px 24px 26px !important;
+    padding: 28px 22px 24px !important;
   }
 
   #ut-main-nav .logo-text {
@@ -348,13 +343,20 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
     letter-spacing: 3px !important;
   }
 
-  #ut-main-nav ul li a {
-    min-height: 54px !important;
-    font-size: 15px !important;
+  #ut-main-nav ul {
+    width: calc(100% + 22px) !important;
+    margin-left: -22px !important;
   }
 
-  #ut-main-nav ul li::after {
-    left: -24px;
+  #ut-main-nav ul li a {
+    min-height: 78px !important;
+    padding-left: 22px !important;
+    font-size: 22px !important;
+  }
+
+  #ut-main-nav ul li:hover::after,
+  #ut-main-nav ul li.active::after {
+    height: 76px;
   }
 
   #ut-main-nav > .ut-nav-toggle {
