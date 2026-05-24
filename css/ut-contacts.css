@@ -328,6 +328,30 @@ body.contact-body .contact-info-strip strong {
   line-height: 1.35;
 }
 
+/* Clear schedule wording: weekdays and weekends separated visually */
+body.contact-body .contact-info-strip > div:nth-child(2) strong,
+body.contact-body .contact-info-strip > div:nth-child(2) p {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+body.contact-body .contact-info-strip > div:nth-child(2) strong::after {
+  content: "Пн–Пт — основний графік";
+  display: block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 680;
+  line-height: 1.35;
+}
+
+body.contact-body .contact-info-strip > div:nth-child(2) p::before {
+  content: "Сб–Нд — за узгодженням.";
+  display: block;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 14.5px;
+  line-height: 1.76;
+}
+
 body.contact-body .contact-prep-card {
   margin-bottom: clamp(28px, 5vw, 52px);
   padding: clamp(24px, 4vw, 42px);
@@ -448,6 +472,14 @@ body.contact-body .ut-consult-icon {
   body.contact-body .contact-info-strip p,
   body.contact-body .section-head p,
   body.contact-body .contact-prep-grid p {
+    font-size: 14px;
+  }
+
+  body.contact-body .contact-info-strip > div:nth-child(2) strong::after {
+    font-size: 16px;
+  }
+
+  body.contact-body .contact-info-strip > div:nth-child(2) p::before {
     font-size: 14px;
   }
 }
