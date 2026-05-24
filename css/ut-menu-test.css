@@ -269,16 +269,71 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 }
 
 #ut-main-nav .col-md-12 > ul::after {
-  content: "+38 (075) 633 76 52\A Telegram · Viber · WhatsApp";
-  white-space: pre-line;
+  content: none !important;
+  display: none !important;
+}
+
+.ut-menu-contacts {
+  order: 3;
   margin-top: auto;
   padding-top: 28px;
-  display: block;
-  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   font-family: "Montserrat", Arial, sans-serif;
+}
+
+.ut-menu-phone,
+.ut-menu-socials a {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-decoration: none !important;
+  line-height: 1;
+  transition: color 0.22s ease, text-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.ut-menu-phone {
   font-size: 12px;
-  line-height: 1.95;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.35px;
+}
+
+.ut-menu-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+}
+
+.ut-menu-socials a {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.ut-menu-phone i,
+.ut-menu-socials i {
+  color: #f8b500;
+  font-size: 11px;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(248, 181, 0, 0.36);
+}
+
+.ut-menu-socials .ut-menu-dot {
+  width: 3px;
+  height: 3px;
+  display: inline-flex;
+  border-radius: 50%;
+  background: rgba(248, 181, 0, 0.88);
+  box-shadow: 0 0 8px rgba(248, 181, 0, 0.36);
+}
+
+.ut-menu-phone:hover,
+.ut-menu-socials a:hover {
+  color: #f8b500 !important;
+  text-shadow: 0 0 12px rgba(248, 181, 0, 0.18);
+  transform: translateX(2px);
 }
 
 @media (max-width: 575.98px) {
@@ -305,5 +360,13 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   #ut-main-nav > .ut-nav-toggle {
     top: 22px !important;
     right: 18px !important;
+  }
+
+  .ut-menu-contacts {
+    padding-top: 24px;
+  }
+
+  .ut-menu-socials {
+    gap: 7px;
   }
 }
