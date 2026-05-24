@@ -1,7 +1,12 @@
-// URBAN TECH — polished services copy + mobile/tablet scroll behavior
+// URBAN TECH — polished services copy + stable mobile/tablet tab scroll
 window.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelectorAll('[data-service-tab]');
-  if (!tabs.length) return;
+  const panels = document.querySelectorAll('[data-service-panel]');
+  const nav = document.querySelector('.services-nav');
+  const mobileToggle = document.querySelector('[data-services-mobile-toggle]');
+  const mobileLabel = document.querySelector('[data-services-mobile-label]');
+
+  if (!tabs.length || !panels.length) return;
 
   const servicesCopy = {
     electro: {
@@ -104,33 +109,52 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  applyServicesCopy();
+  const isMobileOrTablet = () => window.innerWidth < 1200;
 
   const getHeaderOffset = () => {
     const header = document.querySelector('header');
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
-    return Math.round(headerHeight + 10);
+    return Math.round(headerHeight + 12);
+  };
+
+  const activateService = (serviceKey, activeTab) => {
+    tabs.forEach((item) => item.classList.toggle('active', item === activeTab));
+    panels.forEach((panel) => {
+      panel.classList.toggle('active', panel.dataset.servicePanel === serviceKey);
+    });
+
+    if (mobileLabel && activeTab) {
+      mobileLabel.textContent = activeTab.textContent.trim();
+    }
+
+    if (nav) nav.classList.remove('is-open');
+    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
   };
 
   const scrollToServicePanel = (serviceKey) => {
-    if (window.innerWidth >= 1200) return;
-
     const panel = document.querySelector(`[data-service-panel="${serviceKey}"]`);
     const target = panel ? (panel.querySelector('.service-hero-card') || panel) : document.getElementById('servicesContent');
     if (!target) return;
 
     const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
-
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
 
+  applyServicesCopy();
+
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
+    tab.addEventListener('click', (event) => {
+      if (!isMobileOrTablet()) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
       const serviceKey = tab.dataset.serviceTab;
-      window.setTimeout(() => scrollToServicePanel(serviceKey), 80);
-    });
+      activateService(serviceKey, tab);
+
+      window.setTimeout(() => {
+        window.requestAnimationFrame(() => scrollToServicePanel(serviceKey));
+      }, 330);
+    }, true);
   });
 });
