@@ -5,6 +5,7 @@
   const menuTestCssPath = "css/ut-menu-test.css";
   const headerScrollCssPath = "css/ut-header-scroll.css";
   const faqCssPath = "css/ut-faq.css";
+  const contactsCssPath = "css/ut-contacts.css";
   const heroVideoPath = "assets/video/hero-bg.mp4";
   const heroPosterPath = "assets/img/hero-poster.jpg";
 
@@ -62,13 +63,18 @@
   ensureStylesheet(runtimeCssPath);
   ensureStylesheet(menuTestCssPath);
   ensureStylesheet(headerScrollCssPath);
-  if (document.body && document.body.classList.contains("faq-body")) {
-    ensureStylesheet(faqCssPath);
+
+  const loadPageSpecificStyles = () => {
+    if (document.body.classList.contains("faq-body")) ensureStylesheet(faqCssPath);
+    if (document.body.classList.contains("contact-body")) ensureStylesheet(contactsCssPath);
+  };
+
+  if (document.body) {
+    loadPageSpecificStyles();
   } else {
-    document.addEventListener("DOMContentLoaded", () => {
-      if (document.body.classList.contains("faq-body")) ensureStylesheet(faqCssPath);
-    }, { once: true });
+    document.addEventListener("DOMContentLoaded", loadPageSpecificStyles, { once: true });
   }
+
   ensureHeroVideo();
 })();
 
