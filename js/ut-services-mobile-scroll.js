@@ -1,126 +1,37 @@
-// URBAN TECH — polished services copy + stable mobile/tablet tab scroll
-window.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('[data-service-tab]');
-  const panels = document.querySelectorAll('[data-service-panel]');
-  const nav = document.querySelector('.services-nav');
-  const mobileToggle = document.querySelector('[data-services-mobile-toggle]');
-  const mobileLabel = document.querySelector('[data-services-mobile-label]');
+// URBAN TECH — stable mobile/tablet tab scroll for services page
+window.addEventListener('DOMContentLoaded', function () {
+  var tabs = document.querySelectorAll('[data-service-tab]');
+  var panels = document.querySelectorAll('[data-service-panel]');
+  var nav = document.querySelector('.services-nav');
+  var mobileToggle = document.querySelector('[data-services-mobile-toggle]');
+  var mobileLabel = document.querySelector('[data-services-mobile-label]');
 
   if (!tabs.length || !panels.length) return;
 
-  const servicesCopy = {
-    electro: {
-      title: 'Електромережі 220В',
-      text: 'Комплексний електромонтаж для квартир, будинків, офісів і комерційних об’єктів: від продуманої розводки кабелю до щита, автоматики, освітлення та підготовки під подальше розширення систем.',
-      cards: [
-        ['Що ми виконуємо', 'Прокладаємо кабель, готуємо траси, монтуємо підрозетники, розетки, вимикачі, світильники, щити та захисну автоматику.'],
-        ['Підготовка під системи', 'Закладаємо окремі лінії для відеоспостереження, СКУД, мереж, автоматики, резервного живлення та обладнання з підвищеним навантаженням.'],
-        ['Для яких об’єктів', 'Працюємо з житловими, комерційними, складськими, технічними та виробничими приміщеннями, де важлива надійна інженерна основа.'],
-        ['Що отримує клієнт', 'Акуратний монтаж, логічно зібраний щит, підписані лінії, зрозумілу структуру системи та запас для майбутнього розширення.']
-      ]
-    },
-    security: {
-      title: 'Охоронні та пожежні системи',
-      text: 'Підбираємо, монтуємо та налаштовуємо системи безпеки як готове рішення: датчики, сирени, клавіатури, контрольні панелі, живлення, сценарії тривоги та перевірку роботи.',
-      cards: [
-        ['Охоронна сигналізація', 'Монтуємо датчики руху, відкриття, розбиття скла, тривожні кнопки, сирени та налаштовуємо зони під реальну логіку об’єкта.'],
-        ['Пожежна сигналізація', 'Підключаємо пожежні сповіщувачі, перевіряємо шлейфи, живлення, індикацію та коректну реакцію системи на спрацювання.'],
-        ['Пусконалагодження', 'Тестуємо кожен датчик, підписуємо лінії, перевіряємо сценарії та передаємо клієнту систему, готову до використання.'],
-        ['Модернізація', 'Відновлюємо старі системи, знаходимо кабелі, оновлюємо базу зон, додаємо обладнання та приводимо систему до зрозумілого стану.']
-      ]
-    },
-    video: {
-      title: 'IP-камери, реєстратори та віддалений доступ',
-      text: 'Проєктуємо відеоспостереження під реальні задачі об’єкта: підбираємо зони огляду, монтуємо камери, налаштовуємо запис, архів, мобільний перегляд і доступ для власника.',
-      cards: [
-        ['Монтаж камер', 'Підбираємо точки огляду, виконуємо кріплення, прокладаємо кабель, герметизуємо з’єднання та акуратно заводимо лінії в обладнання.'],
-        ['Налаштування NVR/DVR', 'Налаштовуємо канали, запис, архів, час, користувачів, паролі, мережеві параметри та базову логіку зберігання відео.'],
-        ['Віддалений перегляд', 'Підключаємо мобільні застосунки, доступ для власника, рівні доступу користувачів і перевіряємо роботу з різних пристроїв.'],
-        ['Сервіс відеосистем', 'Відновлюємо доступ, міняємо камери, перевіряємо кабельні лінії, чистимо об’єктиви та оптимізуємо роботу архіву.']
-      ]
-    },
-    access: {
-      title: 'СКУД: замки, зчитувачі, контролери',
-      text: 'Робимо контроль доступу як цілісну систему: підбираємо обладнання, монтуємо замки, зчитувачі й контролери, налаштовуємо права доступу та готуємо систему до щоденної експлуатації.',
-      cards: [
-        ['Обладнання', 'Монтуємо контролери, зчитувачі, кнопки виходу, магнітні та електромеханічні замки, доводчики, блоки живлення й резервування.'],
-        ['Налаштування доступу', 'Створюємо користувачів, групи, графіки, права доступу, картки, брелоки та базу для подальшого адміністрування.'],
-        ['Відновлення систем', 'Знаходимо непідписані кабелі, перевіряємо зчитувачі, перепідключаємо обладнання та відновлюємо логіку старої системи.'],
-        ['Комфорт експлуатації', 'Передаємо підписані лінії, зрозумілу схему, доступ до обслуговування та можливість зручного розширення системи.']
-      ]
-    },
-    smart: {
-      title: 'Smart Home та сценарії керування',
-      text: 'Інтегруємо автоматизацію в електрику, освітлення, клімат, безпеку та мережі, щоб системи працювали не окремо, а як один зручний інженерний комплекс.',
-      cards: [
-        ['Сценарії', 'Налаштовуємо сценарії світла, клімату, штор, вентиляції, нічних режимів, присутності та автоматичних дій за подіями.'],
-        ['Датчики', 'Підключаємо датчики руху, відкриття, протікання, температури, вологості, диму та інші сигнали для автоматизації.'],
-        ['Інтеграція', 'Об’єднуємо електрику, безпеку, відеоспостереження, мережі та керування в логічну систему з простим користуванням.'],
-        ['Масштабування', 'Продумуємо запас по лініях, модулях і сценаріях, щоб у майбутньому можна було додати нові функції без переробки основи.']
-      ]
-    },
-    network: {
-      title: 'LAN, Wi‑Fi та комутаційні шафи',
-      text: 'Створюємо стабільну мережеву інфраструктуру для інтернету, Wi‑Fi, відеоспостереження, СКУД, робочих місць і серверного обладнання.',
-      cards: [
-        ['Кабельні лінії', 'Прокладаємо виту пару, маркуємо кабелі, монтуємо RJ‑45 розетки, патч-панелі та перевіряємо якість кожної лінії.'],
-        ['Wi‑Fi покриття', 'Підбираємо точки доступу, плануємо розміщення, налаштовуємо основну й гостьову мережу та перевіряємо зони покриття.'],
-        ['Комутаційні шафи', 'Охайно розміщуємо обладнання, виконуємо патчинг, організовуємо живлення, підписуємо кабелі та залишаємо сервісний доступ.'],
-        ['Для бізнесу', 'Готуємо мережі для офісів, магазинів, складів, клінік, відеонагляду, касових зон, робочих місць і технічних приміщень.']
-      ]
-    },
-    service: {
-      title: 'Сервіс, ремонт і модернізація',
-      text: 'Допомагаємо, коли система вже встановлена: діагностуємо несправності, відновлюємо доступи, наводимо порядок у кабелях, оновлюємо обладнання та повертаємо систему до стабільної роботи.',
-      cards: [
-        ['Діагностика', 'Шукаємо проблеми в кабелях, живленні, датчиках, камерах, контролерах, замках, мережевому обладнанні та налаштуваннях.'],
-        ['Відновлення доступу', 'Скидаємо паролі, налаштовуємо реєстратори, користувачів, застосунки, мобільний перегляд і віддалене підключення.'],
-        ['Ревізія шаф', 'Наводимо порядок у кабелях, підписуємо лінії, міняємо блоки живлення, перевіряємо резерв і залишаємо систему зрозумілою для подальшого обслуговування.'],
-        ['Модернізація', 'Оновлюємо старі системи без повної переробки: додаємо нові зони, камери, точки доступу, контролери або автоматику.']
-      ]
-    }
+  var isMobileOrTablet = function () {
+    return window.innerWidth < 1200;
   };
 
-  const applyServicesCopy = () => {
-    const lead = document.querySelector('.services-lead');
-    if (lead) {
-      lead.textContent = 'Оберіть напрям — ми покажемо, що входить у роботу, для яких об’єктів підходить рішення та який готовий результат отримує клієнт.';
-    }
-
-    Object.entries(servicesCopy).forEach(([key, data]) => {
-      const panel = document.querySelector(`[data-service-panel="${key}"]`);
-      if (!panel) return;
-
-      const title = panel.querySelector('.service-hero-card h2');
-      const text = panel.querySelector('.service-hero-card p');
-      if (title) title.textContent = data.title;
-      if (text) text.textContent = data.text;
-
-      const cards = panel.querySelectorAll('.service-info-card');
-      cards.forEach((card, index) => {
-        const copy = data.cards[index];
-        if (!copy) return;
-
-        const cardTitle = card.querySelector('h3');
-        const cardText = card.querySelector('p');
-        if (cardTitle) cardTitle.textContent = copy[0];
-        if (cardText) cardText.textContent = copy[1];
-      });
-    });
-  };
-
-  const isMobileOrTablet = () => window.innerWidth < 1200;
-
-  const getHeaderOffset = () => {
-    const header = document.querySelector('header');
-    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+  var getHeaderOffset = function () {
+    var header = document.querySelector('header');
+    var headerHeight = header ? header.getBoundingClientRect().height : 0;
     return Math.round(headerHeight + 12);
   };
 
-  const activateService = (serviceKey, activeTab) => {
-    tabs.forEach((item) => item.classList.toggle('active', item === activeTab));
-    panels.forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.servicePanel === serviceKey);
+  var getPanelByKey = function (serviceKey) {
+    for (var i = 0; i < panels.length; i += 1) {
+      if (panels[i].getAttribute('data-service-panel') === serviceKey) return panels[i];
+    }
+    return null;
+  };
+
+  var activateService = function (serviceKey, activeTab) {
+    tabs.forEach(function (item) {
+      item.classList.toggle('active', item === activeTab);
+    });
+
+    panels.forEach(function (panel) {
+      panel.classList.toggle('active', panel.getAttribute('data-service-panel') === serviceKey);
     });
 
     if (mobileLabel && activeTab) {
@@ -131,29 +42,30 @@ window.addEventListener('DOMContentLoaded', () => {
     if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
   };
 
-  const scrollToServicePanel = (serviceKey) => {
-    const panel = document.querySelector(`[data-service-panel="${serviceKey}"]`);
-    const target = panel ? (panel.querySelector('.service-hero-card') || panel) : document.getElementById('servicesContent');
+  var scrollToServicePanel = function (serviceKey) {
+    var panel = getPanelByKey(serviceKey);
+    var content = document.getElementById('servicesContent');
+    var target = panel ? (panel.querySelector('.service-hero-card') || panel) : content;
     if (!target) return;
 
-    const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+    var top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
 
-  applyServicesCopy();
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', (event) => {
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function (event) {
       if (!isMobileOrTablet()) return;
 
       event.preventDefault();
       event.stopImmediatePropagation();
 
-      const serviceKey = tab.dataset.serviceTab;
+      var serviceKey = tab.getAttribute('data-service-tab');
       activateService(serviceKey, tab);
 
-      window.setTimeout(() => {
-        window.requestAnimationFrame(() => scrollToServicePanel(serviceKey));
+      window.setTimeout(function () {
+        window.requestAnimationFrame(function () {
+          scrollToServicePanel(serviceKey);
+        });
       }, 330);
     }, true);
   });
