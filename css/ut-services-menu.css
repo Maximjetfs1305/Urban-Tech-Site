@@ -1,16 +1,198 @@
-/* URBAN TECH — services category dropdown on mobile and tablet */
+/* URBAN TECH — services category menu: premium desktop tabs + mobile dropdown */
 
 .services-mobile-select {
   display: none;
 }
 
 @media (min-width: 1200px) {
-  .services-mobile-select {
+  body.services-body .services-mobile-select {
     display: none !important;
   }
 
-  .services-nav {
+  body.services-body .services-nav {
+    position: relative;
+    width: 100% !important;
+    margin: clamp(28px, 3.2vw, 42px) 0 0 !important;
+    padding: 0 !important;
     display: block !important;
+    overflow: visible !important;
+  }
+
+  body.services-body .services-nav::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.03)
+    );
+    pointer-events: none;
+  }
+
+  body.services-body .services-nav__inner {
+    position: relative;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-left: 1px solid rgba(255, 214, 79, 0.28);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.060), rgba(255, 255, 255, 0.018)),
+      rgba(5, 7, 12, 0.62);
+    box-shadow:
+      0 20px 56px rgba(0, 0, 0, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.052);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+
+  body.services-body .services-nav__inner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    bottom: 13px;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(255, 214, 79, 0.78), transparent);
+    box-shadow:
+      0 0 12px rgba(255, 214, 79, 0.50),
+      0 0 30px rgba(248, 181, 0, 0.18);
+    pointer-events: none;
+  }
+
+  body.services-body .services-nav__inner::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  body.services-body button.services-nav__link {
+    position: relative;
+    min-width: 0 !important;
+    min-height: 68px;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 14px 10px 13px !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    overflow: hidden;
+    border: none !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.070) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: rgba(255, 255, 255, 0.76) !important;
+    font-family: "Montserrat", Arial, sans-serif !important;
+    font-size: 12.5px !important;
+    font-weight: 650 !important;
+    line-height: 1.16 !important;
+    letter-spacing: 0.05px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    cursor: pointer;
+    transition:
+      color 0.24s ease,
+      background 0.24s ease,
+      text-shadow 0.24s ease,
+      transform 0.24s ease;
+  }
+
+  body.services-body button.services-nav__link:last-child {
+    border-right: none !important;
+  }
+
+  body.services-body button.services-nav__link::before {
+    display: block;
+    color: rgba(255, 255, 255, 0.56);
+    font-family: "bootstrap-icons";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    opacity: 0.95;
+    text-shadow: none;
+    transition:
+      color 0.24s ease,
+      text-shadow 0.24s ease,
+      transform 0.24s ease;
+  }
+
+  body.services-body button.services-nav__link[data-service-tab="electro"]::before { content: "\F46D"; }
+  body.services-body button.services-nav__link[data-service-tab="security"]::before { content: "\F52A"; }
+  body.services-body button.services-nav__link[data-service-tab="video"]::before { content: "\F21F"; }
+  body.services-body button.services-nav__link[data-service-tab="access"]::before { content: "\F47A"; }
+  body.services-body button.services-nav__link[data-service-tab="smart"]::before { content: "\F2C7"; }
+  body.services-body button.services-nav__link[data-service-tab="network"]::before { content: "\F2C6"; }
+  body.services-body button.services-nav__link[data-service-tab="service"]::before { content: "\F5DB"; }
+
+  body.services-body button.services-nav__link::after {
+    content: "" !important;
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 0;
+    width: auto !important;
+    height: 1px !important;
+    display: block !important;
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    background: linear-gradient(90deg, transparent, #ffd64f, transparent) !important;
+    box-shadow:
+      0 0 10px rgba(255, 214, 79, 0.65),
+      0 0 24px rgba(248, 181, 0, 0.28) !important;
+    transition:
+      transform 0.24s ease,
+      opacity 0.24s ease !important;
+  }
+
+  body.services-body button.services-nav__link:hover,
+  body.services-body button.services-nav__link.active {
+    color: #ffd64f !important;
+    background:
+      radial-gradient(circle at 50% 100%, rgba(248, 181, 0, 0.115), transparent 58%),
+      rgba(255, 255, 255, 0.028) !important;
+    text-shadow:
+      0 0 12px rgba(255, 214, 79, 0.34),
+      0 0 28px rgba(248, 181, 0, 0.16) !important;
+  }
+
+  body.services-body button.services-nav__link:hover::before,
+  body.services-body button.services-nav__link.active::before {
+    color: #ffd64f;
+    transform: translateY(-1px);
+    text-shadow:
+      0 0 12px rgba(255, 214, 79, 0.52),
+      0 0 24px rgba(248, 181, 0, 0.22);
+  }
+
+  body.services-body button.services-nav__link:hover::after,
+  body.services-body button.services-nav__link.active::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1370px) {
+  body.services-body button.services-nav__link {
+    min-height: 64px;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    font-size: 11.8px !important;
+  }
+
+  body.services-body button.services-nav__link::before {
+    font-size: 17px;
   }
 }
 
