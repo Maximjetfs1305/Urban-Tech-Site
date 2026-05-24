@@ -54,15 +54,36 @@ body.menu-show #ut-main-nav {
   background:
     linear-gradient(180deg, rgba(12, 14, 16, 0.96), rgba(2, 3, 6, 0.96)),
     rgba(4, 5, 8, 0.96) !important;
-  border-left: 1px solid rgba(248, 181, 0, 0.86) !important;
+  border-left: none !important;
   box-shadow:
     -26px 0 70px rgba(0, 0, 0, 0.68),
-    -1px 0 18px rgba(248, 181, 0, 0.28),
     inset 1px 0 0 rgba(255, 255, 255, 0.055) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   transform: translateX(102%) !important;
   transition: transform 0.34s cubic-bezier(.2, .8, .2, 1) !important;
+}
+
+#ut-main-nav .col-md-12::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 181, 0, 0.12) 0%,
+    rgba(248, 181, 0, 0.95) 18%,
+    rgba(248, 181, 0, 0.95) 82%,
+    rgba(248, 181, 0, 0.12) 100%
+  );
+  box-shadow:
+    0 0 8px rgba(248, 181, 0, 0.45),
+    0 0 18px rgba(248, 181, 0, 0.25),
+    0 0 28px rgba(248, 181, 0, 0.14);
+  pointer-events: none;
+  z-index: 2;
 }
 
 body.menu-show #ut-main-nav .col-md-12 {
@@ -120,6 +141,31 @@ body.menu-show #ut-main-nav .col-md-12 {
   transition: transform 0.28s ease, opacity 0.28s ease !important;
 }
 
+#ut-main-nav ul li::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  width: 2px;
+  height: 0;
+  transform: translateY(-50%);
+  background: #f8b500;
+  opacity: 0;
+  box-shadow:
+    0 0 8px rgba(248, 181, 0, 0.65),
+    0 0 16px rgba(248, 181, 0, 0.42),
+    0 0 26px rgba(248, 181, 0, 0.22);
+  transition: height 0.22s ease, opacity 0.22s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#ut-main-nav ul li:hover::after,
+#ut-main-nav ul li.active::after {
+  height: 36px;
+  opacity: 1;
+}
+
 #ut-main-nav ul li:first-child {
   border-top: 1px solid rgba(255, 255, 255, 0.105) !important;
 }
@@ -145,7 +191,7 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   position: relative !important;
   width: 100% !important;
   min-height: 56px !important;
-  padding: 0 !important;
+  padding: 0 0 0 18px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
@@ -173,7 +219,7 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 #ut-main-nav ul li a:hover,
 #ut-main-nav ul li.active a {
   color: #f8b500 !important;
-  padding-left: 10px !important;
+  padding-left: 24px !important;
   text-shadow: 0 0 14px rgba(248, 181, 0, 0.18) !important;
 }
 
@@ -250,6 +296,10 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   #ut-main-nav ul li a {
     min-height: 54px !important;
     font-size: 15px !important;
+  }
+
+  #ut-main-nav ul li::after {
+    left: -24px;
   }
 
   #ut-main-nav > .ut-nav-toggle {
