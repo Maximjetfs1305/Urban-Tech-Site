@@ -45,7 +45,7 @@ body.menu-show #ut-main-nav {
   left: auto !important;
   width: min(392px, 100vw) !important;
   max-width: 392px !important;
-  padding: 34px 28px 28px !important;
+  padding: 38px 30px 30px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: stretch !important;
@@ -70,18 +70,18 @@ body.menu-show #ut-main-nav {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 2px;
+  width: 1px;
   background: linear-gradient(
     180deg,
     rgba(248, 181, 0, 0.10) 0%,
-    rgba(248, 181, 0, 0.82) 16%,
-    rgba(248, 181, 0, 0.92) 50%,
-    rgba(248, 181, 0, 0.82) 84%,
+    rgba(248, 181, 0, 0.72) 18%,
+    rgba(248, 181, 0, 0.88) 50%,
+    rgba(248, 181, 0, 0.72) 82%,
     rgba(248, 181, 0, 0.10) 100%
   );
   box-shadow:
-    0 0 8px rgba(248, 181, 0, 0.28),
-    0 0 18px rgba(248, 181, 0, 0.14);
+    0 0 8px rgba(248, 181, 0, 0.24),
+    0 0 18px rgba(248, 181, 0, 0.12);
   pointer-events: none;
   z-index: 2;
 }
@@ -97,7 +97,7 @@ body.menu-show #ut-main-nav .col-md-12 {
   align-items: center !important;
   color: #ffffff !important;
   font-family: "Montserrat", Arial, sans-serif !important;
-  font-size: 21px !important;
+  font-size: 20px !important;
   font-weight: 760 !important;
   line-height: 1 !important;
   letter-spacing: 3px !important;
@@ -108,11 +108,11 @@ body.menu-show #ut-main-nav .col-md-12 {
   content: "Сучасні інженерні рішення";
   order: 1;
   display: block;
-  margin: 0 0 22px;
+  margin: 0 0 24px;
   padding-bottom: 24px;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.60);
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.55;
   letter-spacing: 0.1px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
@@ -120,8 +120,8 @@ body.menu-show #ut-main-nav .col-md-12 {
 
 #ut-main-nav ul {
   order: 2;
-  width: calc(100% + 28px) !important;
-  margin: 0 0 0 -28px !important;
+  width: calc(100% + 30px) !important;
+  margin: 0 0 0 -30px !important;
   padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -135,8 +135,8 @@ body.menu-show #ut-main-nav .col-md-12 {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
-  transform: translateX(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.095) !important;
+  transform: translateX(12px);
   opacity: 0;
   transition: transform 0.28s ease, opacity 0.28s ease !important;
 }
@@ -146,19 +146,14 @@ body.menu-show #ut-main-nav .col-md-12 {
   position: absolute;
   left: 0;
   top: 50%;
-  width: 2px;
+  width: 1px;
   height: 0;
   transform: translateY(-50%);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 214, 79, 0.95) 0%,
-    rgba(248, 181, 0, 1) 100%
-  );
+  background: #f8b500;
   opacity: 0;
   box-shadow:
-    0 0 10px rgba(248, 181, 0, 0.95),
-    0 0 22px rgba(248, 181, 0, 0.55),
-    0 0 36px rgba(248, 181, 0, 0.30);
+    0 0 8px rgba(248, 181, 0, 0.58),
+    0 0 18px rgba(248, 181, 0, 0.32);
   transition: height 0.22s ease, opacity 0.22s ease;
   pointer-events: none;
   z-index: 4;
@@ -166,12 +161,12 @@ body.menu-show #ut-main-nav .col-md-12 {
 
 #ut-main-nav ul li:hover::after,
 #ut-main-nav ul li.active::after {
-  height: 92px;
+  height: 54px;
   opacity: 1;
 }
 
 #ut-main-nav ul li:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.095) !important;
 }
 
 body.menu-show #ut-main-nav ul li {
@@ -194,17 +189,17 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 #ut-main-nav ul li a {
   position: relative !important;
   width: 100% !important;
-  min-height: 94px !important;
-  padding: 0 0 0 28px !important;
+  min-height: 68px !important;
+  padding: 0 0 0 30px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  color: rgba(255, 255, 255, 0.88) !important;
+  color: rgba(255, 255, 255, 0.84) !important;
   font-family: "Montserrat", Arial, sans-serif !important;
-  font-size: 28px !important;
-  font-weight: 430 !important;
-  line-height: 1.1 !important;
-  letter-spacing: 0.2px !important;
+  font-size: clamp(19px, 1.7vw, 23px) !important;
+  font-weight: 360 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.15px !important;
   text-decoration: none !important;
   transition: color 0.22s ease, padding-left 0.22s ease, text-shadow 0.22s ease !important;
 }
@@ -217,10 +212,10 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 #ut-main-nav ul li a:hover,
 #ut-main-nav ul li.active a {
   color: #f8b500 !important;
-  padding-left: 28px !important;
+  padding-left: 34px !important;
   text-shadow:
-    0 0 10px rgba(248, 181, 0, 0.22),
-    0 0 20px rgba(248, 181, 0, 0.10) !important;
+    0 0 8px rgba(248, 181, 0, 0.18),
+    0 0 16px rgba(248, 181, 0, 0.08) !important;
 }
 
 #ut-main-nav > .ut-nav-toggle {
@@ -335,12 +330,18 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   #ut-main-nav .col-md-12 {
     width: min(340px, 92vw) !important;
     max-width: 92vw !important;
-    padding: 28px 22px 24px !important;
+    padding: 30px 22px 24px !important;
   }
 
   #ut-main-nav .logo-text {
     font-size: 17px !important;
     letter-spacing: 3px !important;
+  }
+
+  #ut-main-nav .col-md-12::after {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    font-size: 12px;
   }
 
   #ut-main-nav ul {
@@ -349,14 +350,20 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   }
 
   #ut-main-nav ul li a {
-    min-height: 78px !important;
+    min-height: 60px !important;
     padding-left: 22px !important;
-    font-size: 22px !important;
+    font-size: 19px !important;
+    font-weight: 360 !important;
+  }
+
+  #ut-main-nav ul li a:hover,
+  #ut-main-nav ul li.active a {
+    padding-left: 26px !important;
   }
 
   #ut-main-nav ul li:hover::after,
   #ut-main-nav ul li.active::after {
-    height: 76px;
+    height: 46px;
   }
 
   #ut-main-nav > .ut-nav-toggle {
