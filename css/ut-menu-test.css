@@ -1,0 +1,259 @@
+/* URBAN TECH — test right side menu like mockup variant 2, without numbers */
+#ut-main-nav {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  z-index: 9999 !important;
+  display: block !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  background: rgba(0, 0, 0, 0.56) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  transition: opacity 0.28s ease, visibility 0.28s ease !important;
+  overflow: hidden !important;
+}
+
+body.menu-show #ut-main-nav {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#ut-main-nav .ut-table,
+#ut-main-nav .ut-table-cell,
+#ut-main-nav .row,
+#ut-main-nav .col-md-12 {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+#ut-main-nav .ut-table-cell {
+  padding: 0 !important;
+  vertical-align: top !important;
+}
+
+#ut-main-nav .col-md-12 {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  width: min(356px, 100vw) !important;
+  max-width: 356px !important;
+  padding: 54px 30px 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  text-align: left !important;
+  overflow-y: auto !important;
+  background:
+    linear-gradient(180deg, rgba(12, 14, 16, 0.96), rgba(2, 3, 6, 0.96)),
+    rgba(4, 5, 8, 0.96) !important;
+  border-left: 1px solid rgba(248, 181, 0, 0.86) !important;
+  box-shadow:
+    -26px 0 70px rgba(0, 0, 0, 0.68),
+    -1px 0 18px rgba(248, 181, 0, 0.28),
+    inset 1px 0 0 rgba(255, 255, 255, 0.055) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transform: translateX(102%) !important;
+  transition: transform 0.34s cubic-bezier(.2, .8, .2, 1) !important;
+}
+
+body.menu-show #ut-main-nav .col-md-12 {
+  transform: translateX(0) !important;
+}
+
+#ut-main-nav .logo-text {
+  width: fit-content !important;
+  margin: 0 52px 16px 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #ffffff !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  letter-spacing: 3.5px !important;
+  text-decoration: none !important;
+}
+
+#ut-main-nav .col-md-12::after {
+  content: "Сучасні інженерні рішення";
+  order: 1;
+  display: block;
+  margin: 0 0 22px;
+  padding-bottom: 24px;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.115);
+}
+
+#ut-main-nav ul {
+  order: 2;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  list-style: none !important;
+  counter-reset: none !important;
+}
+
+#ut-main-nav ul li {
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.105) !important;
+  transform: translateX(14px);
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease !important;
+}
+
+#ut-main-nav ul li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.105) !important;
+}
+
+body.menu-show #ut-main-nav ul li {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+body.menu-show #ut-main-nav ul li:nth-child(1) { transition-delay: 0.06s !important; }
+body.menu-show #ut-main-nav ul li:nth-child(2) { transition-delay: 0.09s !important; }
+body.menu-show #ut-main-nav ul li:nth-child(3) { transition-delay: 0.12s !important; }
+body.menu-show #ut-main-nav ul li:nth-child(4) { transition-delay: 0.15s !important; }
+body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !important; }
+
+#ut-main-nav ul li::before,
+#ut-main-nav ul li a::before {
+  content: none !important;
+  display: none !important;
+}
+
+#ut-main-nav ul li a {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 56px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 560 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.35px !important;
+  text-decoration: none !important;
+  transition: color 0.22s ease, padding-left 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+#ut-main-nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(248, 181, 0, 0.8), rgba(248, 181, 0, 0));
+  transition: width 0.26s ease;
+}
+
+#ut-main-nav ul li a:hover,
+#ut-main-nav ul li.active a {
+  color: #f8b500 !important;
+  padding-left: 10px !important;
+  text-shadow: 0 0 14px rgba(248, 181, 0, 0.18) !important;
+}
+
+#ut-main-nav ul li a:hover::after,
+#ut-main-nav ul li.active a::after {
+  width: 100%;
+}
+
+#ut-main-nav > .ut-nav-toggle {
+  position: fixed !important;
+  top: 26px !important;
+  right: 22px !important;
+  z-index: 10001 !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+#ut-main-nav > .ut-nav-toggle i,
+#ut-main-nav > .ut-nav-toggle i::before,
+#ut-main-nav > .ut-nav-toggle i::after {
+  display: none !important;
+}
+
+#ut-main-nav > .ut-nav-toggle::after {
+  content: "×" !important;
+  display: block !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  background: transparent !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 31px !important;
+  font-weight: 200 !important;
+  line-height: 1 !important;
+  transform: none !important;
+  transition: color 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+#ut-main-nav > .ut-nav-toggle:hover::after {
+  color: #f8b500 !important;
+  text-shadow: 0 0 12px rgba(248, 181, 0, 0.35) !important;
+}
+
+#ut-main-nav .col-md-12 > ul::after {
+  content: "+38 (075) 633 76 52\A Telegram · Viber · WhatsApp";
+  white-space: pre-line;
+  margin-top: auto;
+  padding-top: 28px;
+  display: block;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.95;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 575.98px) {
+  #ut-main-nav .col-md-12 {
+    width: min(330px, 92vw) !important;
+    max-width: 92vw !important;
+    padding: 48px 24px 26px !important;
+  }
+
+  #ut-main-nav .logo-text {
+    font-size: 17px !important;
+    letter-spacing: 3px !important;
+  }
+
+  #ut-main-nav ul li a {
+    min-height: 54px !important;
+    font-size: 15px !important;
+  }
+
+  #ut-main-nav > .ut-nav-toggle {
+    top: 22px !important;
+    right: 18px !important;
+  }
+}
