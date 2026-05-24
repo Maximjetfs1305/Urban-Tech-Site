@@ -109,61 +109,27 @@ if (document.readyState === 'complete') {
   window.addEventListener('load', hidePreloaderWhenLoaded, { once: true });
 }
 
-// MAIN MENU — make sure FAQ and Contacts pages are visible across all pages
+// MAIN MENU — one identical menu across all pages
 window.addEventListener('DOMContentLoaded', () => {
   const menuLists = document.querySelectorAll('#ut-main-nav ul');
   if (!menuLists.length) return;
 
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-  const ensureMenuItem = (menuList, href, label, options = {}) => {
-    let link = menuList.querySelector(`a[href="${href}"]`);
-
-    if (!link) {
-      const item = document.createElement('li');
-      item.innerHTML = `<a href="${href}"><span>${label}</span></a>`;
-
-      if (options.beforeText) {
-        const beforeItem = Array.from(menuList.children).find((child) => {
-          const text = child.textContent.trim().toLowerCase();
-          return text.includes(options.beforeText.toLowerCase());
-        });
-
-        if (beforeItem) {
-          menuList.insertBefore(item, beforeItem);
-        } else {
-          menuList.appendChild(item);
-        }
-      } else {
-        menuList.appendChild(item);
-      }
-
-      link = item.querySelector('a');
-    } else {
-      const labelNode = link.querySelector('span') || link;
-      labelNode.textContent = label;
-    }
-
-    const item = link.closest('li');
-    if (currentPage === href && item) {
-      menuList.querySelectorAll('li.active').forEach((activeItem) => activeItem.classList.remove('active'));
-      item.classList.add('active');
-    }
-
-    return link;
-  };
+  const menuItems = [
+    { href: 'index.html', label: 'Головна', activeOn: ['index.html', ''] },
+    { href: 'services.html', label: 'Послуги', activeOn: ['services.html'] },
+    { href: 'porady-zamovnyku.html', label: 'Поради замовникам', activeOn: ['porady-zamovnyku.html'] },
+    { href: 'faq.html', label: 'FAQ', activeOn: ['faq.html'] },
+    { href: 'contacts.html', label: 'Контакти', activeOn: ['contacts.html'] }
+  ];
 
   menuLists.forEach((menuList) => {
-    ensureMenuItem(menuList, 'faq.html', 'Часті запитання', { beforeText: 'прайс' });
-    ensureMenuItem(menuList, 'contacts.html', 'Контакти');
-
-    const oldPopupContact = Array.from(menuList.querySelectorAll('a[href="#"][data-contact-open]')).find((link) => {
-      return link.textContent.trim().toLowerCase().includes('контак');
-    });
-
-    if (oldPopupContact && !oldPopupContact.closest('li')?.classList.contains('active')) {
-      oldPopupContact.closest('li')?.remove();
-    }
+    menuList.innerHTML = menuItems.map((item) => {
+      const isActive = item.activeOn.includes(currentPage);
+      const ariaCurrent = isActive ? ' aria-current="page"' : '';
+      return `<li class="${isActive ? 'active' : ''}"><a href="${item.href}"${ariaCurrent}><span>${item.label}</span></a></li>`;
+    }).join('');
   });
 });
 
