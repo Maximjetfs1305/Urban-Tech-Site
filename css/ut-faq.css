@@ -29,32 +29,18 @@ body.faq-body .faq-hero-section {
 
 body.faq-body .hero-info-wrap {
   position: relative;
-  padding: clamp(26px, 5vw, 46px) clamp(18px, 4vw, 42px);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  border-left: 1px solid rgba(248, 181, 0, 0.42);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.070), rgba(255, 255, 255, 0.018)),
-    rgba(5, 7, 12, 0.55);
-  box-shadow:
-    0 24px 74px rgba(0, 0, 0, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 0 clamp(10px, 2vw, 18px);
+  overflow: visible;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 body.faq-body .hero-info-wrap::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 16%;
-  bottom: 16%;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, #ffd64f, transparent);
-  box-shadow:
-    0 0 14px rgba(255, 214, 79, 0.58),
-    0 0 36px rgba(248, 181, 0, 0.24);
-  pointer-events: none;
+  content: none !important;
+  display: none !important;
 }
 
 body.faq-body .services-kicker {
@@ -329,7 +315,7 @@ body.faq-body .ut-consult-text p {
   }
 
   body.faq-body .hero-info-wrap {
-    padding: 26px 18px;
+    padding: 0 8px;
   }
 
   body.faq-body .services-title {
