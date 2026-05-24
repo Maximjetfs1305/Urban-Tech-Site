@@ -60,3 +60,58 @@ body.hero-wrap header .ut-nav-toggle i::after {
 body.hero-wrap:not(.ut-header-scrolled):not(.menu-show) header .logo-text {
   text-shadow: 0 0 18px rgba(0, 0, 0, 0.36) !important;
 }
+
+/* Keep page hero content close to the fixed header */
+html body.hero-wrap main {
+  padding-top: 54px !important;
+}
+
+html body.hero-wrap .services-intro-section,
+html body.hero-wrap .advice-hero-section,
+html body.hero-wrap .advice-article-hero,
+html body.hero-wrap.faq-body .faq-hero-section,
+html body.hero-wrap.contact-body .contact-hero-section {
+  padding-top: clamp(8px, 1.4vw, 18px) !important;
+  padding-bottom: clamp(22px, 4vw, 42px) !important;
+}
+
+html body.hero-wrap .services-intro-section .hero-info-wrap,
+html body.hero-wrap .advice-hero-section .hero-info-wrap,
+html body.hero-wrap.faq-body .faq-hero-section .hero-info-wrap,
+html body.hero-wrap.contact-body .contact-hero-section .hero-info-wrap,
+html body.hero-wrap .advice-article-hero .col-12 {
+  padding-top: 0 !important;
+}
+
+body.services-body .services-info-wrap::before {
+  content: "Головна / Послуги";
+  display: block;
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.60);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.4px;
+  text-transform: none;
+}
+
+@media (max-width: 767.98px) {
+  html body.hero-wrap main {
+    padding-top: 50px !important;
+  }
+
+  html body.hero-wrap .services-intro-section,
+  html body.hero-wrap .advice-hero-section,
+  html body.hero-wrap .advice-article-hero,
+  html body.hero-wrap.faq-body .faq-hero-section,
+  html body.hero-wrap.contact-body .contact-hero-section {
+    padding-top: 8px !important;
+    padding-bottom: 24px !important;
+  }
+
+  body.services-body .services-info-wrap::before {
+    margin-bottom: 12px;
+    font-size: 11.5px;
+  }
+}
