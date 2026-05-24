@@ -3,6 +3,7 @@
 
   const runtimeCssPath = "css/ut-runtime.css";
   const menuTestCssPath = "css/ut-menu-test.css";
+  const headerScrollCssPath = "css/ut-header-scroll.css";
   const heroVideoPath = "assets/video/hero-bg.mp4";
   const heroPosterPath = "assets/img/hero-poster.jpg";
 
@@ -59,6 +60,7 @@
 
   ensureStylesheet(runtimeCssPath);
   ensureStylesheet(menuTestCssPath);
+  ensureStylesheet(headerScrollCssPath);
   ensureHeroVideo();
 })();
 
@@ -110,6 +112,16 @@ if (document.readyState === 'complete') {
 } else {
   window.addEventListener('load', hidePreloaderWhenLoaded, { once: true });
 }
+
+// HEADER SCROLL STATE
+window.addEventListener('DOMContentLoaded', () => {
+  const updateHeaderState = () => {
+    document.body.classList.toggle('ut-header-scrolled', window.scrollY > 12);
+  };
+
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+});
 
 // MAIN MENU — one identical menu across all pages
 window.addEventListener('DOMContentLoaded', () => {
