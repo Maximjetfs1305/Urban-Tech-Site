@@ -119,7 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const menuItems = [
     { href: 'index.html', label: 'Головна', activeOn: ['index.html', ''] },
     { href: 'services.html', label: 'Послуги', activeOn: ['services.html'] },
-    { href: 'porady-zamovnyku.html', label: 'Поради замовникам', activeOn: ['porady-zamovnyku.html'] },
+    { href: 'porady-zamovnyku.html', label: 'Поради', activeOn: ['porady-zamovnyku.html'] },
     { href: 'faq.html', label: 'FAQ', activeOn: ['faq.html'] },
     { href: 'contacts.html', label: 'Контакти', activeOn: ['contacts.html'] }
   ];
