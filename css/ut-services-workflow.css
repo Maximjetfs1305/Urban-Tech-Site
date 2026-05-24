@@ -1,0 +1,163 @@
+/* URBAN TECH — services workflow block */
+
+.services-workflow {
+  position: relative;
+  margin: clamp(26px, 4vw, 42px) 0 clamp(22px, 3.5vw, 34px);
+  padding: clamp(22px, 3.6vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-left: 1px solid rgba(255, 214, 79, 0.34);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.10), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.060), rgba(255, 255, 255, 0.018)),
+    rgba(5, 7, 12, 0.72);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.services-workflow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #ffd64f, transparent);
+  box-shadow: 0 0 16px rgba(255, 214, 79, 0.58), 0 0 36px rgba(248, 181, 0, 0.22);
+  pointer-events: none;
+}
+
+.services-workflow__head {
+  max-width: 720px;
+  margin-bottom: clamp(18px, 3vw, 26px);
+}
+
+.services-workflow__head span {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #ffd64f;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 760;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.services-workflow__head h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 760;
+  line-height: 1.12;
+  letter-spacing: -0.4px;
+}
+
+.services-workflow__head p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.services-workflow__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.services-workflow__item {
+  position: relative;
+  min-height: 188px;
+  padding: 18px 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.070);
+  background: rgba(255, 255, 255, 0.028);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease;
+}
+
+.services-workflow__item::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 214, 79, 0.45), transparent);
+  opacity: 0;
+  transition: opacity 0.24s ease;
+}
+
+.services-workflow__item b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 214, 79, 0.30);
+  color: #ffd64f;
+  background: rgba(248, 181, 0, 0.050);
+  font-size: 11px;
+  font-weight: 760;
+  line-height: 1;
+  box-shadow: 0 0 18px rgba(248, 181, 0, 0.08);
+}
+
+.services-workflow__item h3 {
+  margin: 0 0 9px;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 1.25;
+}
+
+.services-workflow__item p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12.8px;
+  line-height: 1.58;
+}
+
+.services-workflow__item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 214, 79, 0.22);
+  background: linear-gradient(180deg, rgba(248, 181, 0, 0.055), rgba(255, 255, 255, 0.025));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 16px 38px rgba(0, 0, 0, 0.20);
+}
+
+.services-workflow__item:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 1199.98px) {
+  .services-workflow__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-workflow__item {
+    min-height: 164px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .services-workflow {
+    margin-top: 20px;
+    padding: 22px 16px;
+  }
+
+  .services-workflow__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .services-workflow__item {
+    min-height: 0;
+    padding: 15px 14px;
+  }
+
+  .services-workflow__item b {
+    margin-bottom: 12px;
+  }
+}
