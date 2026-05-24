@@ -94,23 +94,53 @@
     let menuCloseTimer = null;
     const closeDelay = 420;
 
+    const openMenu = function() {
+      window.clearTimeout(menuCloseTimer);
+      $('body').removeClass('menu-closing').addClass('menu-show');
+      setTimeout(function(){
+        $('#ut-main-nav > .js-ut-nav-toggle').addClass('show');
+      }, 80);
+    };
+
+    const closeMenu = function() {
+      if (!$('body').hasClass('menu-show') || $('body').hasClass('menu-closing')) return;
+
+      window.clearTimeout(menuCloseTimer);
+      $('body').addClass('menu-closing');
+      $('#ut-main-nav > .js-ut-nav-toggle').removeClass('show');
+
+      menuCloseTimer = window.setTimeout(function() {
+        $('body').removeClass('menu-show menu-closing');
+      }, closeDelay);
+    };
+
     $('.js-ut-nav-toggle').on('click', function(event) {
       event.preventDefault();
+      event.stopPropagation();
 
       if ($('body').hasClass('menu-show')) {
-        window.clearTimeout(menuCloseTimer);
-        $('body').addClass('menu-closing');
-        $('#ut-main-nav > .js-ut-nav-toggle').removeClass('show');
-
-        menuCloseTimer = window.setTimeout(function() {
-          $('body').removeClass('menu-show menu-closing');
-        }, closeDelay);
+        closeMenu();
       } else {
-        window.clearTimeout(menuCloseTimer);
-        $('body').removeClass('menu-closing').addClass('menu-show');
-        setTimeout(function(){
-          $('#ut-main-nav > .js-ut-nav-toggle').addClass('show');
-        }, 80);
+        openMenu();
+      }
+    });
+
+    $('#ut-main-nav').on('click', function(event) {
+      const clickedPanel = $(event.target).closest('#ut-main-nav .col-md-12').length > 0;
+      const clickedCloseButton = $(event.target).closest('#ut-main-nav > .js-ut-nav-toggle').length > 0;
+
+      if (!clickedPanel && !clickedCloseButton) {
+        closeMenu();
+      }
+    });
+
+    $('#ut-main-nav .col-md-12').on('click', function(event) {
+      event.stopPropagation();
+    });
+
+    $(document).on('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeMenu();
       }
     });
   };
