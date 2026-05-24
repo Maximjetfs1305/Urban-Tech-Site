@@ -521,3 +521,34 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.24s !import
     right: 22px !important;
   }
 }
+
+/* =========================================================
+   HERO TOP ALIGNMENT — equal vertical start for page titles
+========================================================= */
+body.hero-wrap .services-intro-section,
+body.hero-wrap .advice-hero-section,
+body.hero-wrap .advice-article-hero,
+body.hero-wrap .faq-hero-section,
+body.hero-wrap .contact-hero-section {
+  padding-top: clamp(92px, 9vw, 118px) !important;
+  padding-bottom: clamp(28px, 5vw, 54px) !important;
+}
+
+body.hero-wrap .services-intro-section .hero-info-wrap,
+body.hero-wrap .advice-hero-section .hero-info-wrap,
+body.hero-wrap .faq-hero-section .hero-info-wrap,
+body.hero-wrap .contact-hero-section .hero-info-wrap,
+body.hero-wrap .advice-article-hero .col-12 {
+  padding-top: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+  body.hero-wrap .services-intro-section,
+  body.hero-wrap .advice-hero-section,
+  body.hero-wrap .advice-article-hero,
+  body.hero-wrap .faq-hero-section,
+  body.hero-wrap .contact-hero-section {
+    padding-top: 84px !important;
+    padding-bottom: 30px !important;
+  }
+}
