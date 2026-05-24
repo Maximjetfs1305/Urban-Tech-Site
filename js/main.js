@@ -256,7 +256,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (!target) {
     const heroContent = document.querySelector(
-      '.advice-article-hero .col-12, .advice-hero-section .hero-info-wrap, .services-hero-section .hero-info-wrap, .faq-hero-section .hero-info-wrap, .contact-hero-section .hero-info-wrap'
+      '.advice-article-hero .col-12, .advice-hero-section .hero-info-wrap, .services-intro-section .hero-info-wrap, .services-hero-section .hero-info-wrap, .faq-hero-section .hero-info-wrap, .contact-hero-section .hero-info-wrap'
     );
 
     if (!heroContent) return;
