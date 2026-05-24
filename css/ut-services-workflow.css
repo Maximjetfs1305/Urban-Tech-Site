@@ -27,7 +27,7 @@
 }
 
 .services-workflow__head {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: clamp(18px, 3vw, 26px);
 }
 
@@ -53,7 +53,7 @@
 }
 
 .services-workflow__head p {
-  max-width: 680px;
+  max-width: 740px;
   margin: 0;
   color: rgba(255, 255, 255, 0.70);
   font-size: 15px;
@@ -62,14 +62,14 @@
 
 .services-workflow__grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .services-workflow__item {
   position: relative;
-  min-height: 188px;
-  padding: 18px 15px 16px;
+  min-height: 190px;
+  padding: 16px 11px 14px;
   border: 1px solid rgba(255, 255, 255, 0.070);
   background: rgba(255, 255, 255, 0.028);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
@@ -79,8 +79,8 @@
 .services-workflow__item::after {
   content: "";
   position: absolute;
-  left: 15px;
-  right: 15px;
+  left: 12px;
+  right: 12px;
   bottom: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 214, 79, 0.45), transparent);
@@ -92,23 +92,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  margin-bottom: 18px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 15px;
   border: 1px solid rgba(255, 214, 79, 0.30);
   color: #ffd64f;
   background: rgba(248, 181, 0, 0.050);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 760;
   line-height: 1;
   box-shadow: 0 0 18px rgba(248, 181, 0, 0.08);
 }
 
 .services-workflow__item h3 {
-  margin: 0 0 9px;
+  margin: 0 0 8px;
   color: rgba(255, 255, 255, 0.92);
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13.2px;
   font-weight: 720;
   line-height: 1.25;
 }
@@ -116,8 +116,8 @@
 .services-workflow__item p {
   margin: 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 12.8px;
-  line-height: 1.58;
+  font-size: 12px;
+  line-height: 1.52;
 }
 
 .services-workflow__item:hover {
@@ -133,11 +133,27 @@
 
 @media (max-width: 1199.98px) {
   .services-workflow__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
   }
 
   .services-workflow__item {
     min-height: 164px;
+    padding: 16px 14px;
+  }
+
+  .services-workflow__item h3 {
+    font-size: 14px;
+  }
+
+  .services-workflow__item p {
+    font-size: 12.8px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .services-workflow__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
