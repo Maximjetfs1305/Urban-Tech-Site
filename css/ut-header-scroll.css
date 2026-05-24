@@ -83,6 +83,24 @@ html body.hero-wrap .advice-article-hero .col-12 {
   padding-top: 0 !important;
 }
 
+/* Breadcrumbs: always align to the left edge of the content block */
+html body.hero-wrap .advice-breadcrumbs,
+html body.hero-wrap .services-info-wrap::before {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+}
+
+html body.hero-wrap .advice-breadcrumbs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
 body.services-body .services-info-wrap::before {
   content: "Головна / Послуги";
   display: block;
