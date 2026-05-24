@@ -2,15 +2,16 @@
   "use strict";
 
   const runtimeCssPath = "css/ut-runtime.css";
+  const menuTestCssPath = "css/ut-menu-test.css";
   const heroVideoPath = "assets/video/hero-bg.mp4";
   const heroPosterPath = "assets/img/hero-poster.jpg";
 
-  const ensureRuntimeCss = () => {
-    if (document.querySelector(`link[href="${runtimeCssPath}"]`)) return;
+  const ensureStylesheet = (href) => {
+    if (document.querySelector(`link[href="${href}"]`)) return;
 
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = runtimeCssPath;
+    link.href = href;
     document.head.appendChild(link);
   };
 
@@ -56,7 +57,8 @@
     }
   };
 
-  ensureRuntimeCss();
+  ensureStylesheet(runtimeCssPath);
+  ensureStylesheet(menuTestCssPath);
   ensureHeroVideo();
 })();
 
