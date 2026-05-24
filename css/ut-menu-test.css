@@ -78,15 +78,16 @@ body.menu-show #ut-main-nav {
   width: 1px;
   background: linear-gradient(
     180deg,
-    rgba(248, 181, 0, 0.10) 0%,
-    rgba(248, 181, 0, 0.72) 18%,
-    rgba(248, 181, 0, 0.88) 50%,
-    rgba(248, 181, 0, 0.72) 82%,
-    rgba(248, 181, 0, 0.10) 100%
+    rgba(248, 181, 0, 0.14) 0%,
+    rgba(248, 181, 0, 0.90) 18%,
+    rgba(255, 214, 79, 0.98) 50%,
+    rgba(248, 181, 0, 0.90) 82%,
+    rgba(248, 181, 0, 0.14) 100%
   );
   box-shadow:
-    0 0 8px rgba(248, 181, 0, 0.24),
-    0 0 18px rgba(248, 181, 0, 0.12);
+    0 0 12px rgba(248, 181, 0, 0.52),
+    0 0 28px rgba(248, 181, 0, 0.30),
+    0 0 52px rgba(248, 181, 0, 0.16);
   pointer-events: none;
   z-index: 2;
 }
@@ -140,10 +141,17 @@ body.menu-show #ut-main-nav .col-md-12 {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  border-left: none !important;
+  box-shadow: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.095) !important;
   transform: translateX(12px);
   opacity: 0;
   transition: transform 0.28s ease, opacity 0.28s ease !important;
+}
+
+#ut-main-nav ul li.active {
+  border-left: none !important;
+  box-shadow: none !important;
 }
 
 #ut-main-nav ul li::after {
@@ -154,12 +162,13 @@ body.menu-show #ut-main-nav .col-md-12 {
   width: 1px;
   height: 0;
   transform: translateY(-50%);
-  background: #f8b500;
+  background: #ffd64f;
   opacity: 0;
   box-shadow:
-    0 0 10px rgba(248, 181, 0, 0.95),
-    0 0 24px rgba(248, 181, 0, 0.62),
-    0 0 44px rgba(248, 181, 0, 0.34);
+    0 0 12px rgba(255, 214, 79, 1),
+    0 0 28px rgba(248, 181, 0, 0.82),
+    0 0 54px rgba(248, 181, 0, 0.52),
+    0 0 84px rgba(248, 181, 0, 0.30);
   transition: height 0.22s ease, opacity 0.22s ease;
   pointer-events: none;
   z-index: 4;
@@ -217,11 +226,12 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 
 #ut-main-nav ul li a:hover,
 #ut-main-nav ul li.active a {
-  color: #f8b500 !important;
+  color: #ffd64f !important;
   padding-left: 34px !important;
   text-shadow:
-    0 0 10px rgba(248, 181, 0, 0.35),
-    0 0 22px rgba(248, 181, 0, 0.16) !important;
+    0 0 12px rgba(255, 214, 79, 0.60),
+    0 0 26px rgba(248, 181, 0, 0.32),
+    0 0 46px rgba(248, 181, 0, 0.16) !important;
 }
 
 #ut-main-nav > .ut-nav-toggle {
@@ -282,9 +292,9 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 #ut-main-nav > .ut-nav-toggle:hover::after,
 #ut-main-nav > .ut-nav-toggle:focus::after,
 #ut-main-nav > .ut-nav-toggle:active::after {
-  color: #f8b500 !important;
+  color: #ffd64f !important;
   background: transparent !important;
-  text-shadow: 0 0 12px rgba(248, 181, 0, 0.35) !important;
+  text-shadow: 0 0 16px rgba(255, 214, 79, 0.60) !important;
 }
 
 #ut-main-nav .col-md-12 > ul::after {
@@ -333,10 +343,10 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
 
 .ut-menu-phone i,
 .ut-menu-socials i {
-  color: #f8b500;
+  color: #ffd64f;
   font-size: 11px;
   line-height: 1;
-  text-shadow: 0 0 10px rgba(248, 181, 0, 0.36);
+  text-shadow: 0 0 14px rgba(255, 214, 79, 0.56);
 }
 
 .ut-menu-socials .ut-menu-dot {
@@ -344,14 +354,14 @@ body.menu-show #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !import
   height: 3px;
   display: inline-flex;
   border-radius: 50%;
-  background: rgba(248, 181, 0, 0.88);
-  box-shadow: 0 0 8px rgba(248, 181, 0, 0.36);
+  background: rgba(255, 214, 79, 0.95);
+  box-shadow: 0 0 10px rgba(255, 214, 79, 0.52);
 }
 
 .ut-menu-phone:hover,
 .ut-menu-socials a:hover {
-  color: #f8b500 !important;
-  text-shadow: 0 0 12px rgba(248, 181, 0, 0.18);
+  color: #ffd64f !important;
+  text-shadow: 0 0 16px rgba(255, 214, 79, 0.38);
   transform: translateX(2px);
 }
 
