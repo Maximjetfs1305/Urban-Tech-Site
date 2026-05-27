@@ -213,6 +213,11 @@
   -webkit-backdrop-filter: none;
 }
 
+.service-panel[data-service-panel="security"] .service-hero-card--security::after {
+  content: none;
+  display: none;
+}
+
 .service-panel[data-service-panel="security"] .service-hero-card--security .service-label {
   display: inline-block;
   margin-bottom: 10px;
@@ -280,14 +285,8 @@
 }
 
 .service-panel[data-service-panel="security"] .service-info-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.055), transparent 30%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.028), transparent 42%);
-  opacity: 0.7;
-  pointer-events: none;
+  content: none;
+  display: none;
 }
 
 .service-panel[data-service-panel="security"] .service-info-card:hover {
