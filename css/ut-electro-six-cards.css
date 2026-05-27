@@ -68,11 +68,19 @@ body.services-body [data-service-panel="electro"] .service-step-card__icon {
   font-size: 21px;
 }
 
+body.services-body [data-service-panel="electro"] .service-step-card__icon:has(.service-step-card__icon-img) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 body.services-body [data-service-panel="electro"] .service-step-card__icon-img {
   width: 44px;
   height: 44px;
   display: block;
   object-fit: contain;
+  background: transparent !important;
+  border: 0 !important;
   filter: drop-shadow(0 0 7px rgba(248, 181, 0, 0.28));
 }
 
