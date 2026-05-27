@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(10px, 1.5vw, 14px);
-  margin: clamp(26px, 4vw, 42px) 0 clamp(22px, 3.5vw, 34px);
+  margin: clamp(10px, 1.6vw, 18px) 0 clamp(22px, 3.5vw, 34px);
   padding: clamp(22px, 3.6vw, 34px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.075);
@@ -211,7 +211,7 @@
   .electro-services-grid {
     grid-template-columns: 1fr;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 12px;
     padding: 22px 16px;
   }
 
