@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><g stroke="#f8b500" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h31c4 0 7 3 7 7v29H18c-4 0-6-2-6-6V14Z"/><path d="M12 14c0-4 3-7 7-7s7 3 7 7v35c0 4-3 7-7 7s-7-3-7-7V14Z"/><path d="M26 49c0-4-3-7-7-7s-7 3-7 7"/><path d="M30 24h14M30 34h8M39 24v16M30 43h15"/><path d="M38 45l15-15 6 6-15 15-8 2 2-8Z"/><path d="M50 33l6 6"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
+  <defs>
+    <filter id="utGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1.2" flood-color="#f8b500" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+  <g filter="url(#utGlow)" stroke="#f8b500" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11.5 14.5h45.5c3.5 0 6.5 2.8 6.5 6.3v38.7H17c-3 0-5.5-2.5-5.5-5.5V14.5Z"/>
+    <path d="M11.5 14.5c0-4.2 3.4-7.5 7.6-7.5s7.7 3.3 7.7 7.5v39.7c0 4.5-3.7 8.1-8.2 8.1s-8.1-3.6-8.1-8.1V14.5Z"/>
+    <path d="M26.8 54.2c0-4.4-3.7-8-8.2-8s-8.1 3.6-8.1 8"/>
+    <path d="M16.2 13.1h6.2M16.2 17.2h6.2M16.2 21.3h6.2M16.2 25.4h6.2M16.2 29.5h6.2M16.2 33.6h6.2M16.2 37.7h6.2" opacity="0.62"/>
+    <path d="M33 24h18.5M33 24v25M33 37h11M44 24v9M44 37v12M51.5 24v20"/>
+    <path d="M29 49h30M29 31h5M53.5 31h5M42 49v5M42 43v2" opacity="0.72"/>
+    <path d="M30 31.2h28.5M30 49h28.5" stroke-dasharray="3.2 4.2" opacity="0.72"/>
+    <path d="M52.8 27.2l8 8"/>
+    <path d="M39.2 52.5l16.5-16.5 7.4 7.4-16.5 16.5-10.1 2.7 2.7-10.1Z"/>
+    <path d="M51.7 40l7.4 7.4M42.4 51.4l7.4 7.4"/>
+    <path d="M36.5 62.6l4.7-1.3-3.4-3.4-1.3 4.7Z" fill="#f8b500" stroke="none"/>
+    <path d="M56.2 35.6l3.9-3.9c1.1-1.1 2.7-1.1 3.8 0l2.4 2.4c1.1 1.1 1.1 2.8 0 3.8l-3.9 3.9"/>
+  </g>
+</svg>
