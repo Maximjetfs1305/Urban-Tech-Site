@@ -149,10 +149,6 @@
   line-height: 1.58;
 }
 
-.services-workflow[data-workflow-panel="electro"] {
-  display: none !important;
-}
-
 @media (max-width: 991.98px) {
   .electro-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
