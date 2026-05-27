@@ -56,6 +56,12 @@
   object-fit: contain;
 }
 
+.service-card-icon i {
+  color: var(--ut-gold);
+  font-size: 32px;
+  line-height: 1;
+}
+
 .service-info-card--with-icon h3 {
   margin-bottom: 12px;
 }
@@ -86,5 +92,9 @@
   .service-card-icon__img {
     width: 48px;
     height: 48px;
+  }
+
+  .service-card-icon i {
+    font-size: 28px;
   }
 }
