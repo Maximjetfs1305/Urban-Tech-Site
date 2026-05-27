@@ -50,8 +50,8 @@
 }
 
 .service-card-icon__img {
-  width: 54px;
-  height: 54px;
+  width: 70px;
+  height: 70px;
   display: block;
   object-fit: contain;
 }
@@ -90,8 +90,8 @@
   }
 
   .service-card-icon__img {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
   }
 
   .service-card-icon i {
