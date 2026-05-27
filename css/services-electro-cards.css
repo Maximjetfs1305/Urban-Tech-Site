@@ -198,6 +198,28 @@
   pointer-events: none;
 }
 
+.service-panel[data-service-panel="security"]::after,
+.service-panel[data-service-panel="security"] .service-visual-card::before,
+.service-panel[data-service-panel="security"] .service-visual-card::after,
+.service-panel[data-service-panel="security"] .visual-security::before,
+.service-panel[data-service-panel="security"] .visual-security::after,
+.service-panel[data-service-panel="security"] .visual-logic::before,
+.service-panel[data-service-panel="security"] .visual-logic::after,
+.service-panel[data-service-panel="security"] .visual-backup::before,
+.service-panel[data-service-panel="security"] .visual-backup::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+.service-panel[data-service-panel="security"] .service-visual-card,
+.service-panel[data-service-panel="security"] .visual-security,
+.service-panel[data-service-panel="security"] .visual-logic,
+.service-panel[data-service-panel="security"] .visual-backup {
+  background-image: none !important;
+}
+
 .service-panel[data-service-panel="security"] > * {
   position: relative;
   z-index: 1;
