@@ -52,16 +52,7 @@ body.services-body [data-service-panel="electro"] .service-step-card > * {
 }
 
 body.services-body [data-service-panel="electro"] .service-step-card__meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
-  color: #f8b500;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 2.8px;
-  text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(248, 181, 0, 0.22);
+  display: none !important;
 }
 
 body.services-body [data-service-panel="electro"] .service-step-card__icon {
