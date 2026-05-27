@@ -1,16 +1,12 @@
 /* =========================================================
    URBAN TECH — UNIVERSAL SERVICES PREMIUM CARDS
-   Базовий стиль більше не прив'язаний тільки до електромереж.
-   Для вкладок використовуємо універсальні класи:
+   Актуальний стиль для всіх вкладок сторінки "Наші послуги".
+   HTML-структура:
    .services-premium-grid
    .services-premium-grid__head
    .services-premium-card
-
-   Старі класи .electro-services-grid / .electro-services-grid__head
-   залишені як сумісність, щоб не ламати поточний блок.
 ========================================================= */
-.services-premium-grid,
-.electro-services-grid {
+.services-premium-grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -29,8 +25,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
-.services-premium-grid::before,
-.electro-services-grid::before {
+.services-premium-grid::before {
   content: "";
   position: absolute;
   left: 0;
@@ -44,21 +39,18 @@
   pointer-events: none;
 }
 
-.services-premium-grid > *,
-.electro-services-grid > * {
+.services-premium-grid > * {
   position: relative;
   z-index: 1;
 }
 
-.services-premium-grid__head,
-.electro-services-grid__head {
+.services-premium-grid__head {
   grid-column: 1 / -1;
   max-width: 820px;
   margin-bottom: clamp(8px, 1.6vw, 12px);
 }
 
-.services-premium-grid__head .service-label,
-.electro-services-grid__head .service-label {
+.services-premium-grid__head .service-label {
   display: inline-block;
   margin-bottom: 10px;
   color: #ffd64f;
@@ -68,8 +60,7 @@
   text-transform: uppercase;
 }
 
-.services-premium-grid__head h2,
-.electro-services-grid__head h2 {
+.services-premium-grid__head h2 {
   margin: 0 0 10px;
   color: #fff;
   font-size: clamp(24px, 3vw, 36px);
@@ -78,8 +69,7 @@
   letter-spacing: -0.4px;
 }
 
-.services-premium-grid__head p,
-.electro-services-grid__head p {
+.services-premium-grid__head p {
   margin: 0;
   color: rgba(255, 255, 255, 0.70);
   font-size: 15px;
@@ -87,7 +77,6 @@
 }
 
 .services-premium-card,
-.service-info-card--with-icon,
 .services-premium-grid .service-info-card {
   position: relative;
   min-height: 172px;
@@ -108,7 +97,6 @@
 }
 
 .services-premium-card::before,
-.service-info-card--with-icon::before,
 .services-premium-grid .service-info-card::before {
   content: "";
   position: absolute;
@@ -123,7 +111,6 @@
 }
 
 .services-premium-card::after,
-.service-info-card--with-icon::after,
 .services-premium-grid .service-info-card::after {
   content: "";
   position: absolute;
@@ -136,7 +123,6 @@
 }
 
 .services-premium-card:hover,
-.service-info-card--with-icon:hover,
 .services-premium-grid .service-info-card:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 214, 79, 0.24);
@@ -149,24 +135,17 @@
 }
 
 .services-premium-card:hover::before,
-.service-info-card--with-icon:hover::before,
 .services-premium-grid .service-info-card:hover::before {
   opacity: 1;
 }
 
-.service-card-icon {
-  display: none;
-}
-
 .services-premium-card > *,
-.service-info-card--with-icon > *,
 .services-premium-grid .service-info-card > * {
   position: relative;
   z-index: 1;
 }
 
 .services-premium-card h3,
-.service-info-card--with-icon h3,
 .services-premium-grid .service-info-card h3 {
   display: flex;
   align-items: center;
@@ -180,7 +159,6 @@
 }
 
 .services-premium-card h3::before,
-.service-info-card--with-icon h3::before,
 .services-premium-grid .service-info-card h3::before {
   content: "";
   width: 3px;
@@ -191,7 +169,6 @@
 }
 
 .services-premium-card p,
-.service-info-card--with-icon p,
 .services-premium-grid .service-info-card p {
   margin: 0;
   color: rgba(255, 255, 255, 0.64);
@@ -200,15 +177,13 @@
 }
 
 @media (max-width: 991.98px) {
-  .services-premium-grid,
-  .electro-services-grid {
+  .services-premium-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767.98px) {
-  .services-premium-grid,
-  .electro-services-grid {
+  .services-premium-grid {
     grid-template-columns: 1fr;
     gap: 8px;
     margin-top: 0;
@@ -216,14 +191,12 @@
   }
 
   .services-premium-card,
-  .service-info-card--with-icon,
   .services-premium-grid .service-info-card {
     min-height: 0;
     padding: 16px 14px;
   }
 
   .services-premium-card h3,
-  .service-info-card--with-icon h3,
   .services-premium-grid .service-info-card h3 {
     font-size: 14px;
   }
