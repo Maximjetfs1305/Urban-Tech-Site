@@ -1,10 +1,6 @@
 /* =========================================================
    URBAN TECH — UNIVERSAL SERVICES PREMIUM CARDS
    Актуальний стиль для всіх вкладок сторінки "Наші послуги".
-   HTML-структура:
-   .services-premium-grid
-   .services-premium-grid__head
-   .services-premium-card
 ========================================================= */
 .services-premium-grid {
   position: relative;
@@ -180,13 +176,29 @@
    SERVICE CARD BACKGROUNDS
    Картинки лежать у: assets/img/services/cards/
 ========================================================= */
-.service-card-bg {
+.service-panel:is(
+  [data-service-panel="electro"],
+  [data-service-panel="security"],
+  [data-service-panel="video"],
+  [data-service-panel="access"],
+  [data-service-panel="smart"],
+  [data-service-panel="network"],
+  [data-service-panel="service"]
+) .services-premium-card {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.service-card-bg::after {
+.service-panel:is(
+  [data-service-panel="electro"],
+  [data-service-panel="security"],
+  [data-service-panel="video"],
+  [data-service-panel="access"],
+  [data-service-panel="smart"],
+  [data-service-panel="network"],
+  [data-service-panel="service"]
+) .services-premium-card::after {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.92) 0%, rgba(2, 4, 8, 0.72) 50%, rgba(2, 4, 8, 0.42) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.28), rgba(2, 4, 8, 0.82)),
@@ -194,78 +206,15 @@
   opacity: 1;
 }
 
-.service-card-bg:hover::after {
-  background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.86) 0%, rgba(2, 4, 8, 0.62) 50%, rgba(2, 4, 8, 0.32) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.18), rgba(2, 4, 8, 0.74)),
-    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.12), transparent 34%);
-}
-
-.service-card-bg--electro-01 { background-image: url("../assets/img/services/cards/electro-01.png"); }
-.service-card-bg--electro-02 { background-image: url("../assets/img/services/cards/electro-02.png"); }
-.service-card-bg--electro-03 { background-image: url("../assets/img/services/cards/electro-03.png"); }
-.service-card-bg--electro-04 { background-image: url("../assets/img/services/cards/electro-04.png"); }
-.service-card-bg--electro-05 { background-image: url("../assets/img/services/cards/electro-05.png"); }
-.service-card-bg--electro-06 { background-image: url("../assets/img/services/cards/electro-06.png"); }
-
-.service-card-bg--security-01 { background-image: url("../assets/img/services/cards/security-01.png"); }
-.service-card-bg--security-02 { background-image: url("../assets/img/services/cards/security-02.png"); }
-.service-card-bg--security-03 { background-image: url("../assets/img/services/cards/security-03.png"); }
-.service-card-bg--security-04 { background-image: url("../assets/img/services/cards/security-04.png"); }
-.service-card-bg--security-05 { background-image: url("../assets/img/services/cards/security-05.png"); }
-.service-card-bg--security-06 { background-image: url("../assets/img/services/cards/security-06.png"); }
-
-.service-card-bg--video-01 { background-image: url("../assets/img/services/cards/video-01.png"); }
-.service-card-bg--video-02 { background-image: url("../assets/img/services/cards/video-02.png"); }
-.service-card-bg--video-03 { background-image: url("../assets/img/services/cards/video-03.png"); }
-.service-card-bg--video-04 { background-image: url("../assets/img/services/cards/video-04.png"); }
-.service-card-bg--video-05 { background-image: url("../assets/img/services/cards/video-05.png"); }
-.service-card-bg--video-06 { background-image: url("../assets/img/services/cards/video-06.png"); }
-
-.service-card-bg--access-01 { background-image: url("../assets/img/services/cards/access-01.png"); }
-.service-card-bg--access-02 { background-image: url("../assets/img/services/cards/access-02.png"); }
-.service-card-bg--access-03 { background-image: url("../assets/img/services/cards/access-03.png"); }
-.service-card-bg--access-04 { background-image: url("../assets/img/services/cards/access-04.png"); }
-.service-card-bg--access-05 { background-image: url("../assets/img/services/cards/access-05.png"); }
-.service-card-bg--access-06 { background-image: url("../assets/img/services/cards/access-06.png"); }
-
-.service-card-bg--smart-01 { background-image: url("../assets/img/services/cards/smart-01.png"); }
-.service-card-bg--smart-02 { background-image: url("../assets/img/services/cards/smart-02.png"); }
-.service-card-bg--smart-03 { background-image: url("../assets/img/services/cards/smart-03.png"); }
-.service-card-bg--smart-04 { background-image: url("../assets/img/services/cards/smart-04.png"); }
-.service-card-bg--smart-05 { background-image: url("../assets/img/services/cards/smart-05.png"); }
-.service-card-bg--smart-06 { background-image: url("../assets/img/services/cards/smart-06.png"); }
-
-.service-card-bg--network-01 { background-image: url("../assets/img/services/cards/network-01.png"); }
-.service-card-bg--network-02 { background-image: url("../assets/img/services/cards/network-02.png"); }
-.service-card-bg--network-03 { background-image: url("../assets/img/services/cards/network-03.png"); }
-.service-card-bg--network-04 { background-image: url("../assets/img/services/cards/network-04.png"); }
-.service-card-bg--network-05 { background-image: url("../assets/img/services/cards/network-05.png"); }
-.service-card-bg--network-06 { background-image: url("../assets/img/services/cards/network-06.png"); }
-
-.service-card-bg--service-01 { background-image: url("../assets/img/services/cards/service-01.png"); }
-.service-card-bg--service-02 { background-image: url("../assets/img/services/cards/service-02.png"); }
-.service-card-bg--service-03 { background-image: url("../assets/img/services/cards/service-03.png"); }
-.service-card-bg--service-04 { background-image: url("../assets/img/services/cards/service-04.png"); }
-.service-card-bg--service-05 { background-image: url("../assets/img/services/cards/service-05.png"); }
-.service-card-bg--service-06 { background-image: url("../assets/img/services/cards/service-06.png"); }
-
-/* Тимчасове підключення фонів для вкладки "Електромережі" без зміни HTML. */
-.service-panel[data-service-panel="electro"] .services-premium-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.service-panel[data-service-panel="electro"] .services-premium-card::after {
-  background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.92) 0%, rgba(2, 4, 8, 0.72) 50%, rgba(2, 4, 8, 0.42) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.28), rgba(2, 4, 8, 0.82)),
-    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.08), transparent 34%);
-  opacity: 1;
-}
-
-.service-panel[data-service-panel="electro"] .services-premium-card:hover::after {
+.service-panel:is(
+  [data-service-panel="electro"],
+  [data-service-panel="security"],
+  [data-service-panel="video"],
+  [data-service-panel="access"],
+  [data-service-panel="smart"],
+  [data-service-panel="network"],
+  [data-service-panel="service"]
+) .services-premium-card:hover::after {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.86) 0%, rgba(2, 4, 8, 0.62) 50%, rgba(2, 4, 8, 0.32) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.18), rgba(2, 4, 8, 0.74)),
@@ -279,34 +228,47 @@
 .service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/electro-05.png"); }
 .service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/electro-06.png"); }
 
-/* Тимчасове підключення фонів для вкладки "Системи безпеки" без зміни HTML. */
-.service-panel[data-service-panel="security"] .services-premium-card {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.service-panel[data-service-panel="security"] .services-premium-card::after {
-  background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.92) 0%, rgba(2, 4, 8, 0.72) 50%, rgba(2, 4, 8, 0.42) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.28), rgba(2, 4, 8, 0.82)),
-    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.08), transparent 34%);
-  opacity: 1;
-}
-
-.service-panel[data-service-panel="security"] .services-premium-card:hover::after {
-  background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.86) 0%, rgba(2, 4, 8, 0.62) 50%, rgba(2, 4, 8, 0.32) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.18), rgba(2, 4, 8, 0.74)),
-    radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.12), transparent 34%);
-}
-
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/security-01.png"); }
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/security-02.png"); }
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/security-03.png"); }
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/security-04.png"); }
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/security-05.png"); }
 .service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/security-06.png"); }
+
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/video-01.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/video-02.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/video-03.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/video-04.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/video-05.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/video-06.png"); }
+
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/access-01.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/access-02.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/access-03.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/access-04.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/access-05.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/access-06.png"); }
+
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/smart-01.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/smart-02.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/smart-03.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/smart-04.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/smart-05.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/smart-06.png"); }
+
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/network-01.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/network-02.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/network-03.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/network-04.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/network-05.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/network-06.png"); }
+
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/service-01.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/service-02.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/service-03.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/service-04.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/service-05.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/service-06.png"); }
 
 @media (max-width: 991.98px) {
   .services-premium-grid {
