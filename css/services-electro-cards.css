@@ -110,7 +110,7 @@
 .services-premium-grid .service-info-card::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -1px;
   background:
     radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.055), transparent 30%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.028), transparent 42%);
