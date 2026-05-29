@@ -221,54 +221,54 @@
     radial-gradient(circle at 18% 0%, rgba(255, 214, 79, 0.12), transparent 34%);
 }
 
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/electro-01.png"); }
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/electro-02.png"); }
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/electro-03.png"); }
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/electro-04.png"); }
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/electro-05.png"); }
-.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/electro-06.png"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/electro-01.webp"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/electro-02.webp"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/electro-03.webp"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/electro-04.webp"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/electro-05.webp"); }
+.service-panel[data-service-panel="electro"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/electro-06.webp"); }
 
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/security-01.png"); }
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/security-02.png"); }
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/security-03.png"); }
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/security-04.png"); }
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/security-05.png"); }
-.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/security-06.png"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/security-01.webp"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/security-02.webp"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/security-03.webp"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/security-04.webp"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/security-05.webp"); }
+.service-panel[data-service-panel="security"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/security-06.webp"); }
 
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/video-01.png"); }
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/video-02.png"); }
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/video-03.png"); }
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/video-04.png"); }
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/video-05.png"); }
-.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/video-06.png"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/video-01.webp"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/video-02.webp"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/video-03.webp"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/video-04.webp"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/video-05.webp"); }
+.service-panel[data-service-panel="video"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/video-06.webp"); }
 
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/access-01.png"); }
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/access-02.png"); }
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/access-03.png"); }
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/access-04.png"); }
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/access-05.png"); }
-.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/access-06.png"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/access-01.webp"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/access-02.webp"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/access-03.webp"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/access-04.webp"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/access-05.webp"); }
+.service-panel[data-service-panel="access"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/access-06.webp"); }
 
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/smart-01.png"); }
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/smart-02.png"); }
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/smart-03.png"); }
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/smart-04.png"); }
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/smart-05.png"); }
-.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/smart-06.png"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/smart-01.webp"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/smart-02.webp"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/smart-03.webp"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/smart-04.webp"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/smart-05.webp"); }
+.service-panel[data-service-panel="smart"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/smart-06.webp"); }
 
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/network-01.png"); }
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/network-02.png"); }
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/network-03.png"); }
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/network-04.png"); }
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/network-05.png"); }
-.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/network-06.png"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/network-01.webp"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/network-02.webp"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/network-03.webp"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/network-04.webp"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/network-05.webp"); }
+.service-panel[data-service-panel="network"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/network-06.webp"); }
 
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/service-01.png"); }
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/service-02.png"); }
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/service-03.png"); }
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/service-04.png"); }
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/service-05.png"); }
-.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/service-06.png"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(2) { background-image: url("../assets/img/services/cards/service-01.webp"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(3) { background-image: url("../assets/img/services/cards/service-02.webp"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(4) { background-image: url("../assets/img/services/cards/service-03.webp"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(5) { background-image: url("../assets/img/services/cards/service-04.webp"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(6) { background-image: url("../assets/img/services/cards/service-05.webp"); }
+.service-panel[data-service-panel="service"] .services-premium-card:nth-of-type(7) { background-image: url("../assets/img/services/cards/service-06.webp"); }
 
 @media (max-width: 991.98px) {
   .services-premium-grid {
