@@ -79,7 +79,6 @@
 })();
 
 (function($) {
-
   "use strict";
 
   var fullHeight = function() {
@@ -145,7 +144,6 @@
     });
   };
   burgerMenu();
-
 })(jQuery);
 
 function hidePreloaderWhenLoaded() {
@@ -177,12 +175,14 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateHeaderState, { passive: true });
 });
 
-// MAIN MENU — one identical menu across all pages
+// MAIN MENU — JS only fills shared menu on inner pages. Homepage menu stays in index.html.
 window.addEventListener('DOMContentLoaded', () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const isHomePage = currentPage === 'index.html' || currentPage === '';
+  if (isHomePage) return;
+
   const menuLists = document.querySelectorAll('#ut-main-nav ul');
   if (!menuLists.length) return;
-
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
   const menuItems = [
     { href: 'index.html', label: 'Головна', activeOn: ['index.html', ''] },
@@ -308,15 +308,18 @@ window.addEventListener('DOMContentLoaded', () => {
   }).join('');
 });
 
-// SHARED FOOTER AND CONTACT MODAL — one source of truth across pages
+// SHARED FOOTER AND CONTACT MODAL — JS fills shared blocks only on inner pages. Homepage keeps HTML static.
 window.addEventListener('DOMContentLoaded', () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const isHomePage = currentPage === 'index.html' || currentPage === '';
+  if (isHomePage) return;
+
   const footer = document.querySelector('footer.footer-urban');
 
   if (footer) {
     footer.innerHTML = `
       <div class="container">
         <div class="row gy-4 align-items-start">
-
           <div class="col-12 col-lg-4">
             <div class="footer-brand-wrap">
               <h3 class="footer-brand mb-3"><span class="brand-logo-text">URBAN <span class="highlight">T</span>ECH</span></h3>
@@ -329,62 +332,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
           <div class="col-12 col-md-6 col-lg-4">
             <h5 class="footer-title">Контакти</h5>
-
-            <div class="footer-contact-item">
-              <span class="footer-label">Телефон</span>
-              <a href="tel:+380756337652" class="footer-link">+38 (075) 633 76 52</a>
-            </div>
-
-            <div class="footer-contact-item">
-              <span class="footer-label">Локація</span>
-              <p class="footer-text mb-0">Київ та область</p>
-            </div>
-
-            <div class="footer-contact-item">
-              <span class="footer-label">Email</span>
-              <a href="mailto:urban.tech.kyiv@gmail.com" class="footer-link">urban.tech.kyiv@gmail.com</a>
-            </div>
+            <div class="footer-contact-item"><span class="footer-label">Телефон</span><a href="tel:+380756337652" class="footer-link">+38 (075) 633 76 52</a></div>
+            <div class="footer-contact-item"><span class="footer-label">Локація</span><p class="footer-text mb-0">Київ та область</p></div>
+            <div class="footer-contact-item"><span class="footer-label">Email</span><a href="mailto:urban.tech.kyiv@gmail.com" class="footer-link">urban.tech.kyiv@gmail.com</a></div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
             <h5 class="footer-title">Зв'язок</h5>
-
             <div class="footer-socials">
-              <a href="#" class="footer-social" aria-label="Instagram">
-                <i class="bi bi-instagram"></i>
-              </a>
-
-              <a href="#" class="footer-social" aria-label="Facebook">
-                <i class="bi bi-facebook"></i>
-              </a>
-
-              <a href="https://t.me/" class="footer-social" aria-label="Telegram">
-                <i class="bi bi-telegram"></i>
-              </a>
-
-              <a href="https://wa.me/380756337652" class="footer-social" aria-label="WhatsApp">
-                <i class="bi bi-whatsapp"></i>
-              </a>
-
-              <a href="viber://chat?number=%2B380756337652" class="footer-social footer-social--viber" aria-label="Viber">
-                <svg class="viber-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M12 3.2c-4.1 0-7.4 2.8-7.4 6.3 0 1.8.9 3.4 2.3 4.5l-.5 2.6 2.8-1.4c.9.3 1.8.5 2.8.5 4.1 0 7.4-2.8 7.4-6.3S16.1 3.2 12 3.2Zm3.8 9.1c-.2.5-.9 1.1-1.5 1.2-.4.1-.9.1-2.5-.6-2.1-.9-3.5-3.1-3.6-3.2-.1-.1-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.3.3-.2.5.1.2.6 1 1.2 1.5.8.7 1.5.9 1.8 1 .2.1.4.1.6-.1.2-.2.6-.7.8-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.3.2.3.3.3.4 0 .1 0 .4-.2.8Z" />
-                </svg>
-              </a>
+              <a href="#" class="footer-social" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="footer-social" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://t.me/" class="footer-social" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+              <a href="https://wa.me/380756337652" class="footer-social" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+              <a href="viber://chat?number=%2B380756337652" class="footer-social footer-social--viber" aria-label="Viber"><i class="bi bi-chat-dots"></i></a>
             </div>
-
-            <p class="footer-note mt-3 mb-0">
-              Напишіть у зручний месенджер або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.
-            </p>
+            <p class="footer-note mt-3 mb-0">Напишіть у зручний месенджер або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.</p>
           </div>
-
         </div>
-
-        <div class="footer-bottom text-center">
-          <p class="mb-0">
-            © 2026 <span class="brand-logo-text brand-logo-text--inline">URBAN <span class="highlight">T</span>ECH</span>. Усі права захищені.
-          </p>
-        </div>
+        <div class="footer-bottom text-center"><p class="mb-0">© 2026 <span class="brand-logo-text brand-logo-text--inline">URBAN <span class="highlight">T</span>ECH</span>. Усі права захищені.</p></div>
       </div>
     `;
   }
@@ -397,33 +362,14 @@ window.addEventListener('DOMContentLoaded', () => {
         <button type="button" class="ut-contact-modal__close" data-contact-close aria-label="Закрити">×</button>
         <p class="ut-contact-modal__kicker"><span class="brand-logo-text">URBAN <span class="highlight">T</span>ECH</span></p>
         <h2 id="utContactTitle">Зв'язатися з нами</h2>
-        <p class="ut-contact-modal__lead">
-          Напишіть або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.
-        </p>
-
+        <p class="ut-contact-modal__lead">Напишіть або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.</p>
         <div class="ut-contact-list">
-          <a href="tel:+380756337652" class="ut-contact-item">
-            <i class="bi bi-telephone"></i>
-            <span><strong>Телефон</strong>+38 (075) 633 76 52</span>
-          </a>
-          <a href="mailto:urban.tech.kyiv@gmail.com" class="ut-contact-item">
-            <i class="bi bi-envelope"></i>
-            <span><strong>Email</strong>urban.tech.kyiv@gmail.com</span>
-          </a>
-          <a href="https://t.me/" class="ut-contact-item">
-            <i class="bi bi-telegram"></i>
-            <span><strong>Telegram</strong>Написати в Telegram</span>
-          </a>
-          <a href="https://wa.me/380756337652" class="ut-contact-item">
-            <i class="bi bi-whatsapp"></i>
-            <span><strong>WhatsApp</strong>Написати у WhatsApp</span>
-          </a>
-          <a href="viber://chat?number=%2B380756337652" class="ut-contact-item">
-            <i class="bi bi-chat-dots"></i>
-            <span><strong>Viber</strong>Написати у Viber</span>
-          </a>
+          <a href="tel:+380756337652" class="ut-contact-item"><i class="bi bi-telephone"></i><span><strong>Телефон</strong>+38 (075) 633 76 52</span></a>
+          <a href="mailto:urban.tech.kyiv@gmail.com" class="ut-contact-item"><i class="bi bi-envelope"></i><span><strong>Email</strong>urban.tech.kyiv@gmail.com</span></a>
+          <a href="https://t.me/" class="ut-contact-item"><i class="bi bi-telegram"></i><span><strong>Telegram</strong>Написати в Telegram</span></a>
+          <a href="https://wa.me/380756337652" class="ut-contact-item"><i class="bi bi-whatsapp"></i><span><strong>WhatsApp</strong>Написати у WhatsApp</span></a>
+          <a href="viber://chat?number=%2B380756337652" class="ut-contact-item"><i class="bi bi-chat-dots"></i><span><strong>Viber</strong>Написати у Viber</span></a>
         </div>
-
         <p class="ut-contact-modal__note">Київ та область · Електромонтаж · Безпека · Автоматизація</p>
       </div>
     `;
@@ -479,9 +425,6 @@ window.addEventListener('DOMContentLoaded', () => {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('contact-modal-open');
-
-    const firstLink = modal.querySelector('.ut-contact-item');
-    if (firstLink) setTimeout(() => firstLink.focus(), 80);
   };
 
   openButtons.forEach((button) => button.addEventListener('click', openModal));
@@ -514,10 +457,7 @@ window.addEventListener('DOMContentLoaded', () => {
       panel.classList.toggle('active', panel.dataset.servicePanel === target);
     });
 
-    if (mobileLabel) {
-      mobileLabel.textContent = activeTab.textContent.trim();
-    }
-
+    if (mobileLabel) mobileLabel.textContent = activeTab.textContent.trim();
     if (nav) nav.classList.remove('is-open');
     if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
 
@@ -532,14 +472,10 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const activeOnLoad = document.querySelector('[data-service-tab].active');
-  if (activeOnLoad && mobileLabel) {
-    mobileLabel.textContent = activeOnLoad.textContent.trim();
-  }
+  if (activeOnLoad && mobileLabel) mobileLabel.textContent = activeOnLoad.textContent.trim();
 
   tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      setActiveService(tab.dataset.serviceTab, tab, true);
-    });
+    tab.addEventListener('click', () => setActiveService(tab.dataset.serviceTab, tab, true));
   });
 
   if (mobileToggle && nav) {
