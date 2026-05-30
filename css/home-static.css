@@ -1,0 +1,129 @@
+/* =========================================================
+   URBAN TECH — HOME STATIC STYLES
+   Раніше ці правила додавалися через inline JS у index.html.
+========================================================= */
+body.hero-wrap header {
+  padding: 8px 0 !important;
+  min-height: 0 !important;
+}
+
+body.hero-wrap main {
+  padding-top: 68px !important;
+}
+
+body.hero-wrap header > .container {
+  height: 46px !important;
+  min-height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+}
+
+body.hero-wrap header .ut-navbar {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+body.hero-wrap header .ut-navbar .logo-text {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  font-size: clamp(14px, 1.6vw, 17px) !important;
+  letter-spacing: clamp(2px, 0.35vw, 3px) !important;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle {
+  width: auto !important;
+  min-width: 88px !important;
+  height: 38px !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 11px !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  top: auto !important;
+  right: auto !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle::before {
+  content: "МЕНЮ";
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  transform: translateY(1px);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle:hover::before {
+  color: #f8b500;
+  text-shadow: 0 0 8px rgba(248, 181, 0, 0.35);
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle i {
+  position: relative !important;
+  width: 18px !important;
+  height: 2px !important;
+  display: block !important;
+  margin: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+  flex: 0 0 18px !important;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle i::before,
+body.hero-wrap header > .container > .ut-nav-toggle i::after {
+  width: 26px !important;
+  height: 2px !important;
+  left: -8px !important;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle i::before {
+  top: -8px !important;
+}
+
+body.hero-wrap header > .container > .ut-nav-toggle i::after {
+  bottom: -8px !important;
+}
+
+@media (max-width: 575.98px) {
+  body.hero-wrap header {
+    padding: 6px 0 !important;
+  }
+
+  body.hero-wrap main {
+    padding-top: 62px !important;
+  }
+
+  body.hero-wrap header > .container {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
+
+  body.hero-wrap header > .container > .ut-nav-toggle {
+    min-width: 76px !important;
+    height: 34px !important;
+    gap: 9px !important;
+  }
+
+  body.hero-wrap header > .container > .ut-nav-toggle::before {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}
