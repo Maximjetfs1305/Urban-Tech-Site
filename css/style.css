@@ -3683,9 +3683,9 @@ button.services-nav__link.active,
    HOME APPROVED IMAGES v23
 ========================================================= */
 :root {
-  --ut-hero-complex: url("../main/assets/img/main/cards/complex-01.webp");
-  --ut-hero-logic: url("../main/assets/img/main/cards/logic-01.webp");
-  --ut-hero-mount: url("../main/assets/img/main/cards/mount-01.webp");
+  --ut-hero-complex: url("");
+  --ut-hero-logic: url("");
+  --ut-hero-mount: url("");
   --ut-home-electro220: url("../img/card-bg/home-electro-220.png");
   --ut-home-lighting-led: url("../img/card-bg/home-lighting-led.png");
   --ut-home-backup-power: url("../img/card-bg/home-backup-power.png");
