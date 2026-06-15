@@ -138,9 +138,9 @@ body.hero-wrap .hero-visual-card::before {
   position: absolute;
   inset: -1px;
   background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.88) 0%, rgba(2, 4, 8, 0.70) 50%, rgba(2, 4, 8, 0.34) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.78)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
+    linear-gradient(90deg, rgba(2, 4, 8, 0.76) 0%, rgba(2, 4, 8, 0.58) 50%, rgba(2, 4, 8, 0.24) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.64)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.15), transparent 38%);
   pointer-events: none;
   transition: background 0.28s ease;
 }
@@ -169,9 +169,9 @@ body.hero-wrap .hero-visual-card:hover {
 
 body.hero-wrap .hero-visual-card:hover::before {
   background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.82) 0%, rgba(2, 4, 8, 0.62) 50%, rgba(2, 4, 8, 0.25) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.70)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.22), transparent 38%);
+    linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 50%, rgba(2, 4, 8, 0.18) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.025), rgba(2, 4, 8, 0.56)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
 }
 
 body.hero-wrap .hero-visual-card__content {
@@ -259,9 +259,9 @@ body.hero-wrap .home-service-card::before {
   position: absolute;
   inset: -1px;
   background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.88) 0%, rgba(2, 4, 8, 0.70) 50%, rgba(2, 4, 8, 0.34) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.78)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
+    linear-gradient(90deg, rgba(2, 4, 8, 0.76) 0%, rgba(2, 4, 8, 0.58) 50%, rgba(2, 4, 8, 0.24) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.64)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.15), transparent 38%);
   pointer-events: none;
   transition: background 0.28s ease;
 }
@@ -290,9 +290,9 @@ body.hero-wrap .home-service-card:hover {
 
 body.hero-wrap .home-service-card:hover::before {
   background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.82) 0%, rgba(2, 4, 8, 0.62) 50%, rgba(2, 4, 8, 0.25) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.70)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.22), transparent 38%);
+    linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 50%, rgba(2, 4, 8, 0.18) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.025), rgba(2, 4, 8, 0.56)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
 }
 
 body.hero-wrap .home-service-card > * {
