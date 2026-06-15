@@ -174,3 +174,53 @@ body.hero-wrap #work-process .ut-process-card {
     background-size: cover !important;
   }
 }
+
+/* =========================================================
+   HOME — work process horizontal content
+   Іконка зліва, текст справа
+========================================================= */
+body.hero-wrap #work-process .ut-process-card {
+  display: grid !important;
+  grid-template-columns: 48px minmax(0, 1fr) !important;
+  grid-template-rows: auto auto !important;
+  column-gap: 16px !important;
+  row-gap: 8px !important;
+  align-content: center !important;
+  align-items: center !important;
+  text-align: left !important;
+}
+
+body.hero-wrap #work-process .ut-process-card .ut-card-number {
+  position: absolute !important;
+  left: 14px !important;
+  top: 14px !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+body.hero-wrap #work-process .ut-process-card .ut-card-icon {
+  grid-column: 1 !important;
+  grid-row: 1 / span 2 !important;
+  align-self: center !important;
+  justify-self: start !important;
+  margin: 0 !important;
+}
+
+body.hero-wrap #work-process .ut-process-card h3 {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+}
+
+body.hero-wrap #work-process .ut-process-card p {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 575.98px) {
+  body.hero-wrap #work-process .ut-process-card {
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+  }
+}
