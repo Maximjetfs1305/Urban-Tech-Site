@@ -233,3 +233,56 @@ body.hero-wrap #work-process .ut-process-card p {
     padding-bottom: 20px !important;
   }
 }
+
+/* =========================================================
+   HOME — work process wide 2x2 layout
+   Картки ширші, 2 зверху + 2 знизу, пропорція під 1200x900
+========================================================= */
+body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+body.hero-wrap #work-process .ut-process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2.1vw, 28px) !important;
+  width: min(1180px, 100%) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.hero-wrap #work-process .ut-process-card {
+  width: 100% !important;
+  min-height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  padding-top: clamp(120px, 10vw, 150px) !important;
+}
+
+@media (max-width: 991.98px) {
+  body.hero-wrap #work-process .ut-process-grid {
+    width: 100% !important;
+    gap: 18px !important;
+  }
+
+  body.hero-wrap #work-process .ut-process-card {
+    aspect-ratio: 4 / 3 !important;
+    min-height: auto !important;
+    padding-top: clamp(104px, 12vw, 130px) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.hero-wrap #work-process .ut-process-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 520px !important;
+  }
+
+  body.hero-wrap #work-process .ut-process-card {
+    aspect-ratio: 4 / 3 !important;
+    min-height: 300px !important;
+    padding-top: 96px !important;
+  }
+}
