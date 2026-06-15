@@ -314,3 +314,80 @@ body.hero-wrap #work-process .ut-process-grid {
     max-width: 75% !important;
   }
 }
+
+/* =========================================================
+   HOME — work process compact top markers
+   Іконка зверху зліва, номер зверху справа, текст внизу
+========================================================= */
+body.hero-wrap #work-process .ut-process-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  aspect-ratio: 16 / 9 !important;
+  min-height: clamp(248px, 20vw, 306px) !important;
+  padding: 78px 22px 24px !important;
+  text-align: left !important;
+}
+
+body.hero-wrap #work-process .ut-process-card .ut-card-icon {
+  position: absolute !important;
+  left: 22px !important;
+  top: 22px !important;
+  z-index: 2 !important;
+  margin: 0 !important;
+  align-self: auto !important;
+  justify-self: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+body.hero-wrap #work-process .ut-process-card .ut-card-number {
+  position: absolute !important;
+  left: auto !important;
+  right: 22px !important;
+  top: 16px !important;
+  z-index: 1 !important;
+  text-align: right !important;
+  pointer-events: none !important;
+}
+
+body.hero-wrap #work-process .ut-process-card h3,
+body.hero-wrap #work-process .ut-process-card p {
+  grid-column: auto !important;
+  grid-row: auto !important;
+  max-width: min(430px, 100%) !important;
+}
+
+body.hero-wrap #work-process .ut-process-card h3 {
+  margin: 0 0 8px !important;
+}
+
+body.hero-wrap #work-process .ut-process-card p {
+  margin: 0 !important;
+}
+
+@media (max-width: 991.98px) {
+  body.hero-wrap #work-process .ut-process-card {
+    min-height: clamp(236px, 34vw, 288px) !important;
+    padding: 72px 20px 22px !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.hero-wrap #work-process .ut-process-card {
+    aspect-ratio: 4 / 3 !important;
+    min-height: 286px !important;
+    padding: 74px 18px 22px !important;
+  }
+
+  body.hero-wrap #work-process .ut-process-card .ut-card-icon {
+    left: 18px !important;
+    top: 18px !important;
+  }
+
+  body.hero-wrap #work-process .ut-process-card .ut-card-number {
+    right: 18px !important;
+    top: 14px !important;
+  }
+}
