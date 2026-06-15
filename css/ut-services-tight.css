@@ -48,3 +48,87 @@ body.services-body .service-hero-card {
     margin-top: -6px !important;
   }
 }
+
+/* =========================================================
+   HOME — WORK PROCESS CARDS
+   Картинки лежать у: assets/img/main/cards/
+========================================================= */
+body.hero-wrap #work-process .ut-process-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(248, 181, 0, 0.54) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(248, 181, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.28s ease;
+}
+
+body.hero-wrap #work-process .ut-process-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.76) 0%, rgba(2, 4, 8, 0.58) 50%, rgba(2, 4, 8, 0.24) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.64)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.15), transparent 38%);
+  pointer-events: none;
+  transition: background 0.28s ease;
+}
+
+body.hero-wrap #work-process .ut-process-card::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(248, 181, 0, 0.62), transparent);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+body.hero-wrap #work-process .ut-process-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(248, 181, 0, 0.82) !important;
+  box-shadow:
+    0 26px 62px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(248, 181, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07) !important;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+body.hero-wrap #work-process .ut-process-card:hover::before {
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 50%, rgba(2, 4, 8, 0.18) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.025), rgba(2, 4, 8, 0.56)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
+}
+
+body.hero-wrap #work-process .ut-process-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+body.hero-wrap #work-process .ut-process-card:nth-child(1) {
+  background-image: url("../assets/img/main/cards/consultation.webp") !important;
+}
+
+body.hero-wrap #work-process .ut-process-card:nth-child(2) {
+  background-image: url("../assets/img/main/cards/site-inspection.webp") !important;
+}
+
+body.hero-wrap #work-process .ut-process-card:nth-child(3) {
+  background-image: url("../assets/img/main/cards/solution-selection.webp") !important;
+}
+
+body.hero-wrap #work-process .ut-process-card:nth-child(4) {
+  background-image: url("../assets/img/main/cards/turnkey-implementation.webp") !important;
+}
