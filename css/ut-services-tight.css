@@ -132,3 +132,45 @@ body.hero-wrap #work-process .ut-process-card:nth-child(3) {
 body.hero-wrap #work-process .ut-process-card:nth-child(4) {
   background-image: url("../assets/img/main/cards/turnkey-implementation.webp") !important;
 }
+
+/* =========================================================
+   HOME — adaptive card images
+   Підлаштування фонів під desktop / tablet / mobile
+========================================================= */
+body.hero-wrap .home-service-card,
+body.hero-wrap #work-process .ut-process-card {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+body.hero-wrap .home-service-card,
+body.hero-wrap #work-process .ut-process-card {
+  min-height: clamp(210px, 22vw, 286px) !important;
+}
+
+@media (max-width: 991.98px) {
+  body.hero-wrap .home-service-card,
+  body.hero-wrap #work-process .ut-process-card {
+    min-height: clamp(214px, 36vw, 280px) !important;
+    background-position: center center !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body.hero-wrap .home-service-card,
+  body.hero-wrap #work-process .ut-process-card {
+    min-height: clamp(220px, 68vw, 292px) !important;
+    background-position: center center !important;
+  }
+
+  body.hero-wrap .home-service-card--electro220,
+  body.hero-wrap .home-service-card--lighting-led,
+  body.hero-wrap .home-service-card--backup-power,
+  body.hero-wrap .home-service-card--video-surveillance,
+  body.hero-wrap .home-service-card--ops-ps-security,
+  body.hero-wrap .home-service-card--scud-network-smart,
+  body.hero-wrap #work-process .ut-process-card {
+    background-size: cover !important;
+  }
+}
