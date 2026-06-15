@@ -286,3 +286,31 @@ body.hero-wrap #work-process .ut-process-card {
     padding-top: 96px !important;
   }
 }
+
+/* =========================================================
+   HOME — work process normal content width
+   2x2 лишається, але блок не ширший за загальний контент
+========================================================= */
+body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.hero-wrap #work-process .ut-process-grid {
+  width: 100% !important;
+}
+
+@media (min-width: 992px) {
+  body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
+    width: 83.333333% !important;
+    max-width: 83.333333% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
+    width: 75% !important;
+    max-width: 75% !important;
+  }
+}
