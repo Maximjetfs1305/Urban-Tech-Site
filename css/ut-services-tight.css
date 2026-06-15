@@ -176,18 +176,20 @@ body.hero-wrap #work-process .ut-process-card {
 }
 
 /* =========================================================
-   HOME — work process horizontal content
-   Іконка зліва, текст справа
+   HOME — work process bottom content
+   Іконка зліва, текст справа, увесь блок унизу картки
 ========================================================= */
 body.hero-wrap #work-process .ut-process-card {
   display: grid !important;
-  grid-template-columns: 48px minmax(0, 1fr) !important;
+  grid-template-columns: 46px minmax(0, 1fr) !important;
   grid-template-rows: auto auto !important;
-  column-gap: 16px !important;
-  row-gap: 8px !important;
-  align-content: center !important;
-  align-items: center !important;
+  column-gap: 14px !important;
+  row-gap: 6px !important;
+  align-content: end !important;
+  align-items: end !important;
   text-align: left !important;
+  padding-top: clamp(84px, 9vw, 116px) !important;
+  padding-bottom: 22px !important;
 }
 
 body.hero-wrap #work-process .ut-process-card .ut-card-number {
@@ -201,15 +203,19 @@ body.hero-wrap #work-process .ut-process-card .ut-card-number {
 body.hero-wrap #work-process .ut-process-card .ut-card-icon {
   grid-column: 1 !important;
   grid-row: 1 / span 2 !important;
-  align-self: center !important;
+  align-self: end !important;
   justify-self: start !important;
-  margin: 0 !important;
+  margin: 0 0 2px 0 !important;
 }
 
 body.hero-wrap #work-process .ut-process-card h3 {
   grid-column: 2 !important;
   grid-row: 1 !important;
   margin: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
 }
 
 body.hero-wrap #work-process .ut-process-card p {
@@ -220,7 +226,10 @@ body.hero-wrap #work-process .ut-process-card p {
 
 @media (max-width: 575.98px) {
   body.hero-wrap #work-process .ut-process-card {
-    grid-template-columns: 44px minmax(0, 1fr) !important;
-    column-gap: 14px !important;
+    grid-template-columns: 40px minmax(0, 1fr) !important;
+    column-gap: 12px !important;
+    row-gap: 5px !important;
+    padding-top: 92px !important;
+    padding-bottom: 20px !important;
   }
 }
