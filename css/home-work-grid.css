@@ -18,8 +18,7 @@
    SHARED COMPONENT: IMAGE CARD
 ========================================================= */
 
-.ut-image-card,
-.home-work-card {
+.ut-image-card {
   --ut-card-image: none;
   --ut-card-min-height: clamp(204px, 18vw, 246px);
   --ut-card-padding: 20px 18px 18px;
@@ -63,15 +62,7 @@
   display: flex;
 }
 
-.home-work-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: var(--ut-card-padding);
-}
-
-.ut-image-card::before,
-.home-work-card::before {
+.ut-image-card::before {
   content: "";
   position: absolute;
   inset: 1px;
@@ -93,30 +84,26 @@
   transition: background 0.28s ease;
 }
 
-.ut-image-card::after,
-.home-work-card::after {
+.ut-image-card::after {
   content: none !important;
   display: none !important;
 }
 
-.ut-image-card:hover,
-.home-work-card:hover {
+.ut-image-card:hover {
   border-color: var(--ut-card-border-hover) !important;
   transform: translateY(-4px);
   box-shadow: 0 26px 62px rgba(0, 0, 0, 0.36);
   filter: saturate(1.06) contrast(1.03);
 }
 
-.ut-image-card:hover::before,
-.home-work-card:hover::before {
+.ut-image-card:hover::before {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
     radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
 }
 
-.ut-image-card > *,
-.home-work-card > * {
+.ut-image-card > * {
   position: relative;
   z-index: 2;
 }
@@ -137,8 +124,7 @@
   justify-content: flex-end;
 }
 
-.ut-image-card__title,
-.home-work-card h3 {
+.ut-image-card__title {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.96);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -147,8 +133,7 @@
   letter-spacing: -0.1px;
 }
 
-.ut-image-card__title::before,
-.home-work-card h3::before {
+.ut-image-card__title::before {
   content: "";
   display: inline-block;
   width: 3px;
@@ -159,8 +144,7 @@
   box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
 }
 
-.ut-image-card__text,
-.home-work-card p {
+.ut-image-card__text {
   margin: 0;
   max-width: 96%;
   color: rgba(255, 255, 255, 0.72);
@@ -183,38 +167,40 @@
 }
 
 /* =========================================================
-   HOME WORK GRID: «Що ми виконуємо»
+   HOME WORK: «Що ми виконуємо»
 ========================================================= */
 
-.home-work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 1.4vw, 16px);
+.home-work-card-row {
+  row-gap: clamp(12px, 1.4vw, 16px);
   margin-top: clamp(28px, 4vw, 42px);
-  align-items: stretch;
 }
 
-.home-work-card--electro220 {
+.ut-image-card--work {
+  --ut-card-min-height: clamp(214px, 20vw, 260px);
+  --ut-card-padding: 22px 19px 19px;
+}
+
+.ut-image-card--electro220 {
   --ut-card-image: url("../assets/img/main/cards/electro-220.webp");
 }
 
-.home-work-card--lighting-led {
+.ut-image-card--lighting-led {
   --ut-card-image: url("../assets/img/main/cards/lighting-led.webp");
 }
 
-.home-work-card--backup-power {
+.ut-image-card--backup-power {
   --ut-card-image: url("../assets/img/main/cards/backup-power.webp");
 }
 
-.home-work-card--video-surveillance {
+.ut-image-card--video-surveillance {
   --ut-card-image: url("../assets/img/main/cards/video-surveillance.webp");
 }
 
-.home-work-card--ops-ps-security {
+.ut-image-card--ops-ps-security {
   --ut-card-image: url("../assets/img/main/cards/ops-ps-security.webp");
 }
 
-.home-work-card--scud-network-smart {
+.ut-image-card--scud-network-smart {
   --ut-card-image: url("../assets/img/main/cards/scud-network-smart.webp");
 }
 
@@ -224,16 +210,11 @@
 
 @media (max-width: 991.98px) {
   .ut-image-card--hero,
-  .home-work-card {
+  .ut-image-card--work {
     --ut-card-min-height: 214px;
   }
 
-  .home-work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ut-image-card::before,
-  .home-work-card::before {
+  .ut-image-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.72) 0%, rgba(2, 4, 8, 0.56) 62%, rgba(2, 4, 8, 0.30) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.05), rgba(2, 4, 8, 0.58)),
@@ -251,32 +232,25 @@
     --ut-card-padding: 18px 15px 16px;
   }
 
-  .home-work-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .home-work-card {
+  .ut-image-card--work {
     --ut-card-min-height: 220px;
     --ut-card-padding: 22px 18px 18px;
   }
 
-  .ut-image-card::before,
-  .home-work-card::before {
+  .ut-image-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.74) 0%, rgba(2, 4, 8, 0.60) 68%, rgba(2, 4, 8, 0.34) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.60)),
       radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   }
 
-  .ut-image-card__text,
-  .home-work-card p {
+  .ut-image-card__text {
     font-size: 12.2px;
     line-height: 1.52;
   }
 
-  .home-work-card h3,
-  .home-work-card p {
+  .ut-image-card--work .ut-image-card__title,
+  .ut-image-card--work .ut-image-card__text {
     max-width: min(88%, 360px);
   }
 }
