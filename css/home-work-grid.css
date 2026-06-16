@@ -3,15 +3,15 @@
 
   Призначення:
   - одна універсальна основа для карток із фоновою картинкою: .ut-image-card;
-  - перші 3 картки головної сторінки вже мають прямий HTML-клас .ut-image-card;
+  - перші 3 картки головної сторінки стилізуються саме як article.ut-image-card у блоці .hero-visual-cards;
   - секція «Що ми виконуємо» також використовує цю ж основу через .home-work-card;
   - картинки задаються через CSS-змінну --ut-card-image;
   - затемнення, border, hover, адаптив і текстова зона керуються одним компонентом.
 
   Важливо:
-  - для перших 3 карток картинки задаються прямо в index.html через inline CSS-змінну;
-  - border тримається на самій картці, overlay залишається всередині і не перекриває контур;
-  - наступні розділи можна поступово переводити на прямий клас .ut-image-card.
+  - старі класи hero-visual-card більше не потрібні для стилізації компонента;
+  - поки вони можуть залишатися в HTML як перехідний хвіст, але нові правила прив'язані до .ut-image-card;
+  - border тримається на самій картці, overlay залишається всередині і не перекриває контур.
 */
 
 /* =========================================================
@@ -21,7 +21,7 @@
 
 .ut-image-card,
 .home-work-card,
-body.hero-wrap .hero-visual-cards .hero-visual-card {
+body.hero-wrap .hero-visual-cards article.ut-image-card {
   position: relative;
   min-height: var(--ut-card-min-height, clamp(204px, 18vw, 246px));
   display: flex;
@@ -30,16 +30,16 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
   overflow: hidden;
   text-align: left;
   padding: var(--ut-card-padding, 20px 18px 18px);
-  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.96));
-  background-image: var(--ut-card-image);
-  background-size: var(--ut-card-bg-size, cover);
-  background-position: var(--ut-card-bg-position, center);
-  background-repeat: no-repeat;
+  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.96)) !important;
+  background-image: var(--ut-card-image) !important;
+  background-size: var(--ut-card-bg-size, cover) !important;
+  background-position: var(--ut-card-bg-position, center) !important;
+  background-repeat: no-repeat !important;
   background-origin: border-box;
   background-clip: border-box;
   box-shadow:
     0 18px 46px rgba(0, 0, 0, 0.30),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035) !important;
   transform: translateZ(0);
   transition:
     transform 0.28s ease,
@@ -51,7 +51,7 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
 /* Затемнення картинки. Overlay починається всередині border, щоб не перекривати контур. */
 .ut-image-card::before,
 .home-work-card::before,
-body.hero-wrap .hero-visual-cards .hero-visual-card::before {
+body.hero-wrap .hero-visual-cards article.ut-image-card::before {
   content: "";
   position: absolute;
   inset: 1px;
@@ -67,24 +67,24 @@ body.hero-wrap .hero-visual-cards .hero-visual-card::before {
 /* Вимикаємо старі/дубльовані декоративні after-шари, щоб не було подвійних ліній. */
 .ut-image-card::after,
 .home-work-card::after,
-body.hero-wrap .hero-visual-cards .hero-visual-card::after {
-  content: none;
-  display: none;
+body.hero-wrap .hero-visual-cards article.ut-image-card::after {
+  content: none !important;
+  display: none !important;
 }
 
 .ut-image-card:hover,
 .home-work-card:hover,
-body.hero-wrap .hero-visual-cards .hero-visual-card:hover {
+body.hero-wrap .hero-visual-cards article.ut-image-card:hover {
   transform: translateY(-4px);
   box-shadow:
     0 26px 62px rgba(0, 0, 0, 0.36),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045) !important;
   filter: saturate(1.06) contrast(1.03);
 }
 
 .ut-image-card:hover::before,
 .home-work-card:hover::before,
-body.hero-wrap .hero-visual-cards .hero-visual-card:hover::before {
+body.hero-wrap .hero-visual-cards article.ut-image-card:hover::before {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
@@ -93,14 +93,14 @@ body.hero-wrap .hero-visual-cards .hero-visual-card:hover::before {
 
 .ut-image-card > *,
 .home-work-card > *,
-body.hero-wrap .hero-visual-cards .hero-visual-card > * {
+body.hero-wrap .hero-visual-cards article.ut-image-card > * {
   position: relative;
   z-index: 2;
 }
 
 .ut-image-card h3,
 .home-work-card h3,
-body.hero-wrap .hero-visual-cards .hero-visual-card__content h3 {
+body.hero-wrap .hero-visual-cards article.ut-image-card h3 {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.96);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -111,7 +111,7 @@ body.hero-wrap .hero-visual-cards .hero-visual-card__content h3 {
 
 .ut-image-card h3::before,
 .home-work-card h3::before,
-body.hero-wrap .hero-visual-cards .hero-visual-card__content h3::before {
+body.hero-wrap .hero-visual-cards article.ut-image-card h3::before {
   content: "";
   display: inline-block;
   width: 3px;
@@ -124,7 +124,7 @@ body.hero-wrap .hero-visual-cards .hero-visual-card__content h3::before {
 
 .ut-image-card p,
 .home-work-card p,
-body.hero-wrap .hero-visual-cards .hero-visual-card__content p {
+body.hero-wrap .hero-visual-cards article.ut-image-card p {
   margin: 0;
   max-width: 96%;
   color: rgba(255, 255, 255, 0.72);
@@ -141,12 +141,11 @@ body.hero-wrap .hero-visual-cards {
   row-gap: 14px;
 }
 
-body.hero-wrap .hero-visual-cards .hero-visual-card {
+body.hero-wrap .hero-visual-cards article.ut-image-card {
   --ut-card-min-height: clamp(176px, 17vw, 224px);
   --ut-card-padding: 0;
 }
 
-body.hero-wrap .hero-visual-cards .hero-visual-card__content,
 body.hero-wrap .hero-visual-cards .ut-image-card__content {
   position: relative;
   z-index: 2;
@@ -195,7 +194,7 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 ========================================================= */
 
 @media (max-width: 991.98px) {
-  body.hero-wrap .hero-visual-cards .hero-visual-card,
+  body.hero-wrap .hero-visual-cards article.ut-image-card,
   .home-work-card {
     --ut-card-min-height: 214px;
     --ut-card-bg-size: cover;
@@ -208,7 +207,7 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 
   .ut-image-card::before,
   .home-work-card::before,
-  body.hero-wrap .hero-visual-cards .hero-visual-card::before {
+  body.hero-wrap .hero-visual-cards article.ut-image-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.72) 0%, rgba(2, 4, 8, 0.56) 62%, rgba(2, 4, 8, 0.30) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.05), rgba(2, 4, 8, 0.58)),
@@ -217,11 +216,10 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 }
 
 @media (max-width: 767.98px) {
-  body.hero-wrap .hero-visual-cards .hero-visual-card {
+  body.hero-wrap .hero-visual-cards article.ut-image-card {
     --ut-card-min-height: 190px;
   }
 
-  body.hero-wrap .hero-visual-cards .hero-visual-card__content,
   body.hero-wrap .hero-visual-cards .ut-image-card__content {
     padding: 18px 15px 16px;
   }
@@ -240,14 +238,14 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 
   .ut-image-card::before,
   .home-work-card::before,
-  body.hero-wrap .hero-visual-cards .hero-visual-card::before {
+  body.hero-wrap .hero-visual-cards article.ut-image-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.74) 0%, rgba(2, 4, 8, 0.60) 68%, rgba(2, 4, 8, 0.34) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.60)),
       radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   }
 
-  body.hero-wrap .hero-visual-cards .hero-visual-card__content p,
+  body.hero-wrap .hero-visual-cards article.ut-image-card p,
   .home-work-card p {
     font-size: 12.2px;
     line-height: 1.52;
@@ -256,12 +254,5 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
   .home-work-card h3,
   .home-work-card p {
     max-width: min(88%, 360px);
-  }
-}
-
-@media (max-width: 390px) {
-  .home-work-card h3,
-  .home-work-card p {
-    max-width: 92%;
   }
 }
