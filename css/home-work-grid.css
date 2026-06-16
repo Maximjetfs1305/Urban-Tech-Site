@@ -1,38 +1,39 @@
 /*
-  URBAN TECH — HOME WORK GRID
-  Чистий CSS тільки для секції головної сторінки «Що ми виконуємо».
+  URBAN TECH — UNIVERSAL IMAGE CARD + HOME PAGE IMAGE CARDS
 
-  Чому окремий файл:
-  - старі класи .home-services-grid / .home-service-card у загальному CSS мали багато конфліктних override-ів;
-  - цей блок використовує нові ізольовані класи .home-work-grid / .home-work-card;
-  - затемнення не прив'язане до var(--ut-card-visual), тому не зникає на мобільній версії.
+  Призначення:
+  - одна універсальна основа для карток із фоновою картинкою: .ut-image-card;
+  - перші 3 картки головної сторінки підключені до цієї основи через старі HTML-класи .hero-visual-card;
+  - секція «Що ми виконуємо» також використовує цю ж основу через .home-work-card;
+  - картинки задаються через CSS-змінну --ut-card-image;
+  - затемнення, border, hover, адаптив і текстова зона керуються одним компонентом.
 
-  Принцип картинок:
-  - кожна карточка сама тримає свою background-image;
-  - background-size: cover адаптує картинку саме під розмір конкретної карточки;
-  - overlay зроблений легшим, щоб фото було краще видно, але текст залишався читабельним.
+  Важливо:
+  - HTML перших трьох карток поки не чіпав, щоб не ризикувати;
+  - старі стилі .hero-visual-card з великого urban-tech.css перекриваються тут більш конкретними селекторами;
+  - наступні розділи можна поступово переводити на прямий клас .ut-image-card.
 */
 
-.home-work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 1.4vw, 16px);
-  margin-top: clamp(28px, 4vw, 42px);
-  align-items: stretch;
-}
+/* =========================================================
+   SHARED COMPONENT: IMAGE CARD
+   Одна база для всіх карток із фото на фоні
+========================================================= */
 
-.home-work-card {
+.ut-image-card,
+.home-work-card,
+body.hero-wrap .hero-visual-cards .hero-visual-card {
   position: relative;
-  min-height: clamp(204px, 18vw, 246px);
+  min-height: var(--ut-card-min-height, clamp(204px, 18vw, 246px));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
   text-align: left;
-  padding: 20px 18px 18px;
-  border: 1px solid rgba(248, 181, 0, 0.54);
-  background-size: cover;
-  background-position: center;
+  padding: var(--ut-card-padding, 20px 18px 18px);
+  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.54));
+  background-image: var(--ut-card-image);
+  background-size: var(--ut-card-bg-size, cover);
+  background-position: var(--ut-card-bg-position, center);
   background-repeat: no-repeat;
   background-origin: border-box;
   background-clip: border-box;
@@ -49,7 +50,9 @@
     background-position 0.28s ease;
 }
 
-.home-work-card::before {
+.ut-image-card::before,
+.home-work-card::before,
+body.hero-wrap .hero-visual-cards .hero-visual-card::before {
   content: "";
   position: absolute;
   inset: -1px;
@@ -62,7 +65,9 @@
   transition: background 0.28s ease;
 }
 
-.home-work-card::after {
+.ut-image-card::after,
+.home-work-card::after,
+body.hero-wrap .hero-visual-cards .hero-visual-card::after {
   content: "";
   position: absolute;
   left: 14px;
@@ -75,7 +80,9 @@
   pointer-events: none;
 }
 
-.home-work-card:hover {
+.ut-image-card:hover,
+.home-work-card:hover,
+body.hero-wrap .hero-visual-cards .hero-visual-card:hover {
   transform: translateY(-4px);
   border-color: rgba(248, 181, 0, 0.82);
   box-shadow:
@@ -85,19 +92,25 @@
   filter: saturate(1.06) contrast(1.03);
 }
 
-.home-work-card:hover::before {
+.ut-image-card:hover::before,
+.home-work-card:hover::before,
+body.hero-wrap .hero-visual-cards .hero-visual-card:hover::before {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
     radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
 }
 
-.home-work-card > * {
+.ut-image-card > *,
+.home-work-card > *,
+body.hero-wrap .hero-visual-cards .hero-visual-card > * {
   position: relative;
   z-index: 2;
 }
 
-.home-work-card h3 {
+.ut-image-card h3,
+.home-work-card h3,
+body.hero-wrap .hero-visual-cards .hero-visual-card__content h3 {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.96);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -106,7 +119,9 @@
   letter-spacing: -0.1px;
 }
 
-.home-work-card h3::before {
+.ut-image-card h3::before,
+.home-work-card h3::before,
+body.hero-wrap .hero-visual-cards .hero-visual-card__content h3::before {
   content: "";
   display: inline-block;
   width: 3px;
@@ -117,7 +132,9 @@
   box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
 }
 
-.home-work-card p {
+.ut-image-card p,
+.home-work-card p,
+body.hero-wrap .hero-visual-cards .hero-visual-card__content p {
   margin: 0;
   max-width: 96%;
   color: rgba(255, 255, 255, 0.72);
@@ -125,42 +142,94 @@
   line-height: 1.58;
 }
 
+/* =========================================================
+   HOME HERO: FIRST 3 IMAGE CARDS
+   Комплексний підхід / Технічна логіка / Акуратний монтаж
+========================================================= */
+
+body.hero-wrap .hero-visual-cards {
+  row-gap: 14px;
+}
+
+body.hero-wrap .hero-visual-cards .hero-visual-card {
+  --ut-card-min-height: clamp(176px, 17vw, 224px);
+  --ut-card-padding: 0;
+}
+
+body.hero-wrap .hero-visual-cards .hero-visual-card__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 20px 18px 18px;
+}
+
+body.hero-wrap .hero-visual-card--complex {
+  --ut-card-image: url("../assets/img/main/cards/complex-01.webp");
+}
+
+body.hero-wrap .hero-visual-card--logic {
+  --ut-card-image: url("../assets/img/main/cards/logic-01.webp");
+}
+
+body.hero-wrap .hero-visual-card--mount {
+  --ut-card-image: url("../assets/img/main/cards/mount-01.webp");
+}
+
+/* =========================================================
+   HOME WORK GRID: «Що ми виконуємо»
+========================================================= */
+
+.home-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 16px);
+  margin-top: clamp(28px, 4vw, 42px);
+  align-items: stretch;
+}
+
 .home-work-card--electro220 {
-  background-image: url("../assets/img/main/cards/electro-220.webp");
+  --ut-card-image: url("../assets/img/main/cards/electro-220.webp");
 }
 
 .home-work-card--lighting-led {
-  background-image: url("../assets/img/main/cards/lighting-led.webp");
+  --ut-card-image: url("../assets/img/main/cards/lighting-led.webp");
 }
 
 .home-work-card--backup-power {
-  background-image: url("../assets/img/main/cards/backup-power.webp");
+  --ut-card-image: url("../assets/img/main/cards/backup-power.webp");
 }
 
 .home-work-card--video-surveillance {
-  background-image: url("../assets/img/main/cards/video-surveillance.webp");
+  --ut-card-image: url("../assets/img/main/cards/video-surveillance.webp");
 }
 
 .home-work-card--ops-ps-security {
-  background-image: url("../assets/img/main/cards/ops-ps-security.webp");
+  --ut-card-image: url("../assets/img/main/cards/ops-ps-security.webp");
 }
 
 .home-work-card--scud-network-smart {
-  background-image: url("../assets/img/main/cards/scud-network-smart.webp");
+  --ut-card-image: url("../assets/img/main/cards/scud-network-smart.webp");
 }
 
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media (max-width: 991.98px) {
+  body.hero-wrap .hero-visual-cards .hero-visual-card,
+  .home-work-card {
+    --ut-card-min-height: 214px;
+    --ut-card-bg-size: cover;
+    --ut-card-bg-position: center;
+  }
+
   .home-work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .home-work-card {
-    min-height: 214px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .home-work-card::before {
+  .ut-image-card::before,
+  .home-work-card::before,
+  body.hero-wrap .hero-visual-cards .hero-visual-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.72) 0%, rgba(2, 4, 8, 0.56) 62%, rgba(2, 4, 8, 0.30) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.05), rgba(2, 4, 8, 0.58)),
@@ -169,23 +238,39 @@
 }
 
 @media (max-width: 767.98px) {
+  body.hero-wrap .hero-visual-cards .hero-visual-card {
+    --ut-card-min-height: 190px;
+  }
+
+  body.hero-wrap .hero-visual-cards .hero-visual-card__content {
+    padding: 18px 15px 16px;
+  }
+
   .home-work-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .home-work-card {
-    min-height: 220px;
-    padding: 22px 18px 18px;
-    background-size: cover;
-    background-position: center;
+    --ut-card-min-height: 220px;
+    --ut-card-padding: 22px 18px 18px;
+    --ut-card-bg-size: cover;
+    --ut-card-bg-position: center;
   }
 
-  .home-work-card::before {
+  .ut-image-card::before,
+  .home-work-card::before,
+  body.hero-wrap .hero-visual-cards .hero-visual-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.74) 0%, rgba(2, 4, 8, 0.60) 68%, rgba(2, 4, 8, 0.34) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.60)),
       radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
+  }
+
+  body.hero-wrap .hero-visual-cards .hero-visual-card__content p,
+  .home-work-card p {
+    font-size: 12.2px;
+    line-height: 1.52;
   }
 
   .home-work-card h3,
