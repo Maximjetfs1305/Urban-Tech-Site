@@ -30,7 +30,7 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
   overflow: hidden;
   text-align: left;
   padding: var(--ut-card-padding, 20px 18px 18px);
-  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.56));
+  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.72));
   background-image: var(--ut-card-image);
   background-size: var(--ut-card-bg-size, cover);
   background-position: var(--ut-card-bg-position, center);
@@ -44,7 +44,6 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
   transform: translateZ(0);
   transition:
     transform 0.28s ease,
-    border-color 0.28s ease,
     box-shadow 0.28s ease,
     filter 0.28s ease,
     background-position 0.28s ease;
@@ -77,7 +76,6 @@ body.hero-wrap .hero-visual-cards .hero-visual-card::after {
 .ut-image-card:hover,
 .home-work-card:hover,
 body.hero-wrap .hero-visual-cards .hero-visual-card:hover {
-  --ut-card-border: rgba(248, 181, 0, 0.82);
   transform: translateY(-4px);
   box-shadow:
     0 26px 62px rgba(0, 0, 0, 0.36),
