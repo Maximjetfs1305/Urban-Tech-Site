@@ -2,18 +2,19 @@
   URBAN TECH — MAIN JAVASCRIPT
   Єдиний кастомний JS-файл сайту.
 
-  Що об'єднано:
-  - базова логіка всіх сторінок;
-  - меню;
+  Що тут зібрано:
+  - підключення єдиного CSS-файлу css/urban-tech.css;
+  - акуратний fallback на старі CSS, якщо urban-tech.css ще не завантажений;
   - preloader;
-  - підключення службових CSS;
-  - фон hero-video;
+  - burger/fullscreen меню;
+  - стан header при скролі;
+  - hero-video фон;
   - breadcrumbs;
-  - footer/contact modal для внутрішніх сторінок;
+  - спільний footer і contact modal для внутрішніх сторінок;
   - вкладки сторінки "Послуги";
-  - мобільний скрол сторінки "Послуги";
-  - workflow-блоки сторінки "Послуги";
-  - анімація кнопок зв'язку.
+  - мобільна логіка сторінки "Послуги";
+  - анімація логотипу;
+  - анімація кнопок "Зв'язатися".
 */
 
 (function () {
@@ -21,16 +22,27 @@
 
   /* =========================================================
      ### ГЛОБАЛЬНІ НАЛАШТУВАННЯ ###
-     ## Шляхи до службових CSS, відео та основні контакти ##
+     ## Шляхи до CSS, відео та основні контакти ##
   ========================================================= */
 
   const CONFIG = {
     styles: {
-      runtime: "css/ut-runtime.css",
-      menu: "css/ut-menu-test.css",
-      headerScroll: "css/ut-header-scroll.css",
-      faq: "css/ut-faq.css",
-      contacts: "css/ut-contacts.css"
+      unified: "css/urban-tech.css",
+      legacy: [
+        "css/style.css",
+        "css/home-static.css",
+        "css/ut-runtime.css",
+        "css/ut-menu-test.css",
+        "css/ut-header-scroll.css",
+        "css/ut-faq.css",
+        "css/ut-contacts.css",
+        "css/services-electro-cards.css",
+        "css/ut-services-menu.css",
+        "css/ut-services-tight.css",
+        "css/ut-services-workflow.css",
+        "css/ut-services-square.css",
+        "css/ut-electro-six-cards.css"
+      ]
     },
 
     heroVideo: {
@@ -66,45 +78,81 @@
     }
   };
 
-  const ensureStylesheet = (href) => {
-    if (!href || document.querySelector(`link[href="${href}"]`)) return;
+  const normalizeAssetPath = (href) => {
+    if (!href) return "";
 
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
+    try {
+      const url = new URL(href, window.location.href);
+      return url.pathname.replace(/^\//, "");
+    } catch (error) {
+      return href.replace(/^\//, "");
+    }
   };
 
   /* =========================================================
      ### ВСІ СТОРІНКИ ###
-     ## Підключення службових CSS ##
-     Додає CSS, який потрібен для спільних елементів:
-     меню, runtime-правки, стан header при скролі.
+     ## Єдиний CSS-файл сайту ##
+     Підключає css/urban-tech.css.
+
+     Важливо:
+     - старі CSS-файли фізично НЕ видаляються;
+     - якщо urban-tech.css ще не завантажений або його немає,
+       старі стилі залишаються як fallback;
+     - коли urban-tech.css успішно завантажиться,
+       старі кастомні CSS-підключення прибираються зі сторінки,
+       щоб не було дублювання стилів.
   ========================================================= */
 
-  function initRuntimeStyles() {
-    ensureStylesheet(CONFIG.styles.runtime);
-    ensureStylesheet(CONFIG.styles.menu);
-    ensureStylesheet(CONFIG.styles.headerScroll);
-  }
+  function initUnifiedStylesheet() {
+    const unifiedPath = CONFIG.styles.unified;
+    const legacyPaths = new Set(CONFIG.styles.legacy.map(normalizeAssetPath));
 
-  /* =========================================================
-     ### FAQ / КОНТАКТИ ###
-     ## Підключення CSS тільки для конкретних сторінок ##
-     Якщо body має клас faq-body або contact-body —
-     додає відповідний CSS.
-  ========================================================= */
+    const getStylesheetLinks = () => {
+      return Array.from(document.querySelectorAll('link[rel~="stylesheet"]'));
+    };
 
-  function initPageSpecificStyles() {
-    if (!document.body) return;
+    const removeLegacyStyles = () => {
+      getStylesheetLinks().forEach((link) => {
+        const path = normalizeAssetPath(link.getAttribute("href"));
 
-    if (document.body.classList.contains("faq-body")) {
-      ensureStylesheet(CONFIG.styles.faq);
+        if (legacyPaths.has(path)) {
+          link.remove();
+        }
+      });
+    };
+
+    let unifiedLink = getStylesheetLinks().find((link) => {
+      return normalizeAssetPath(link.getAttribute("href")) === unifiedPath;
+    });
+
+    if (!unifiedLink) {
+      unifiedLink = document.createElement("link");
+      unifiedLink.rel = "stylesheet";
+      unifiedLink.href = unifiedPath;
+      unifiedLink.setAttribute("data-urban-tech-main-css", "true");
+      document.head.appendChild(unifiedLink);
     }
 
-    if (document.body.classList.contains("contact-body")) {
-      ensureStylesheet(CONFIG.styles.contacts);
+    const isStylesheetAlreadyLoaded = () => {
+      try {
+        return Boolean(unifiedLink.sheet);
+      } catch (error) {
+        return false;
+      }
+    };
+
+    if (isStylesheetAlreadyLoaded()) {
+      removeLegacyStyles();
+      return;
     }
+
+    unifiedLink.addEventListener("load", removeLegacyStyles, { once: true });
+
+    unifiedLink.addEventListener("error", () => {
+      console.warn(
+        "Urban Tech: css/urban-tech.css не завантажився. Старі CSS-файли залишені як fallback."
+      );
+    }, { once: true });
   }
 
   /* =========================================================
@@ -202,6 +250,7 @@
 
     const updateHeight = () => {
       const height = `${window.innerHeight}px`;
+
       blocks.forEach((block) => {
         block.style.height = height;
       });
@@ -287,6 +336,7 @@
     });
 
     const panel = nav.querySelector(".col-md-12");
+
     if (panel) {
       panel.addEventListener("click", (event) => {
         event.stopPropagation();
@@ -714,6 +764,7 @@
       document.body.classList.add("contact-modal-open");
 
       const firstLink = modal.querySelector(".ut-contact-item");
+
       if (firstLink) {
         window.setTimeout(() => firstLink.focus(), 80);
       }
@@ -743,9 +794,6 @@
      - мобільний список напрямків;
      - скрол до активного блоку на мобільних/планшетах;
      - перемикання [data-workflow-panel].
-     
-     Сюди перенесена логіка зі старого:
-     js/ut-services-mobile-scroll.js
   ========================================================= */
 
   function initServicesPageTabs() {
@@ -847,9 +895,7 @@
       }
     };
 
-    const activeOnLoad =
-      document.querySelector("[data-service-tab].active") ||
-      tabs[0];
+    const activeOnLoad = document.querySelector("[data-service-tab].active") || tabs[0];
 
     if (activeOnLoad) {
       const activeKey = activeOnLoad.getAttribute("data-service-tab");
@@ -866,7 +912,6 @@
         const serviceKey = tab.getAttribute("data-service-tab");
 
         event.preventDefault();
-
         setActiveService(serviceKey, tab, isMobileOrTablet());
       });
     });
@@ -948,11 +993,10 @@
      ## Тут зібраний порядок запуску всього JS ##
   ========================================================= */
 
-  initRuntimeStyles();
+  initUnifiedStylesheet();
   initPreloader();
 
   onReady(() => {
-    initPageSpecificStyles();
     initHeroVideoBackground();
 
     initFullHeightBlocks();
