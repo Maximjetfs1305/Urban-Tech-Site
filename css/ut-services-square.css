@@ -1,5 +1,0 @@
-@media (max-width:1199.98px){
-body.services-body button.services-nav__link::after{border-radius:0!important;}
-body.services-body button.services-nav__link.active::after,
-body.services-body button.services-nav__link:hover::after{border-radius:0!important;}
-}
