@@ -10,7 +10,7 @@
 
   Важливо:
   - для перших 3 карток картинки задаються прямо в index.html через inline CSS-змінну;
-  - старі модифікатори hero-visual-card--complex/logic/mount більше не потрібні для цього блоку;
+  - border винесений в окремий верхній шар ::after, щоб затемнення не перекривало контур;
   - наступні розділи можна поступово переводити на прямий клас .ut-image-card.
 */
 
@@ -50,12 +50,13 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
     background-position 0.28s ease;
 }
 
+/* Затемнення картинки. Важливо: inset 0, щоб overlay не залазив на border. */
 .ut-image-card::before,
 .home-work-card::before,
 body.hero-wrap .hero-visual-cards .hero-visual-card::before {
   content: "";
   position: absolute;
-  inset: -1px;
+  inset: 0;
   z-index: 0;
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 54%, rgba(2, 4, 8, 0.18) 100%),
@@ -65,26 +66,27 @@ body.hero-wrap .hero-visual-cards .hero-visual-card::before {
   transition: background 0.28s ease;
 }
 
+/* Видимий контур + нижня золота лінія. Тримаємо вище overlay, але нижче тексту. */
 .ut-image-card::after,
 .home-work-card::after,
 body.hero-wrap .hero-visual-cards .hero-visual-card::after {
   content: "";
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 0;
+  inset: 0;
   z-index: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(248, 181, 0, 0.62), transparent);
-  opacity: 0.72;
+  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.54));
+  background:
+    linear-gradient(90deg, transparent, rgba(248, 181, 0, 0.62), transparent) left bottom / 100% 1px no-repeat;
+  opacity: 1;
   pointer-events: none;
+  transition: border-color 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
 }
 
 .ut-image-card:hover,
 .home-work-card:hover,
 body.hero-wrap .hero-visual-cards .hero-visual-card:hover {
+  --ut-card-border: rgba(248, 181, 0, 0.82);
   transform: translateY(-4px);
-  border-color: rgba(248, 181, 0, 0.82);
   box-shadow:
     0 26px 62px rgba(0, 0, 0, 0.36),
     0 0 28px rgba(248, 181, 0, 0.16),
@@ -99,6 +101,14 @@ body.hero-wrap .hero-visual-cards .hero-visual-card:hover::before {
     linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
     radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+}
+
+.ut-image-card:hover::after,
+.home-work-card:hover::after,
+body.hero-wrap .hero-visual-cards .hero-visual-card:hover::after {
+  background:
+    linear-gradient(90deg, transparent, rgba(248, 181, 0, 0.82), transparent) left bottom / 100% 1px no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(248, 181, 0, 0.08);
 }
 
 .ut-image-card > *,
