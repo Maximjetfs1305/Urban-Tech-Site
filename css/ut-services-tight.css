@@ -227,28 +227,44 @@ body.hero-wrap #work-process .ut-process-card p {
 }
 
 /* =========================================================
-   HOME — mobile fix for "Що ми виконуємо"
-   Лише м'який override під телефон, без зміни desktop/tablet.
+   HOME — strong mobile fix for "Що ми виконуємо"
 ========================================================= */
 @media (max-width: 575.98px) {
-  body.hero-wrap .home-services-grid {
-    row-gap: 16px !important;
+  html body.hero-wrap #home-services-preview {
+    padding-bottom: 54px !important;
+    margin-bottom: 0 !important;
   }
 
-  body.hero-wrap .home-service-card {
-    min-height: clamp(248px, 82vw, 340px) !important;
-    padding: 20px 16px 18px !important;
+  html body.hero-wrap #home-services-preview .home-services-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 18px !important;
   }
 
-  body.hero-wrap .home-service-card h3 {
+  html body.hero-wrap #home-services-preview .home-service-card {
+    min-height: clamp(286px, 92vw, 380px) !important;
+    height: auto !important;
+    padding: 24px 18px 22px !important;
+    justify-content: flex-end !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  html body.hero-wrap #home-services-preview .home-service-card h3 {
     max-width: 100% !important;
-    font-size: clamp(14px, 6vw, 17px) !important;
-    line-height: 1.18 !important;
+    margin-bottom: 12px !important;
+    font-size: clamp(23px, 7.6vw, 31px) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -0.35px !important;
   }
 
-  body.hero-wrap .home-service-card p {
+  html body.hero-wrap #home-services-preview .home-service-card p {
     max-width: 100% !important;
-    font-size: 12.8px !important;
-    line-height: 1.56 !important;
+    font-size: clamp(16px, 4.45vw, 19px) !important;
+    line-height: 1.58 !important;
+  }
+
+  html body.hero-wrap #work-process {
+    padding-top: 56px !important;
   }
 }
