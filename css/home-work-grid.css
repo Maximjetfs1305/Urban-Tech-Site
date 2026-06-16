@@ -41,7 +41,7 @@
   background-position: center !important;
   background-repeat: no-repeat !important;
 
-  border: 1px solid var(--ut-card-border) !important;
+  border: 0.75px solid var(--ut-card-border) !important;
   border-radius: 0 !important;
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.30);
 
