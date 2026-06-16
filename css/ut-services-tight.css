@@ -50,15 +50,32 @@ body.services-body .service-hero-card {
 }
 
 /* =========================================================
-   HOME — WORK PROCESS CARDS
-   Картинки лежать у: assets/img/main/cards/
+   HOME — WORK PROCESS CARDS ONLY
+   ВАЖЛИВО: .home-service-card тут не чіпаємо.
+   Розділ "Що ми виконуємо" стилізується тільки в home-static.css.
 ========================================================= */
+body.hero-wrap #work-process .ut-process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 2.1vw, 28px) !important;
+  width: 100% !important;
+}
+
 body.hero-wrap #work-process .ut-process-card {
   position: relative;
+  width: 100% !important;
+  min-height: clamp(248px, 20vw, 306px) !important;
+  aspect-ratio: 16 / 9 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
   overflow: hidden;
+  padding: 78px 22px 24px !important;
+  text-align: left !important;
   border: 1px solid rgba(248, 181, 0, 0.54) !important;
   background-size: cover !important;
-  background-position: center !important;
+  background-position: center center !important;
   background-repeat: no-repeat !important;
   box-shadow:
     0 18px 46px rgba(0, 0, 0, 0.28),
@@ -133,172 +150,35 @@ body.hero-wrap #work-process .ut-process-card:nth-child(4) {
   background-image: url("../assets/img/main/cards/turnkey-implementation.webp") !important;
 }
 
-/* =========================================================
-   HOME — adaptive card images
-   Підлаштування фонів під desktop / tablet / mobile
-========================================================= */
-body.hero-wrap .home-service-card,
-body.hero-wrap #work-process .ut-process-card {
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-
-body.hero-wrap .home-service-card,
-body.hero-wrap #work-process .ut-process-card {
-  min-height: clamp(210px, 22vw, 286px) !important;
-}
-
-@media (max-width: 991.98px) {
-  body.hero-wrap .home-service-card,
-  body.hero-wrap #work-process .ut-process-card {
-    min-height: clamp(214px, 36vw, 280px) !important;
-    background-position: center center !important;
-  }
-}
-
-@media (max-width: 575.98px) {
-  body.hero-wrap .home-service-card,
-  body.hero-wrap #work-process .ut-process-card {
-    min-height: clamp(220px, 68vw, 292px) !important;
-    background-position: center center !important;
-  }
-
-  body.hero-wrap .home-service-card--electro220,
-  body.hero-wrap .home-service-card--lighting-led,
-  body.hero-wrap .home-service-card--backup-power,
-  body.hero-wrap .home-service-card--video-surveillance,
-  body.hero-wrap .home-service-card--ops-ps-security,
-  body.hero-wrap .home-service-card--scud-network-smart,
-  body.hero-wrap #work-process .ut-process-card {
-    background-size: cover !important;
-  }
-}
-
-/* =========================================================
-   HOME — work process bottom content
-   Іконка зліва, текст справа, увесь блок унизу картки
-========================================================= */
-body.hero-wrap #work-process .ut-process-card {
-  display: grid !important;
-  grid-template-columns: 46px minmax(0, 1fr) !important;
-  grid-template-rows: auto auto !important;
-  column-gap: 14px !important;
-  row-gap: 6px !important;
-  align-content: end !important;
-  align-items: end !important;
-  text-align: left !important;
-  padding-top: clamp(84px, 9vw, 116px) !important;
-  padding-bottom: 22px !important;
+body.hero-wrap #work-process .ut-process-card .ut-card-icon {
+  position: absolute !important;
+  left: 22px !important;
+  top: 22px !important;
+  z-index: 2 !important;
+  margin: 0 !important;
 }
 
 body.hero-wrap #work-process .ut-process-card .ut-card-number {
   position: absolute !important;
-  left: 14px !important;
-  top: 14px !important;
+  left: auto !important;
+  right: 22px !important;
+  top: 16px !important;
   z-index: 1 !important;
+  text-align: right !important;
   pointer-events: none !important;
 }
 
-body.hero-wrap #work-process .ut-process-card .ut-card-icon {
-  grid-column: 1 !important;
-  grid-row: 1 / span 2 !important;
-  align-self: end !important;
-  justify-self: start !important;
-  margin: 0 0 2px 0 !important;
+body.hero-wrap #work-process .ut-process-card h3,
+body.hero-wrap #work-process .ut-process-card p {
+  max-width: min(430px, 100%) !important;
 }
 
 body.hero-wrap #work-process .ut-process-card h3 {
-  grid-column: 2 !important;
-  grid-row: 1 !important;
-  margin: 0 !important;
-  max-width: 100% !important;
-  overflow-wrap: normal !important;
-  word-break: normal !important;
-  hyphens: none !important;
+  margin: 0 0 8px !important;
 }
 
 body.hero-wrap #work-process .ut-process-card p {
-  grid-column: 2 !important;
-  grid-row: 2 !important;
   margin: 0 !important;
-}
-
-@media (max-width: 575.98px) {
-  body.hero-wrap #work-process .ut-process-card {
-    grid-template-columns: 40px minmax(0, 1fr) !important;
-    column-gap: 12px !important;
-    row-gap: 5px !important;
-    padding-top: 92px !important;
-    padding-bottom: 20px !important;
-  }
-}
-
-/* =========================================================
-   HOME — work process wide 2x2 layout
-   Картки ширші, 2 зверху + 2 знизу, пропорція під 1200x900
-========================================================= */
-body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
-  flex: 0 0 100% !important;
-  max-width: 100% !important;
-}
-
-body.hero-wrap #work-process .ut-process-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: clamp(18px, 2.1vw, 28px) !important;
-  width: min(1180px, 100%) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-body.hero-wrap #work-process .ut-process-card {
-  width: 100% !important;
-  min-height: auto !important;
-  aspect-ratio: 4 / 3 !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  padding-top: clamp(120px, 10vw, 150px) !important;
-}
-
-@media (max-width: 991.98px) {
-  body.hero-wrap #work-process .ut-process-grid {
-    width: 100% !important;
-    gap: 18px !important;
-  }
-
-  body.hero-wrap #work-process .ut-process-card {
-    aspect-ratio: 4 / 3 !important;
-    min-height: auto !important;
-    padding-top: clamp(104px, 12vw, 130px) !important;
-  }
-}
-
-@media (max-width: 767.98px) {
-  body.hero-wrap #work-process .ut-process-grid {
-    grid-template-columns: 1fr !important;
-    max-width: 520px !important;
-  }
-
-  body.hero-wrap #work-process .ut-process-card {
-    aspect-ratio: 4 / 3 !important;
-    min-height: 300px !important;
-    padding-top: 96px !important;
-  }
-}
-
-/* =========================================================
-   HOME — work process normal content width
-   2x2 лишається, але блок не ширший за загальний контент
-========================================================= */
-body.hero-wrap #work-process .col-12.col-lg-10.col-xl-9 {
-  flex: 0 0 auto !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-body.hero-wrap #work-process .ut-process-grid {
-  width: 100% !important;
 }
 
 @media (min-width: 992px) {
@@ -315,58 +195,6 @@ body.hero-wrap #work-process .ut-process-grid {
   }
 }
 
-/* =========================================================
-   HOME — work process compact top markers
-   Іконка зверху зліва, номер зверху справа, текст внизу
-========================================================= */
-body.hero-wrap #work-process .ut-process-card {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-end !important;
-  align-items: flex-start !important;
-  aspect-ratio: 16 / 9 !important;
-  min-height: clamp(248px, 20vw, 306px) !important;
-  padding: 78px 22px 24px !important;
-  text-align: left !important;
-}
-
-body.hero-wrap #work-process .ut-process-card .ut-card-icon {
-  position: absolute !important;
-  left: 22px !important;
-  top: 22px !important;
-  z-index: 2 !important;
-  margin: 0 !important;
-  align-self: auto !important;
-  justify-self: auto !important;
-  grid-column: auto !important;
-  grid-row: auto !important;
-}
-
-body.hero-wrap #work-process .ut-process-card .ut-card-number {
-  position: absolute !important;
-  left: auto !important;
-  right: 22px !important;
-  top: 16px !important;
-  z-index: 1 !important;
-  text-align: right !important;
-  pointer-events: none !important;
-}
-
-body.hero-wrap #work-process .ut-process-card h3,
-body.hero-wrap #work-process .ut-process-card p {
-  grid-column: auto !important;
-  grid-row: auto !important;
-  max-width: min(430px, 100%) !important;
-}
-
-body.hero-wrap #work-process .ut-process-card h3 {
-  margin: 0 0 8px !important;
-}
-
-body.hero-wrap #work-process .ut-process-card p {
-  margin: 0 !important;
-}
-
 @media (max-width: 991.98px) {
   body.hero-wrap #work-process .ut-process-card {
     min-height: clamp(236px, 34vw, 288px) !important;
@@ -375,6 +203,13 @@ body.hero-wrap #work-process .ut-process-card p {
 }
 
 @media (max-width: 767.98px) {
+  body.hero-wrap #work-process .ut-process-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 520px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
   body.hero-wrap #work-process .ut-process-card {
     aspect-ratio: 4 / 3 !important;
     min-height: 286px !important;
