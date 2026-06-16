@@ -51,7 +51,8 @@ body.services-body .service-hero-card {
 
 /* =========================================================
    HOME — WORK PROCESS CARDS ONLY
-   ВАЖЛИВО: основний стиль .home-service-card лежить у home-static.css.
+   ВАЖЛИВО: цей файл більше не чіпає .home-service-card.
+   Розділ "Що ми виконуємо" стилізується тільки в home-static.css.
 ========================================================= */
 body.hero-wrap #work-process .ut-process-grid {
   display: grid !important;
@@ -223,48 +224,5 @@ body.hero-wrap #work-process .ut-process-card p {
   body.hero-wrap #work-process .ut-process-card .ut-card-number {
     right: 18px !important;
     top: 14px !important;
-  }
-}
-
-/* =========================================================
-   HOME — strong mobile fix for "Що ми виконуємо"
-========================================================= */
-@media (max-width: 575.98px) {
-  html body.hero-wrap #home-services-preview {
-    padding-bottom: 54px !important;
-    margin-bottom: 0 !important;
-  }
-
-  html body.hero-wrap #home-services-preview .home-services-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    row-gap: 18px !important;
-  }
-
-  html body.hero-wrap #home-services-preview .home-service-card {
-    min-height: clamp(286px, 92vw, 380px) !important;
-    height: auto !important;
-    padding: 24px 18px 22px !important;
-    justify-content: flex-end !important;
-    background-size: cover !important;
-    background-position: center center !important;
-  }
-
-  html body.hero-wrap #home-services-preview .home-service-card h3 {
-    max-width: 100% !important;
-    margin-bottom: 12px !important;
-    font-size: clamp(23px, 7.6vw, 31px) !important;
-    line-height: 1.16 !important;
-    letter-spacing: -0.35px !important;
-  }
-
-  html body.hero-wrap #home-services-preview .home-service-card p {
-    max-width: 100% !important;
-    font-size: clamp(16px, 4.45vw, 19px) !important;
-    line-height: 1.58 !important;
-  }
-
-  html body.hero-wrap #work-process {
-    padding-top: 56px !important;
   }
 }
