@@ -1,0 +1,191 @@
+/*
+  URBAN TECH — HOME WORK GRID
+  Чистий CSS тільки для секції головної сторінки «Що ми виконуємо».
+
+  Чому окремий файл:
+  - старі класи .home-services-grid / .home-service-card у загальному CSS мали багато конфліктних override-ів;
+  - цей блок використовує нові ізольовані класи .home-work-grid / .home-work-card;
+  - затемнення не прив'язане до var(--ut-card-visual), тому не зникає на мобільній версії.
+*/
+
+.home-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 16px);
+  margin-top: clamp(28px, 4vw, 42px);
+  align-items: stretch;
+}
+
+.home-work-card {
+  position: relative;
+  min-height: clamp(204px, 18vw, 246px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-align: left;
+  padding: 20px 18px 18px;
+  border: 1px solid rgba(248, 181, 0, 0.54);
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(248, 181, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  transform: translateZ(0);
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.28s ease;
+}
+
+.home-work-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.84) 0%, rgba(2, 4, 8, 0.68) 54%, rgba(2, 4, 8, 0.28) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.08), rgba(2, 4, 8, 0.70)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+  pointer-events: none;
+  transition: background 0.28s ease;
+}
+
+.home-work-card::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  z-index: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(248, 181, 0, 0.62), transparent);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.home-work-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(248, 181, 0, 0.82);
+  box-shadow:
+    0 26px 62px rgba(0, 0, 0, 0.36),
+    0 0 28px rgba(248, 181, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  filter: saturate(1.06) contrast(1.03);
+}
+
+.home-work-card:hover::before {
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.76) 0%, rgba(2, 4, 8, 0.60) 54%, rgba(2, 4, 8, 0.22) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.05), rgba(2, 4, 8, 0.62)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.20), transparent 38%);
+}
+
+.home-work-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.home-work-card h3 {
+  margin: 0 0 9px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(15px, 1.25vw, 18px);
+  font-weight: 760;
+  line-height: 1.22;
+  letter-spacing: -0.1px;
+}
+
+.home-work-card h3::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 17px;
+  margin-right: 9px;
+  vertical-align: -3px;
+  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
+  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
+}
+
+.home-work-card p {
+  margin: 0;
+  max-width: 96%;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12.6px;
+  line-height: 1.58;
+}
+
+.home-work-card--electro220 {
+  background-image: url("../assets/img/main/cards/electro-220.webp");
+}
+
+.home-work-card--lighting-led {
+  background-image: url("../assets/img/main/cards/lighting-led.webp");
+}
+
+.home-work-card--backup-power {
+  background-image: url("../assets/img/main/cards/backup-power.webp");
+}
+
+.home-work-card--video-surveillance {
+  background-image: url("../assets/img/main/cards/video-surveillance.webp");
+}
+
+.home-work-card--ops-ps-security {
+  background-image: url("../assets/img/main/cards/ops-ps-security.webp");
+}
+
+.home-work-card--scud-network-smart {
+  background-image: url("../assets/img/main/cards/scud-network-smart.webp");
+}
+
+@media (max-width: 991.98px) {
+  .home-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-work-card {
+    min-height: 214px;
+  }
+
+  .home-work-card::before {
+    background:
+      linear-gradient(90deg, rgba(2, 4, 8, 0.88) 0%, rgba(2, 4, 8, 0.74) 62%, rgba(2, 4, 8, 0.42) 100%),
+      linear-gradient(180deg, rgba(2, 4, 8, 0.08), rgba(2, 4, 8, 0.74)),
+      radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-work-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-work-card {
+    min-height: 220px;
+    padding: 22px 18px 18px;
+    background-position: center right;
+  }
+
+  .home-work-card::before {
+    background:
+      linear-gradient(90deg, rgba(2, 4, 8, 0.92) 0%, rgba(2, 4, 8, 0.82) 68%, rgba(2, 4, 8, 0.52) 100%),
+      linear-gradient(180deg, rgba(2, 4, 8, 0.12), rgba(2, 4, 8, 0.78)),
+      radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+  }
+
+  .home-work-card h3,
+  .home-work-card p {
+    max-width: min(88%, 360px);
+  }
+}
+
+@media (max-width: 390px) {
+  .home-work-card h3,
+  .home-work-card p {
+    max-width: 92%;
+  }
+}
