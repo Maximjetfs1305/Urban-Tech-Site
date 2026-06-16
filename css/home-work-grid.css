@@ -1,90 +1,111 @@
 /*
-  URBAN TECH — UNIVERSAL IMAGE CARD + HOME PAGE IMAGE CARDS
+  URBAN TECH — IMAGE CARD COMPONENTS
 
-  Призначення:
-  - одна універсальна основа для карток із фоновою картинкою: .ut-image-card;
-  - перші 3 картки головної сторінки стилізуються саме як article.ut-image-card у блоці .hero-visual-cards;
-  - секція «Що ми виконуємо» також використовує цю ж основу через .home-work-card;
-  - картинки задаються через CSS-змінну --ut-card-image;
-  - затемнення, border, hover, адаптив і текстова зона керуються одним компонентом.
+  Bootstrap відповідає за конструкцію:
+  - row / col / g-4;
+  - card / card-body / h-100;
+  - базову адаптивну сітку.
 
-  Важливо:
-  - старі класи hero-visual-card більше не потрібні для стилізації компонента;
-  - поки вони можуть залишатися в HTML як перехідний хвіст, але нові правила прив'язані до .ut-image-card;
-  - border тримається на самій картці, overlay залишається всередині і не перекриває контур.
+  Цей файл відповідає тільки за брендове оформлення:
+  - фонова картинка;
+  - затемнення;
+  - постійний золотий border;
+  - premium hover;
+  - текстова зона.
 */
 
 /* =========================================================
    SHARED COMPONENT: IMAGE CARD
-   Одна база для всіх карток із фото на фоні
 ========================================================= */
 
 .ut-image-card,
-.home-work-card,
-body.hero-wrap .hero-visual-cards article.ut-image-card {
+.home-work-card {
+  --ut-card-image: none;
+  --ut-card-min-height: clamp(204px, 18vw, 246px);
+  --ut-card-padding: 20px 18px 18px;
+  --ut-card-border: rgba(248, 181, 0, 0.96);
+  --ut-card-overlay-left: rgba(2, 4, 8, 0.68);
+  --ut-card-overlay-center: rgba(2, 4, 8, 0.50);
+  --ut-card-overlay-right: rgba(2, 4, 8, 0.18);
+  --ut-card-overlay-bottom: rgba(2, 4, 8, 0.54);
+
   position: relative;
-  min-height: var(--ut-card-min-height, clamp(204px, 18vw, 246px));
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  min-height: var(--ut-card-min-height);
   overflow: hidden;
+  isolation: isolate;
+  color: #fff;
   text-align: left;
-  padding: var(--ut-card-padding, 20px 18px 18px);
-  border: 1px solid var(--ut-card-border, rgba(248, 181, 0, 0.96)) !important;
+
   background-image: var(--ut-card-image) !important;
-  background-size: var(--ut-card-bg-size, cover) !important;
-  background-position: var(--ut-card-bg-position, center) !important;
+  background-size: cover !important;
+  background-position: center !important;
   background-repeat: no-repeat !important;
-  background-origin: border-box;
-  background-clip: border-box;
-  box-shadow:
-    0 18px 46px rgba(0, 0, 0, 0.30),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035) !important;
-  transform: translateZ(0);
+
+  border: 1px solid var(--ut-card-border) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.30);
+
+  transform: translateY(0);
   transition:
     transform 0.28s ease,
     box-shadow 0.28s ease,
-    filter 0.28s ease,
-    background-position 0.28s ease;
+    filter 0.28s ease;
 }
 
-/* Затемнення картинки. Overlay починається всередині border, щоб не перекривати контур. */
+.ut-image-card.card {
+  --bs-card-bg: transparent;
+  --bs-card-border-width: 0;
+  --bs-card-border-color: transparent;
+  --bs-card-border-radius: 0;
+
+  display: flex;
+}
+
+.home-work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--ut-card-padding);
+}
+
 .ut-image-card::before,
-.home-work-card::before,
-body.hero-wrap .hero-visual-cards article.ut-image-card::before {
+.home-work-card::before {
   content: "";
   position: absolute;
   inset: 1px;
   z-index: 0;
-  background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 54%, rgba(2, 4, 8, 0.18) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.54)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      var(--ut-card-overlay-left) 0%,
+      var(--ut-card-overlay-center) 54%,
+      var(--ut-card-overlay-right) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 4, 8, 0.04),
+      var(--ut-card-overlay-bottom)
+    ),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   transition: background 0.28s ease;
 }
 
-/* Вимикаємо старі/дубльовані декоративні after-шари, щоб не було подвійних ліній. */
 .ut-image-card::after,
-.home-work-card::after,
-body.hero-wrap .hero-visual-cards article.ut-image-card::after {
+.home-work-card::after {
   content: none !important;
   display: none !important;
 }
 
 .ut-image-card:hover,
-.home-work-card:hover,
-body.hero-wrap .hero-visual-cards article.ut-image-card:hover {
+.home-work-card:hover {
   transform: translateY(-4px);
-  box-shadow:
-    0 26px 62px rgba(0, 0, 0, 0.36),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.045) !important;
+  box-shadow: 0 26px 62px rgba(0, 0, 0, 0.36);
   filter: saturate(1.06) contrast(1.03);
 }
 
 .ut-image-card:hover::before,
-.home-work-card:hover::before,
-body.hero-wrap .hero-visual-cards article.ut-image-card:hover::before {
+.home-work-card:hover::before {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
     linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
@@ -92,15 +113,29 @@ body.hero-wrap .hero-visual-cards article.ut-image-card:hover::before {
 }
 
 .ut-image-card > *,
-.home-work-card > *,
-body.hero-wrap .hero-visual-cards article.ut-image-card > * {
+.home-work-card > * {
   position: relative;
   z-index: 2;
 }
 
-.ut-image-card h3,
-.home-work-card h3,
-body.hero-wrap .hero-visual-cards article.ut-image-card h3 {
+/* =========================================================
+   BOOTSTRAP CARD CONTENT
+========================================================= */
+
+.ut-image-card__content.card-body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: var(--ut-card-min-height);
+  padding: var(--ut-card-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ut-image-card__title,
+.home-work-card h3 {
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.96);
   font-size: clamp(15px, 1.25vw, 18px);
@@ -109,9 +144,8 @@ body.hero-wrap .hero-visual-cards article.ut-image-card h3 {
   letter-spacing: -0.1px;
 }
 
-.ut-image-card h3::before,
-.home-work-card h3::before,
-body.hero-wrap .hero-visual-cards article.ut-image-card h3::before {
+.ut-image-card__title::before,
+.home-work-card h3::before {
   content: "";
   display: inline-block;
   width: 3px;
@@ -122,9 +156,8 @@ body.hero-wrap .hero-visual-cards article.ut-image-card h3::before {
   box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
 }
 
-.ut-image-card p,
-.home-work-card p,
-body.hero-wrap .hero-visual-cards article.ut-image-card p {
+.ut-image-card__text,
+.home-work-card p {
   margin: 0;
   max-width: 96%;
   color: rgba(255, 255, 255, 0.72);
@@ -133,24 +166,17 @@ body.hero-wrap .hero-visual-cards article.ut-image-card p {
 }
 
 /* =========================================================
-   HOME HERO: FIRST 3 IMAGE CARDS
-   Комплексний підхід / Технічна логіка / Акуратний монтаж
+   HOME HERO: FIRST 3 CARDS
 ========================================================= */
 
-body.hero-wrap .hero-visual-cards {
+.ut-image-card-row {
   row-gap: 14px;
+  margin-top: 24px;
 }
 
-body.hero-wrap .hero-visual-cards article.ut-image-card {
+.ut-image-card--hero {
   --ut-card-min-height: clamp(176px, 17vw, 224px);
-  --ut-card-padding: 0;
-}
-
-body.hero-wrap .hero-visual-cards .ut-image-card__content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 20px 18px 18px;
+  --ut-card-padding: 20px 18px 18px;
 }
 
 /* =========================================================
@@ -194,11 +220,9 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 ========================================================= */
 
 @media (max-width: 991.98px) {
-  body.hero-wrap .hero-visual-cards article.ut-image-card,
+  .ut-image-card--hero,
   .home-work-card {
     --ut-card-min-height: 214px;
-    --ut-card-bg-size: cover;
-    --ut-card-bg-position: center;
   }
 
   .home-work-grid {
@@ -206,8 +230,7 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
   }
 
   .ut-image-card::before,
-  .home-work-card::before,
-  body.hero-wrap .hero-visual-cards article.ut-image-card::before {
+  .home-work-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.72) 0%, rgba(2, 4, 8, 0.56) 62%, rgba(2, 4, 8, 0.30) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.05), rgba(2, 4, 8, 0.58)),
@@ -216,12 +239,13 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
 }
 
 @media (max-width: 767.98px) {
-  body.hero-wrap .hero-visual-cards article.ut-image-card {
-    --ut-card-min-height: 190px;
+  .ut-image-card-row {
+    margin-top: 20px;
   }
 
-  body.hero-wrap .hero-visual-cards .ut-image-card__content {
-    padding: 18px 15px 16px;
+  .ut-image-card--hero {
+    --ut-card-min-height: 190px;
+    --ut-card-padding: 18px 15px 16px;
   }
 
   .home-work-grid {
@@ -232,20 +256,17 @@ body.hero-wrap .hero-visual-cards .ut-image-card__content {
   .home-work-card {
     --ut-card-min-height: 220px;
     --ut-card-padding: 22px 18px 18px;
-    --ut-card-bg-size: cover;
-    --ut-card-bg-position: center;
   }
 
   .ut-image-card::before,
-  .home-work-card::before,
-  body.hero-wrap .hero-visual-cards article.ut-image-card::before {
+  .home-work-card::before {
     background:
       linear-gradient(90deg, rgba(2, 4, 8, 0.74) 0%, rgba(2, 4, 8, 0.60) 68%, rgba(2, 4, 8, 0.34) 100%),
       linear-gradient(180deg, rgba(2, 4, 8, 0.06), rgba(2, 4, 8, 0.60)),
       radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   }
 
-  body.hero-wrap .hero-visual-cards article.ut-image-card p,
+  .ut-image-card__text,
   .home-work-card p {
     font-size: 12.2px;
     line-height: 1.52;
