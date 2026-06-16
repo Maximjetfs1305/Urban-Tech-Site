@@ -3,14 +3,14 @@
 
   Призначення:
   - одна універсальна основа для карток із фоновою картинкою: .ut-image-card;
-  - перші 3 картки головної сторінки підключені до цієї основи через старі HTML-класи .hero-visual-card;
+  - перші 3 картки головної сторінки вже мають прямий HTML-клас .ut-image-card;
   - секція «Що ми виконуємо» також використовує цю ж основу через .home-work-card;
   - картинки задаються через CSS-змінну --ut-card-image;
   - затемнення, border, hover, адаптив і текстова зона керуються одним компонентом.
 
   Важливо:
-  - HTML перших трьох карток поки не чіпав, щоб не ризикувати;
-  - старі стилі .hero-visual-card з великого urban-tech.css перекриваються тут більш конкретними селекторами;
+  - для перших 3 карток картинки задаються прямо в index.html через inline CSS-змінну;
+  - старі модифікатори hero-visual-card--complex/logic/mount більше не потрібні для цього блоку;
   - наступні розділи можна поступово переводити на прямий клас .ut-image-card.
 */
 
@@ -156,23 +156,12 @@ body.hero-wrap .hero-visual-cards .hero-visual-card {
   --ut-card-padding: 0;
 }
 
-body.hero-wrap .hero-visual-cards .hero-visual-card__content {
+body.hero-wrap .hero-visual-cards .hero-visual-card__content,
+body.hero-wrap .hero-visual-cards .ut-image-card__content {
   position: relative;
   z-index: 2;
   width: 100%;
   padding: 20px 18px 18px;
-}
-
-body.hero-wrap .hero-visual-card--complex {
-  --ut-card-image: url("../assets/img/main/cards/complex-01.webp");
-}
-
-body.hero-wrap .hero-visual-card--logic {
-  --ut-card-image: url("../assets/img/main/cards/logic-01.webp");
-}
-
-body.hero-wrap .hero-visual-card--mount {
-  --ut-card-image: url("../assets/img/main/cards/mount-01.webp");
 }
 
 /* =========================================================
@@ -242,7 +231,8 @@ body.hero-wrap .hero-visual-card--mount {
     --ut-card-min-height: 190px;
   }
 
-  body.hero-wrap .hero-visual-cards .hero-visual-card__content {
+  body.hero-wrap .hero-visual-cards .hero-visual-card__content,
+  body.hero-wrap .hero-visual-cards .ut-image-card__content {
     padding: 18px 15px 16px;
   }
 
