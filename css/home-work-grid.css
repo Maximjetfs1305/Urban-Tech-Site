@@ -9,7 +9,7 @@
   Цей файл відповідає тільки за брендове оформлення:
   - фонова картинка;
   - затемнення;
-  - постійний золотий border;
+  - темніший border у звичайному стані та світліший при наведенні;
   - premium hover;
   - текстова зона.
 */
@@ -23,7 +23,8 @@
   --ut-card-image: none;
   --ut-card-min-height: clamp(204px, 18vw, 246px);
   --ut-card-padding: 20px 18px 18px;
-  --ut-card-border: rgba(248, 181, 0, 0.96);
+  --ut-card-border: rgba(248, 181, 0, 0.42);
+  --ut-card-border-hover: rgba(248, 181, 0, 0.92);
   --ut-card-overlay-left: rgba(2, 4, 8, 0.68);
   --ut-card-overlay-center: rgba(2, 4, 8, 0.50);
   --ut-card-overlay-right: rgba(2, 4, 8, 0.18);
@@ -49,6 +50,7 @@
   transition:
     transform 0.28s ease,
     box-shadow 0.28s ease,
+    border-color 0.28s ease,
     filter 0.28s ease;
 }
 
@@ -99,6 +101,7 @@
 
 .ut-image-card:hover,
 .home-work-card:hover {
+  border-color: var(--ut-card-border-hover) !important;
   transform: translateY(-4px);
   box-shadow: 0 26px 62px rgba(0, 0, 0, 0.36);
   filter: saturate(1.06) contrast(1.03);
