@@ -65,7 +65,7 @@
 .ut-image-card::before {
   content: "";
   position: absolute;
-  inset: 1px;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
