@@ -11,7 +11,8 @@
   - затемнення;
   - border;
   - premium hover;
-  - текстова зона.
+  - текстова зона;
+  - універсальні step-картки з іконкою та номером.
 */
 
 /* =========================================================
@@ -205,19 +206,31 @@
 }
 
 /* =========================================================
-   HOME PROCESS: «Як ми працюємо» — reference layout
+   SHARED COMPONENT: STEP CARD
+   Загальний шаблон картки з квадратною іконкою та номером.
 ========================================================= */
 
+.ut-step-card-row,
 .ut-process-card-row {
   row-gap: clamp(28px, 3vw, 32px);
   margin-top: clamp(34px, 4.2vw, 48px);
 }
 
+.ut-step-card.card,
 .ut-process-card.card {
-  --ut-process-image: none;
-  --ut-process-position: center;
-  --ut-process-border: rgba(248, 181, 0, 0.72);
-  --ut-process-border-hover: rgba(248, 181, 0, 0.96);
+  --ut-step-image: none;
+  --ut-step-position: center;
+  --ut-step-min-height: clamp(292px, 27vw, 338px);
+  --ut-step-border: rgba(248, 181, 0, 0.72);
+  --ut-step-border-hover: rgba(248, 181, 0, 0.96);
+  --ut-step-icon-size: 52px;
+  --ut-step-icon-svg-size: 25px;
+  --ut-step-padding-x: clamp(24px, 2.3vw, 28px);
+  --ut-step-padding-top: clamp(24px, 2.1vw, 28px);
+  --ut-step-padding-bottom: clamp(38px, 3.8vw, 48px);
+  --ut-step-top-offset: clamp(20px, 2vw, 26px);
+  --ut-step-title-size: clamp(15px, 1.25vw, 18px);
+  --ut-step-text-size: 12.6px;
 
   --bs-card-bg: transparent;
   --bs-card-border-width: 0;
@@ -227,16 +240,16 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  min-height: clamp(292px, 27vw, 338px);
+  min-height: var(--ut-step-min-height);
   color: #fff;
   text-align: left;
 
-  background-image: var(--ut-process-image) !important;
+  background-image: var(--ut-step-image) !important;
   background-size: cover !important;
-  background-position: var(--ut-process-position) !important;
+  background-position: var(--ut-step-position) !important;
   background-repeat: no-repeat !important;
 
-  border: 0.75px solid var(--ut-process-border) !important;
+  border: 0.75px solid var(--ut-step-border) !important;
   border-radius: 0 !important;
   box-shadow: 0 20px 54px rgba(0, 0, 0, 0.34);
 
@@ -248,6 +261,7 @@
     filter 0.28s ease;
 }
 
+.ut-step-card.card::before,
 .ut-process-card.card::before {
   content: "";
   position: absolute;
@@ -261,13 +275,15 @@
   transition: background 0.28s ease;
 }
 
+.ut-step-card.card:hover,
 .ut-process-card.card:hover {
   transform: translateY(-4px);
-  border-color: var(--ut-process-border-hover) !important;
+  border-color: var(--ut-step-border-hover) !important;
   box-shadow: 0 28px 72px rgba(0, 0, 0, 0.46);
   filter: saturate(1.05) contrast(1.03);
 }
 
+.ut-step-card.card:hover::before,
 .ut-process-card.card:hover::before {
   background:
     linear-gradient(90deg, rgba(2, 4, 8, 0.74) 0%, rgba(2, 4, 8, 0.48) 52%, rgba(2, 4, 8, 0.24) 100%),
@@ -275,41 +291,23 @@
     radial-gradient(circle at 0% 0%, rgba(248, 181, 0, 0.16), transparent 34%);
 }
 
-.ut-process-card-row > div:nth-child(1) .ut-process-card {
-  --ut-process-image: url("../assets/img/main/cards/complex-01.webp");
-  --ut-process-position: center;
-}
-
-.ut-process-card-row > div:nth-child(2) .ut-process-card {
-  --ut-process-image: url("../assets/img/main/cards/logic-01.webp");
-  --ut-process-position: center;
-}
-
-.ut-process-card-row > div:nth-child(3) .ut-process-card {
-  --ut-process-image: url("../assets/img/main/cards/complex-01.webp");
-  --ut-process-position: center;
-}
-
-.ut-process-card-row > div:nth-child(4) .ut-process-card {
-  --ut-process-image: url("../assets/img/main/cards/mount-01.webp");
-  --ut-process-position: center;
-}
-
+.ut-step-card__body.card-body,
 .ut-process-card__body.card-body {
   position: relative;
   z-index: 1;
-  min-height: clamp(292px, 27vw, 338px);
-  padding: clamp(24px, 2.1vw, 28px) clamp(24px, 2.3vw, 28px) clamp(38px, 3.8vw, 48px);
+  min-height: var(--ut-step-min-height);
+  padding: var(--ut-step-padding-top) var(--ut-step-padding-x) var(--ut-step-padding-bottom);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
+.ut-step-card__top,
 .ut-process-card__top {
   position: absolute !important;
-  top: clamp(20px, 2vw, 26px) !important;
-  left: clamp(20px, 2.2vw, 28px) !important;
-  right: clamp(20px, 2.4vw, 32px) !important;
+  top: var(--ut-step-top-offset) !important;
+  left: var(--ut-step-padding-x) !important;
+  right: var(--ut-step-padding-x) !important;
   z-index: 3;
   display: flex;
   align-items: flex-start;
@@ -319,14 +317,15 @@
   pointer-events: none;
 }
 
+.ut-step-card__icon,
 .ut-process-card__icon {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
+  width: var(--ut-step-icon-size);
+  height: var(--ut-step-icon-size);
+  flex: 0 0 var(--ut-step-icon-size);
   border: 0.75px solid rgba(248, 181, 0, 0.58);
   background: rgba(5, 7, 11, 0.58);
   color: #f8b500;
@@ -336,36 +335,25 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.025);
 }
 
+.ut-step-card__icon i,
 .ut-process-card__icon i {
-  display: none;
+  color: currentColor;
+  font-size: calc(var(--ut-step-icon-svg-size) - 2px);
+  line-height: 1;
 }
 
+.ut-step-card__icon::before,
 .ut-process-card__icon::before {
   content: "";
-  display: block;
-  width: 25px;
-  height: 25px;
+  display: none;
+  width: var(--ut-step-icon-svg-size);
+  height: var(--ut-step-icon-svg-size);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
 
-.ut-process-card-row > div:nth-child(1) .ut-process-card__icon::before {
-  background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 7.5h16v10.2H11.2L6 21.5V7.5Z' stroke='%23F8B500' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='11' cy='12.7' r='1.2' fill='%23F8B500'/%3E%3Ccircle cx='14' cy='12.7' r='1.2' fill='%23F8B500'/%3E%3Ccircle cx='17' cy='12.7' r='1.2' fill='%23F8B500'/%3E%3C/svg%3E");
-}
-
-.ut-process-card-row > div:nth-child(2) .ut-process-card__icon::before {
-  background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='7' y='6.5' width='14' height='17' rx='1.8' stroke='%23F8B500' stroke-width='2'/%3E%3Cpath d='M11 6.5V4.8h6v1.7' stroke='%23F8B500' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M10.5 15l2.4 2.4 5-5' stroke='%23F8B500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.ut-process-card-row > div:nth-child(3) .ut-process-card__icon::before {
-  background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='11' y='4.5' width='6' height='5' stroke='%23F8B500' stroke-width='2'/%3E%3Crect x='5' y='18.5' width='6' height='5' stroke='%23F8B500' stroke-width='2'/%3E%3Crect x='17' y='18.5' width='6' height='5' stroke='%23F8B500' stroke-width='2'/%3E%3Cpath d='M14 9.5v5M8 18.5v-4h12v4' stroke='%23F8B500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.ut-process-card-row > div:nth-child(4) .ut-process-card__icon::before {
-  background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 21l7.2-7.2M18.5 6.5l3 3-4.2 4.2-3-3 4.2-4.2Z' stroke='%23F8B500' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M7.2 7.1l3.1 3.1M6 6l2.3 4.1 2.1-2.1L6 6Z' stroke='%23F8B500' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
+.ut-step-card__number,
 .ut-process-card__number {
   position: relative !important;
   top: auto !important;
@@ -375,7 +363,7 @@
   height: auto;
   margin: 0;
   color: rgba(255, 255, 255, 0.07);
-  font-size: 0;
+  font-size: clamp(56px, 5.6vw, 72px);
   font-weight: 900;
   letter-spacing: -0.105em;
   line-height: 0.86;
@@ -383,69 +371,56 @@
   pointer-events: none;
 }
 
-.ut-process-card__number::after {
-  display: block;
-  font-size: clamp(56px, 5.6vw, 72px);
-  line-height: 0.86;
-}
-
-.ut-process-card-row > div:nth-child(1) .ut-process-card__number::after { content: "01"; }
-.ut-process-card-row > div:nth-child(2) .ut-process-card__number::after { content: "02"; }
-.ut-process-card-row > div:nth-child(3) .ut-process-card__number::after { content: "03"; }
-.ut-process-card-row > div:nth-child(4) .ut-process-card__number::after { content: "04"; }
-
+.ut-step-card__title,
 .ut-process-card__title {
   position: relative;
   z-index: 2;
   margin: 0 0 9px;
   color: rgba(255, 255, 255, 0.96);
-  font-size: 0;
+  font-size: var(--ut-step-title-size);
   font-weight: 760;
   line-height: 1.22;
   letter-spacing: -0.1px;
 }
 
-.ut-process-card__title::after {
-  display: block;
-  font-size: clamp(15px, 1.25vw, 18px);
-  line-height: 1.22;
-}
-
-.ut-process-card-row > div:nth-child(1) .ut-process-card__title::after { content: "Консультація"; }
-.ut-process-card-row > div:nth-child(2) .ut-process-card__title::after { content: "Огляд об’єкта"; }
-.ut-process-card-row > div:nth-child(3) .ut-process-card__title::after { content: "Підбір рішення"; }
-.ut-process-card-row > div:nth-child(4) .ut-process-card__title::after { content: "Реалізація під ключ"; }
-
+.ut-step-card__text,
 .ut-process-card__text {
   position: relative;
   z-index: 2;
   margin: 0;
   max-width: min(94%, 470px);
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0;
-  line-height: 0;
-}
-
-.ut-process-card__text::after {
-  display: block;
-  font-size: 12.6px;
+  font-size: var(--ut-step-text-size);
   line-height: 1.58;
 }
 
-.ut-process-card-row > div:nth-child(1) .ut-process-card__text::after {
-  content: "Обговорюємо задачі, побажання та очікування. Пояснюємо, як краще реалізувати ідею технічно правильно.";
+/* =========================================================
+   HOME PROCESS: «Як ми працюємо»
+   Поточний блок уже підключений до загального step-template.
+========================================================= */
+
+.ut-process-card-row > div:nth-child(1) .ut-process-card,
+.ut-step-card-row > div:nth-child(1) .ut-step-card {
+  --ut-step-image: url("../assets/img/main/cards/complex-01.webp");
+  --ut-step-position: center;
 }
 
-.ut-process-card-row > div:nth-child(2) .ut-process-card__text::after {
-  content: "Оцінюємо умови, фіксуємо важливі деталі та враховуємо, як системами будуть користуватись щодня.";
+.ut-process-card-row > div:nth-child(2) .ut-process-card,
+.ut-step-card-row > div:nth-child(2) .ut-step-card {
+  --ut-step-image: url("../assets/img/main/cards/logic-01.webp");
+  --ut-step-position: center;
 }
 
-.ut-process-card-row > div:nth-child(3) .ut-process-card__text::after {
-  content: "Підбираємо обладнання, схему робіт і логіку систем під ваш об’єкт, бюджет та бажаний результат.";
+.ut-process-card-row > div:nth-child(3) .ut-process-card,
+.ut-step-card-row > div:nth-child(3) .ut-step-card {
+  --ut-step-image: url("../assets/img/main/cards/complex-01.webp");
+  --ut-step-position: center;
 }
 
-.ut-process-card-row > div:nth-child(4) .ut-process-card__text::after {
-  content: "Втілюємо ваше бачення в готову систему: монтуємо, налаштовуємо та пояснюємо, як усім користуватись.";
+.ut-process-card-row > div:nth-child(4) .ut-process-card,
+.ut-step-card-row > div:nth-child(4) .ut-step-card {
+  --ut-step-image: url("../assets/img/main/cards/mount-01.webp");
+  --ut-step-position: center;
 }
 
 /* =========================================================
@@ -465,9 +440,11 @@
       radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
   }
 
+  .ut-step-card.card,
   .ut-process-card.card,
+  .ut-step-card__body.card-body,
   .ut-process-card__body.card-body {
-    min-height: 300px;
+    --ut-step-min-height: 300px;
   }
 }
 
@@ -503,37 +480,23 @@
     max-width: min(88%, 360px);
   }
 
+  .ut-step-card.card,
   .ut-process-card.card,
+  .ut-step-card__body.card-body,
   .ut-process-card__body.card-body {
-    min-height: 300px;
+    --ut-step-min-height: 300px;
+    --ut-step-padding-top: 24px;
+    --ut-step-padding-x: 20px;
+    --ut-step-padding-bottom: 34px;
+    --ut-step-top-offset: 18px;
+    --ut-step-icon-size: 48px;
+    --ut-step-icon-svg-size: 22px;
+    --ut-step-title-size: 15px;
+    --ut-step-text-size: 12.2px;
   }
 
-  .ut-process-card__body.card-body {
-    padding: 24px 20px 34px;
-  }
-
-  .ut-process-card__top {
-    top: 18px !important;
-    left: 18px !important;
-    right: 18px !important;
-  }
-
-  .ut-process-card__icon {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
-  }
-
-  .ut-process-card__number::after {
+  .ut-step-card__number,
+  .ut-process-card__number {
     font-size: 56px;
-  }
-
-  .ut-process-card__title::after {
-    font-size: 15px;
-  }
-
-  .ut-process-card__text::after {
-    font-size: 12.2px;
-    line-height: 1.52;
   }
 }
