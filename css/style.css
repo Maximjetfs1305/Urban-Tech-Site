@@ -135,27 +135,27 @@ body.services-body [data-service-panel="electro"] .services-premium-grid > .serv
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(2) {
-  --ut-card-image: url("../assets/img/main/cards/electro-220.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-01.webp");
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(3) {
-  --ut-card-image: url("../assets/img/main/cards/complex-01.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-02.webp");
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(4) {
-  --ut-card-image: url("../assets/img/main/cards/logic-01.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-03.webp");
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(5) {
-  --ut-card-image: url("../assets/img/main/cards/lighting-led.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-04.webp");
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(6) {
-  --ut-card-image: url("../assets/img/main/cards/mount-01.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-05.webp");
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(7) {
-  --ut-card-image: url("../assets/img/main/cards/backup-power.webp");
+  --ut-card-image: url("../assets/img/services/cards/electro-06.webp");
 }
 
 @media (max-width: 991.98px) {
