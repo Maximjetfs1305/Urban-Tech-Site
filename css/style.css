@@ -1,2 +1,165 @@
 @import url("urban-tech.css");
 @import url("home-work-grid.css");
+
+/* ============================================================================
+   SERVICES: ELECTRO 220V — UNIVERSAL IMAGE CARD BASE
+   Міняємо тільки основу карток вкладки «Електромережі 220В» на універсальний
+   image-card шаблон, як у hero/основних блоках головної. Тексти не змінюємо.
+============================================================================ */
+
+body.services-body [data-service-panel="electro"] .services-premium-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(14px, 1.6vw, 22px) !important;
+  align-items: stretch;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid__head {
+  grid-column: 1 / -1;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card {
+  --ut-electro-card-image: none;
+  position: relative !important;
+  min-height: clamp(214px, 20vw, 260px) !important;
+  padding: 22px 19px 19px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  text-align: left !important;
+  color: #fff;
+  background-image: var(--ut-card-image, var(--ut-electro-card-image)) !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  border: 0.75px solid rgba(248, 181, 0, 0.42) !important;
+  border-radius: 0 !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.30) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: translateY(0);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    filter 0.28s ease;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.68) 0%, rgba(2, 4, 8, 0.50) 54%, rgba(2, 4, 8, 0.18) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.04), rgba(2, 4, 8, 0.54)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
+  opacity: 1;
+  transition: background 0.28s ease;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:hover {
+  border-color: rgba(248, 181, 0, 0.92) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 26px 62px rgba(0, 0, 0, 0.36) !important;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:hover::before {
+  background:
+    linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card h3 {
+  display: block !important;
+  margin: 0 0 9px !important;
+  max-width: 96%;
+  color: rgba(255, 255, 255, 0.96) !important;
+  font-size: clamp(15px, 1.25vw, 18px) !important;
+  font-weight: 760 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.1px !important;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card h3::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 17px;
+  margin-right: 9px;
+  vertical-align: -3px;
+  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
+  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card p {
+  margin: 0 !important;
+  max-width: 96%;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 12.6px !important;
+  line-height: 1.58 !important;
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(2) {
+  --ut-electro-card-image: url("../assets/img/main/cards/electro-220.webp");
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(3) {
+  --ut-electro-card-image: url("../assets/img/main/cards/complex-01.webp");
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(4) {
+  --ut-electro-card-image: url("../assets/img/main/cards/logic-01.webp");
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(5) {
+  --ut-electro-card-image: url("../assets/img/main/cards/lighting-led.webp");
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(6) {
+  --ut-electro-card-image: url("../assets/img/main/cards/mount-01.webp");
+}
+
+body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(7) {
+  --ut-electro-card-image: url("../assets/img/main/cards/backup-power.webp");
+}
+
+@media (max-width: 991.98px) {
+  body.services-body [data-service-panel="electro"] .services-premium-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.services-body [data-service-panel="electro"] .services-premium-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 22px 16px !important;
+  }
+
+  body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card {
+    min-height: 190px !important;
+    padding: 18px 15px 16px !important;
+  }
+
+  body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card p {
+    font-size: 12.2px !important;
+    line-height: 1.52 !important;
+  }
+}
