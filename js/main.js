@@ -27,6 +27,38 @@
     }
   }
 
+  function initMotionBackdrop() {
+    if (document.querySelector(".hero-bg-video")) return;
+
+    var media = document.createElement("video");
+    media.className = "hero-bg-video";
+    media.src = "assets/video/hero-bg.mp4";
+    media.autoplay = true;
+    media.muted = true;
+    media.loop = true;
+    media.playsInline = true;
+    media.preload = "metadata";
+    media.setAttribute("aria-hidden", "true");
+    media.setAttribute("tabindex", "-1");
+
+    var shade = document.createElement("div");
+    shade.className = "hero-bg-overlay";
+    shade.setAttribute("aria-hidden", "true");
+
+    var preloader = document.getElementById("preloader");
+    if (preloader && preloader.parentNode) {
+      preloader.parentNode.insertBefore(media, preloader.nextSibling);
+      preloader.parentNode.insertBefore(shade, media.nextSibling);
+    } else {
+      document.body.insertBefore(shade, document.body.firstChild);
+      document.body.insertBefore(media, shade);
+    }
+
+    if (media.play) {
+      media.play().catch(function () {});
+    }
+  }
+
   function initHeader() {
     var update = function () {
       document.body.classList.toggle("ut-header-scrolled", window.scrollY > 12);
@@ -176,6 +208,7 @@
   initPreloader();
 
   onReady(function () {
+    initMotionBackdrop();
     initHeader();
     initMenu();
     initContactModal();
