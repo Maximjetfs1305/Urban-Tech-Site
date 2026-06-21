@@ -2,187 +2,80 @@
 @import url("home-work-grid.css");
 
 /* ============================================================================
-   SERVICES: ELECTRO 220V — HERO CARD GRID 3×2
-   Тільки вкладка «Електромережі 220В».
-   Текст у HTML не змінюємо, JS не чіпаємо.
+   SERVICES: ELECTRO 220V — REAL HERO CARD GRID 3×2
+   HTML-шаблон карток має бути ut-image-card, без маскування старих service-info-card.
 ============================================================================ */
 
-body.services-body [data-service-panel="electro"] .services-premium-grid {
+body.services-body [data-service-panel="electro"] .services-electro-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 1.6vw, 22px);
   align-items: stretch;
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid__head {
+body.services-body [data-service-panel="electro"] .services-electro-grid .services-premium-grid__head {
   grid-column: 1 / -1;
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card {
-  --ut-card-image: none;
+body.services-body [data-service-panel="electro"] .services-electro-card {
   --ut-card-min-height: clamp(176px, 17vw, 224px);
   --ut-card-padding: 20px 18px 18px;
-  --ut-card-border: rgba(248, 181, 0, 0.42);
-  --ut-card-border-hover: rgba(248, 181, 0, 0.92);
   --ut-card-overlay-left: rgba(0, 0, 0, 0.92);
   --ut-card-overlay-center: rgba(0, 0, 0, 0.84);
   --ut-card-overlay-right: rgba(0, 0, 0, 0.66);
   --ut-card-overlay-bottom: rgba(0, 0, 0, 0.92);
-
-  position: relative;
-  min-height: var(--ut-card-min-height);
-  padding: var(--ut-card-padding);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  overflow: hidden;
-  isolation: isolate;
-  text-align: left;
-  color: #fff;
-
   background-color: #05070b !important;
-  background-image: var(--ut-card-image) !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-
-  border: 0.75px solid var(--ut-card-border) !important;
-  border-radius: 0 !important;
   box-shadow:
     inset 0 0 0 999px rgba(0, 0, 0, 0.08),
     0 18px 46px rgba(0, 0, 0, 0.30);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-
-  transform: translateY(0);
-  transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease,
-    filter 0.28s ease;
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+body.services-body [data-service-panel="electro"] .services-electro-card::before {
   z-index: 1;
-  pointer-events: none;
   background:
-    linear-gradient(
-      90deg,
-      var(--ut-card-overlay-left) 0%,
-      var(--ut-card-overlay-center) 52%,
-      var(--ut-card-overlay-right) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.32) 0%,
-      rgba(0, 0, 0, 0.52) 44%,
-      var(--ut-card-overlay-bottom) 100%
-    ),
+    linear-gradient(90deg, var(--ut-card-overlay-left) 0%, var(--ut-card-overlay-center) 52%, var(--ut-card-overlay-right) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.52) 44%, var(--ut-card-overlay-bottom) 100%),
     radial-gradient(circle at 18% 0%, rgba(248, 181, 0, 0.10), transparent 38%);
-  transition: background 0.28s ease;
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card::after {
-  content: none !important;
-  display: none !important;
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:hover {
-  border-color: var(--ut-card-border-hover) !important;
-  transform: translateY(-4px);
+body.services-body [data-service-panel="electro"] .services-electro-card:hover {
   box-shadow:
     inset 0 0 0 999px rgba(0, 0, 0, 0.04),
     0 26px 62px rgba(0, 0, 0, 0.36);
-  filter: saturate(1.06) contrast(1.03);
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:hover::before {
+body.services-body [data-service-panel="electro"] .services-electro-card:hover::before {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.78) 52%, rgba(0, 0, 0, 0.58) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0%, rgba(0, 0, 0, 0.46) 44%, rgba(0, 0, 0, 0.88) 100%),
     radial-gradient(circle at 18% 0%, rgba(248, 181, 0, 0.14), transparent 38%);
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card > * {
+body.services-body [data-service-panel="electro"] .services-electro-card > * {
   position: relative;
   z-index: 2;
 }
 
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card h3 {
-  margin: 0 0 9px;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(15px, 1.25vw, 18px);
-  font-weight: 760;
-  line-height: 1.22;
-  letter-spacing: -0.1px;
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card h3::before {
-  content: "";
-  display: inline-block;
-  width: 3px;
-  height: 17px;
-  margin-right: 9px;
-  vertical-align: -3px;
-  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
-  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card p {
-  margin: 0;
-  max-width: 96%;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 12.6px;
-  line-height: 1.58;
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(2) {
-  --ut-card-image: url("../assets/img/services/cards/electro-01.webp");
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(3) {
-  --ut-card-image: url("../assets/img/services/cards/electro-02.webp");
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(4) {
-  --ut-card-image: url("../assets/img/services/cards/electro-03.webp");
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(5) {
-  --ut-card-image: url("../assets/img/services/cards/electro-04.webp");
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(6) {
-  --ut-card-image: url("../assets/img/services/cards/electro-05.webp");
-}
-
-body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:nth-child(7) {
-  --ut-card-image: url("../assets/img/services/cards/electro-06.webp");
-}
+body.services-body [data-service-panel="electro"] .services-electro-card--01 { --ut-card-image: url("../assets/img/services/cards/electro-01.webp"); }
+body.services-body [data-service-panel="electro"] .services-electro-card--02 { --ut-card-image: url("../assets/img/services/cards/electro-02.webp"); }
+body.services-body [data-service-panel="electro"] .services-electro-card--03 { --ut-card-image: url("../assets/img/services/cards/electro-03.webp"); }
+body.services-body [data-service-panel="electro"] .services-electro-card--04 { --ut-card-image: url("../assets/img/services/cards/electro-04.webp"); }
+body.services-body [data-service-panel="electro"] .services-electro-card--05 { --ut-card-image: url("../assets/img/services/cards/electro-05.webp"); }
+body.services-body [data-service-panel="electro"] .services-electro-card--06 { --ut-card-image: url("../assets/img/services/cards/electro-06.webp"); }
 
 @media (max-width: 991.98px) {
-  body.services-body [data-service-panel="electro"] .services-premium-grid {
+  body.services-body [data-service-panel="electro"] .services-electro-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767.98px) {
-  body.services-body [data-service-panel="electro"] .services-premium-grid {
+  body.services-body [data-service-panel="electro"] .services-electro-grid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card {
+  body.services-body [data-service-panel="electro"] .services-electro-card {
     min-height: 190px;
-    padding: 18px 15px 16px;
-  }
-
-  body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card p {
-    font-size: 12.2px;
-    line-height: 1.52;
   }
 }
