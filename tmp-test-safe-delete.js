@@ -1,2 +1,1 @@
-/* test */
-(function(){"use strict";})();
+/* temporary file cleared */
