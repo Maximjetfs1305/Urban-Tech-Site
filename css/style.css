@@ -24,10 +24,10 @@ body.services-body [data-service-panel="electro"] .services-premium-grid > .serv
   --ut-card-padding: 20px 18px 18px;
   --ut-card-border: rgba(248, 181, 0, 0.42);
   --ut-card-border-hover: rgba(248, 181, 0, 0.92);
-  --ut-card-overlay-left: rgba(2, 4, 8, 0.68);
-  --ut-card-overlay-center: rgba(2, 4, 8, 0.50);
-  --ut-card-overlay-right: rgba(2, 4, 8, 0.18);
-  --ut-card-overlay-bottom: rgba(2, 4, 8, 0.54);
+  --ut-card-overlay-left: rgba(2, 4, 8, 0.88);
+  --ut-card-overlay-center: rgba(2, 4, 8, 0.74);
+  --ut-card-overlay-right: rgba(2, 4, 8, 0.46);
+  --ut-card-overlay-bottom: rgba(2, 4, 8, 0.82);
 
   position: relative;
   min-height: var(--ut-card-min-height);
@@ -64,7 +64,7 @@ body.services-body [data-service-panel="electro"] .services-premium-grid > .serv
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   background:
     linear-gradient(
@@ -75,10 +75,10 @@ body.services-body [data-service-panel="electro"] .services-premium-grid > .serv
     ),
     linear-gradient(
       180deg,
-      rgba(2, 4, 8, 0.04),
+      rgba(2, 4, 8, 0.18),
       var(--ut-card-overlay-bottom)
     ),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.12), transparent 38%);
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.14), transparent 38%);
   transition: background 0.28s ease;
 }
 
@@ -96,9 +96,9 @@ body.services-body [data-service-panel="electro"] .services-premium-grid > .serv
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card:hover::before {
   background:
-    linear-gradient(90deg, rgba(2, 4, 8, 0.58) 0%, rgba(2, 4, 8, 0.42) 54%, rgba(2, 4, 8, 0.14) 100%),
-    linear-gradient(180deg, rgba(2, 4, 8, 0.03), rgba(2, 4, 8, 0.48)),
-    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.16), transparent 38%);
+    linear-gradient(90deg, rgba(2, 4, 8, 0.82) 0%, rgba(2, 4, 8, 0.68) 54%, rgba(2, 4, 8, 0.40) 100%),
+    linear-gradient(180deg, rgba(2, 4, 8, 0.14), rgba(2, 4, 8, 0.76)),
+    radial-gradient(circle at 16% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
 }
 
 body.services-body [data-service-panel="electro"] .services-premium-grid > .service-info-card > * {
