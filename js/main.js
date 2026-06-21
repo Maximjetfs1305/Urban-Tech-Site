@@ -2,7 +2,6 @@
   "use strict";
 
   const MAIN_CSS = "css/urban-tech.css";
-  const MENU_CSS = "css/ut-global-menu-fix.css";
   const LEGACY_CSS = [
     "css/style.css",
     "css/home-static.css",
@@ -40,7 +39,6 @@
 
   function initCss() {
     const main = ensureCss(MAIN_CSS, "data-urban-tech-main-css");
-    ensureCss(MENU_CSS, "data-urban-tech-menu-css");
     const legacy = new Set(LEGACY_CSS.map(normalize));
     const removeLegacy = () => {
       document.querySelectorAll('link[rel~="stylesheet"]').forEach((link) => {
