@@ -1,0 +1,2 @@
+/* test */
+(function(){"use strict";})();
