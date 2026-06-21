@@ -382,6 +382,18 @@
   letter-spacing: -0.1px;
 }
 
+.ut-step-card__title::before,
+.ut-process-card__title::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 17px;
+  margin-right: 9px;
+  vertical-align: -3px;
+  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
+  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
+}
+
 .ut-step-card__text,
 .ut-process-card__text {
   position: relative;
@@ -391,21 +403,6 @@
   color: rgba(255, 255, 255, 0.72);
   font-size: var(--ut-step-text-size);
   line-height: 1.58;
-}
-
-/* =========================================================
-   HOME OBJECTS: «З якими об’єктами працюємо»
-========================================================= */
-
-.home-objects-section .ut-step-card__title::before {
-  content: "";
-  display: inline-block;
-  width: 3px;
-  height: 17px;
-  margin-right: 9px;
-  vertical-align: -3px;
-  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
-  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
 }
 
 /* =========================================================
