@@ -394,6 +394,21 @@
 }
 
 /* =========================================================
+   HOME OBJECTS: «З якими об’єктами працюємо»
+========================================================= */
+
+.home-objects-section .ut-step-card__title::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 17px;
+  margin-right: 9px;
+  vertical-align: -3px;
+  background: linear-gradient(180deg, #ffd64f, rgba(248, 181, 0, 0.42));
+  box-shadow: 0 0 14px rgba(248, 181, 0, 0.24);
+}
+
+/* =========================================================
    HOME PROCESS: «Як ми працюємо»
 ========================================================= */
 
