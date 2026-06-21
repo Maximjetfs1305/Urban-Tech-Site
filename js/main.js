@@ -15,7 +15,8 @@
     "css/ut-services-tight.css",
     "css/ut-services-workflow.css",
     "css/ut-services-square.css",
-    "css/ut-electro-six-cards.css"
+    "css/ut-electro-six-cards.css",
+    "css/ut-global-menu-fix.css"
   ];
 
   const page = () => window.location.pathname.split("/").pop() || "index.html";
