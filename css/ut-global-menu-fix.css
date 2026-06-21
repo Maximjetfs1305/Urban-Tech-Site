@@ -1,0 +1,346 @@
+/*
+  URBAN TECH — GLOBAL MENU FIX
+  Єдиний стиль бургер-меню для всіх сторінок.
+  Структура меню залишається в HTML/JS, цей файл відповідає тільки за вигляд.
+*/
+
+#ut-main-nav {
+  background: rgba(0, 0, 0, 0.50) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+}
+
+#ut-main-nav .ut-table,
+#ut-main-nav .ut-table-cell,
+#ut-main-nav .row,
+#ut-main-nav .col-md-12 {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+#ut-main-nav .ut-table-cell {
+  padding: 0 !important;
+  vertical-align: top !important;
+}
+
+#ut-main-nav .col-md-12 {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  width: min(392px, 100vw) !important;
+  max-width: 392px !important;
+  padding: 34px 30px 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  text-align: left !important;
+  overflow-y: auto !important;
+  background:
+    linear-gradient(180deg, rgba(8, 10, 13, 0.96), rgba(2, 3, 6, 0.98)),
+    rgba(4, 5, 8, 0.96) !important;
+  border-left: none !important;
+  box-shadow:
+    -26px 0 70px rgba(0, 0, 0, 0.68),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  transform: translateX(104%) !important;
+  transition: transform 0.40s cubic-bezier(.2, .8, .2, 1) !important;
+}
+
+#ut-main-nav .col-md-12::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 181, 0, 0.14) 0%,
+    rgba(248, 181, 0, 0.90) 18%,
+    rgba(255, 214, 79, 0.98) 50%,
+    rgba(248, 181, 0, 0.90) 82%,
+    rgba(248, 181, 0, 0.14) 100%
+  );
+  box-shadow:
+    0 0 12px rgba(248, 181, 0, 0.52),
+    0 0 28px rgba(248, 181, 0, 0.30),
+    0 0 52px rgba(248, 181, 0, 0.16);
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.menu-show:not(.menu-closing) #ut-main-nav .col-md-12 {
+  transform: translateX(0) !important;
+}
+
+body.menu-closing #ut-main-nav .col-md-12 {
+  transform: translateX(104%) !important;
+}
+
+#ut-main-nav .logo-text {
+  width: fit-content !important;
+  margin: 0 52px 16px 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #ffffff !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  letter-spacing: 3px !important;
+  text-decoration: none !important;
+}
+
+#ut-main-nav .col-md-12::after {
+  content: "Сучасні інженерні рішення";
+  order: 1;
+  display: block;
+  margin: 0 0 24px !important;
+  padding-bottom: 24px !important;
+  color: rgba(255, 255, 255, 0.60) !important;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12.5px !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+#ut-main-nav ul {
+  order: 2;
+  width: calc(100% + 30px) !important;
+  margin: 0 0 0 -30px !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  list-style: none !important;
+  counter-reset: none !important;
+}
+
+#ut-main-nav ul li {
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-left: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.095) !important;
+  transform: translateX(12px);
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease !important;
+}
+
+#ut-main-nav ul li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.095) !important;
+}
+
+#ut-main-nav ul li.active {
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+#ut-main-nav ul li::before,
+#ut-main-nav ul li a::before,
+#ut-main-nav ul li a::after {
+  content: none !important;
+  display: none !important;
+}
+
+#ut-main-nav ul li::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0;
+  transform: translateY(-50%);
+  background: #ffd64f;
+  opacity: 0;
+  box-shadow:
+    0 0 12px rgba(255, 214, 79, 1),
+    0 0 28px rgba(248, 181, 0, 0.82),
+    0 0 54px rgba(248, 181, 0, 0.52),
+    0 0 84px rgba(248, 181, 0, 0.30);
+  transition: height 0.22s ease, opacity 0.22s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+#ut-main-nav ul li:hover::after,
+#ut-main-nav ul li.active::after {
+  height: 48px;
+  opacity: 1;
+}
+
+body.menu-show:not(.menu-closing) #ut-main-nav ul li {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(1) { transition-delay: 0.06s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(2) { transition-delay: 0.09s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(3) { transition-delay: 0.12s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(4) { transition-delay: 0.15s !important; }
+body.menu-show:not(.menu-closing) #ut-main-nav ul li:nth-child(5) { transition-delay: 0.18s !important; }
+
+#ut-main-nav ul li a {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 68px !important;
+  padding: 0 0 0 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  color: rgba(255, 255, 255, 0.84) !important;
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-size: clamp(19px, 1.7vw, 23px) !important;
+  font-weight: 360 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0.15px !important;
+  text-decoration: none !important;
+  transition: color 0.22s ease, padding-left 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+#ut-main-nav ul li a:hover,
+#ut-main-nav ul li.active a {
+  color: #ffd64f !important;
+  padding-left: 34px !important;
+  text-shadow:
+    0 0 12px rgba(255, 214, 79, 0.60),
+    0 0 26px rgba(248, 181, 0, 0.32),
+    0 0 46px rgba(248, 181, 0, 0.16) !important;
+}
+
+#ut-main-nav > .ut-nav-toggle {
+  position: fixed !important;
+  top: 26px !important;
+  right: 22px !important;
+  z-index: 10001 !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  display: grid !important;
+  place-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+#ut-main-nav > .ut-nav-toggle i,
+#ut-main-nav > .ut-nav-toggle i::before,
+#ut-main-nav > .ut-nav-toggle i::after {
+  display: none !important;
+}
+
+#ut-main-nav > .ut-nav-toggle::after {
+  content: "×" !important;
+  display: block !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  background: transparent !important;
+  border: none !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 31px !important;
+  font-weight: 200 !important;
+  line-height: 1 !important;
+  transform: none !important;
+  transition: color 0.22s ease, text-shadow 0.22s ease !important;
+}
+
+#ut-main-nav > .ut-nav-toggle:hover::after,
+#ut-main-nav > .ut-nav-toggle:focus::after,
+#ut-main-nav > .ut-nav-toggle:active::after {
+  color: #ffd64f !important;
+  text-shadow: 0 0 16px rgba(255, 214, 79, 0.60) !important;
+}
+
+.ut-menu-contacts {
+  order: 3;
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.ut-menu-phone,
+.ut-menu-socials a {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-decoration: none !important;
+  line-height: 1;
+  transition: color 0.22s ease, text-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.ut-menu-phone {
+  font-size: 12px;
+  letter-spacing: 0.35px;
+}
+
+.ut-menu-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+}
+
+.ut-menu-socials a {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.ut-menu-phone i,
+.ut-menu-socials i {
+  color: #ffd64f;
+  font-size: 11px;
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(255, 214, 79, 0.56);
+}
+
+.ut-menu-socials .ut-menu-dot {
+  width: 3px;
+  height: 3px;
+  display: inline-flex;
+  border-radius: 50%;
+  background: rgba(255, 214, 79, 0.95);
+  box-shadow: 0 0 10px rgba(255, 214, 79, 0.52);
+}
+
+.ut-menu-phone:hover,
+.ut-menu-socials a:hover {
+  color: #ffd64f !important;
+  text-shadow: 0 0 16px rgba(255, 214, 79, 0.38);
+  transform: translateX(2px);
+}
+
+@media (max-width: 420px) {
+  #ut-main-nav .col-md-12 {
+    width: calc(100vw - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+    padding: 31px 30px 30px !important;
+  }
+
+  #ut-main-nav .logo-text {
+    font-size: 20px !important;
+  }
+
+  #ut-main-nav ul li a {
+    min-height: 69px !important;
+    font-size: 23px !important;
+  }
+}
