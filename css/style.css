@@ -79,3 +79,18 @@ body.services-body [data-service-panel="electro"] .services-electro-card--06 { -
     min-height: 190px;
   }
 }
+
+/* ============================================================================
+   LOGO: forced spacing between URBAN and TECH
+   Fixes cases where HTML whitespace is collapsed/removed around the highlighted T.
+============================================================================ */
+
+.logo-text .highlight,
+.brand-logo-text .highlight {
+  display: inline-block;
+  margin-left: 0.32em;
+}
+
+.brand-logo-text--inline .highlight {
+  margin-left: 0.24em;
+}
