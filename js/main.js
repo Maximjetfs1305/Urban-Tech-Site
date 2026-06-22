@@ -199,6 +199,45 @@
     }
   }
 
+  function initHomepageFooterSocials() {
+    var page = window.location.pathname.split("/").pop();
+    if (page && page !== "index.html") return;
+
+    var footer = document.querySelector(".footer-urban .footer-socials");
+    if (!footer) return;
+
+    var instagram = footer.querySelector('a[aria-label="Instagram"]');
+    if (instagram) {
+      instagram.href = "https://www.instagram.com/urban.tech.kyiv/";
+      instagram.target = "_blank";
+      instagram.rel = "noopener";
+    }
+
+    var telegram = footer.querySelector('a[aria-label="Telegram"]');
+    if (telegram) {
+      telegram.href = "http://t.me/urban_tech_kyiv";
+      telegram.target = "_blank";
+      telegram.rel = "noopener";
+    }
+
+    var tiktok = footer.querySelector('a[aria-label="TikTok"]');
+    if (!tiktok) {
+      tiktok = document.createElement("a");
+      tiktok.className = "footer-social";
+      tiktok.href = "https://www.tiktok.com/@urban.tech.kyiv";
+      tiktok.target = "_blank";
+      tiktok.rel = "noopener";
+      tiktok.setAttribute("aria-label", "TikTok");
+      tiktok.innerHTML = '<i class="bi bi-tiktok"></i>';
+
+      if (instagram && instagram.nextSibling) {
+        footer.insertBefore(tiktok, instagram.nextSibling);
+      } else {
+        footer.insertBefore(tiktok, footer.firstChild);
+      }
+    }
+  }
+
   function initContactButtons() {
     document.querySelectorAll(".bttn-more[data-contact-open]").forEach(function (button) {
       button.classList.add("ut-contact-premium");
@@ -213,6 +252,7 @@
     initMenu();
     initContactModal();
     initServicesTabs();
+    initHomepageFooterSocials();
     initContactButtons();
   });
 })();
