@@ -148,14 +148,24 @@
       ".ut-contact-modal__dialog>p{max-width:430px;margin:0 0 22px!important;color:rgba(255,255,255,.76)!important;font-size:15px!important;line-height:1.55!important;}",
       ".ut-contact-list{display:grid!important;gap:10px!important;}",
       ".ut-contact-item{display:flex!important;align-items:center!important;gap:14px!important;padding:13px 14px!important;text-decoration:none!important;background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.10)!important;}",
-      ".ut-contact-item i{flex:0 0 42px!important;width:42px!important;height:42px!important;display:grid!important;place-items:center!important;color:#f4be1b!important;background:rgba(244,190,27,.10)!important;font-size:19px!important;}",
-      ".ut-contact-item span{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;min-width:0!important;}",
+      ".ut-contact-item__icon{flex:0 0 42px!important;width:42px!important;height:42px!important;display:grid!important;place-items:center!important;color:#f4be1b!important;background:rgba(244,190,27,.10)!important;font-size:19px!important;}",
+      ".ut-contact-item__icon i{display:block!important;color:inherit!important;font-size:19px!important;line-height:1!important;}",
+      ".ut-contact-item__content{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;min-width:0!important;}",
       ".ut-contact-item b{display:block!important;color:#fff!important;font-size:13px!important;line-height:1.1!important;font-weight:800!important;letter-spacing:1.5px!important;text-transform:uppercase!important;}",
       ".ut-contact-item small{display:block!important;color:rgba(255,255,255,.78)!important;font-size:15px!important;line-height:1.25!important;}",
       ".ut-contact-modal__footer-note{margin:18px 0 0!important;color:rgba(255,255,255,.64)!important;font-size:13px!important;line-height:1.45!important;}",
       "@media(max-width:575.98px){.ut-contact-modal__dialog{width:min(92vw,540px)!important;padding:30px 22px 26px!important}.ut-contact-modal__dialog h2{font-size:34px!important}.ut-contact-item{padding:12px!important}.ut-contact-item small{font-size:14px!important}}"
     ].join("\n");
     document.head.appendChild(style);
+  }
+
+  function contactItem(href, iconClass, title, text, external) {
+    return [
+      '<a class="ut-contact-item" href="' + href + '"' + (external ? ' target="_blank" rel="noopener"' : '') + '>',
+      '<span class="ut-contact-item__icon"><i class="bi ' + iconClass + '"></i></span>',
+      '<span class="ut-contact-item__content"><b>' + title + '</b><small>' + text + '</small></span>',
+      '</a>'
+    ].join("");
   }
 
   function initContactModalTemplate() {
@@ -171,10 +181,10 @@
       '<h2 id="ut-contact-title">Зв\'язатися з нами</h2>',
       '<p>Напишіть або зателефонуйте — підкажемо оптимальне рішення під ваш об’єкт.</p>',
       '<div class="ut-contact-list">',
-      '<a class="ut-contact-item" href="' + CONTACTS.phoneHref + '"><i class="bi bi-telephone"></i><span><b>Телефон</b><small>' + CONTACTS.phoneDisplay + '</small></span></a>',
-      '<a class="ut-contact-item" href="mailto:' + CONTACTS.email + '"><i class="bi bi-envelope"></i><span><b>Email</b><small>' + CONTACTS.email + '</small></span></a>',
-      '<a class="ut-contact-item" href="' + CONTACTS.telegram + '" target="_blank" rel="noopener"><i class="bi bi-telegram"></i><span><b>Telegram</b><small>Написати в Telegram</small></span></a>',
-      '<a class="ut-contact-item" href="' + CONTACTS.viber + '"><i class="bi bi-chat-dots"></i><span><b>Viber</b><small>Написати у Viber</small></span></a>',
+      contactItem(CONTACTS.phoneHref, "bi-telephone", "Телефон", CONTACTS.phoneDisplay, false),
+      contactItem("mailto:" + CONTACTS.email, "bi-envelope", "Email", CONTACTS.email, false),
+      contactItem(CONTACTS.telegram, "bi-telegram", "Telegram", "Написати в Telegram", true),
+      contactItem(CONTACTS.viber, "bi-chat-dots", "Viber", "Написати у Viber", false),
       '</div>',
       '<p class="ut-contact-modal__footer-note">Київ та область · Електромонтаж · Безпека · Автоматизація</p>'
     ].join("");
@@ -287,32 +297,63 @@
     });
   }
 
+  function footerSocial(href, label, iconClass) {
+    return '<a href="' + href + '" class="footer-social" aria-label="' + label + '" target="_blank" rel="noopener"><i class="bi ' + iconClass + '"></i></a>';
+  }
+
+  function initGlobalFooterTemplate() {
+    document.querySelectorAll(".footer-urban").forEach(function (footer) {
+      footer.classList.add("text-white");
+      footer.innerHTML = [
+        '<div class="container">',
+        '<div class="row gy-4 align-items-start">',
+        '<div class="col-12 col-lg-4">',
+        '<div class="footer-brand-wrap">',
+        '<h3 class="footer-brand mb-3"><span class="brand-logo-text">URBAN <span class="highlight">T</span>ECH</span></h3>',
+        '<p class="footer-text mb-0">Сучасні інженерні рішення для житлових, комерційних та промислових об\'єктів. Електромонтаж, системи безпеки, відеоспостереження, СКУД, мережі та автоматизація.</p>',
+        '</div>',
+        '</div>',
+        '<div class="col-12 col-md-6 col-lg-4">',
+        '<h5 class="footer-title">Контакти</h5>',
+        '<div class="footer-contact-item"><span class="footer-label">Телефон</span><a href="' + CONTACTS.phoneHref + '" class="footer-link">' + CONTACTS.phoneDisplay + '</a></div>',
+        '<div class="footer-contact-item"><span class="footer-label">Локація</span><p class="footer-text mb-0">Київ та область</p></div>',
+        '<div class="footer-contact-item"><span class="footer-label">Email</span><a href="mailto:' + CONTACTS.email + '" class="footer-link">' + CONTACTS.email + '</a></div>',
+        '</div>',
+        '<div class="col-12 col-md-6 col-lg-4">',
+        '<h5 class="footer-title">Зв\'язок</h5>',
+        '<div class="footer-socials">',
+        footerSocial(CONTACTS.instagram, "Instagram", "bi-instagram"),
+        footerSocial(CONTACTS.tiktok, "TikTok", "bi-tiktok"),
+        footerSocial(CONTACTS.telegram, "Telegram", "bi-telegram"),
+        footerSocial(CONTACTS.whatsapp, "WhatsApp", "bi-whatsapp"),
+        footerSocial(CONTACTS.viber, "Viber", "bi-chat-dots"),
+        '</div>',
+        '<p class="footer-note mt-3 mb-0">Напишіть у зручний месенджер або зателефонуйте — підкажемо оптимальне рішення під ваш об\'єкт.</p>',
+        '</div>',
+        '</div>',
+        '<div class="footer-bottom text-center">',
+        '<p class="mb-0">© 2026 <span class="brand-logo-text brand-logo-text--inline">URBAN <span class="highlight">T</span>ECH</span>. Усі права захищені.</p>',
+        '</div>',
+        '</div>'
+      ].join("");
+    });
+  }
+
   function initGlobalFooterSocials() {
     document.querySelectorAll(".footer-urban .footer-socials").forEach(function (footer) {
-      var instagram = footer.querySelector('a[aria-label="Instagram"]');
       var facebook = footer.querySelector('a[aria-label="Facebook"]');
+      var instagram = footer.querySelector('a[aria-label="Instagram"]');
       var telegram = footer.querySelector('a[aria-label="Telegram"]');
       var whatsapp = footer.querySelector('a[aria-label="WhatsApp"]');
       var tiktok = footer.querySelector('a[aria-label="TikTok"]');
+      var viber = footer.querySelector('a[aria-label="Viber"]');
 
       if (facebook) facebook.remove();
       setExternalLink(instagram, CONTACTS.instagram);
       setExternalLink(telegram, CONTACTS.telegram);
-      if (whatsapp) whatsapp.href = CONTACTS.whatsapp;
-
-      if (!tiktok) {
-        tiktok = document.createElement("a");
-        tiktok.className = "footer-social";
-        tiktok.setAttribute("aria-label", "TikTok");
-        tiktok.innerHTML = '<i class="bi bi-tiktok"></i>';
-
-        if (instagram && instagram.nextSibling) {
-          footer.insertBefore(tiktok, instagram.nextSibling);
-        } else {
-          footer.insertBefore(tiktok, footer.firstChild);
-        }
-      }
       setExternalLink(tiktok, CONTACTS.tiktok);
+      setExternalLink(whatsapp, CONTACTS.whatsapp);
+      setExternalLink(viber, CONTACTS.viber);
     });
   }
 
@@ -332,6 +373,7 @@
     initContactModalTemplate();
     initContactModal();
     initServicesTabs();
+    initGlobalFooterTemplate();
     initGlobalContacts();
     initGlobalFooterSocials();
     initContactButtons();
