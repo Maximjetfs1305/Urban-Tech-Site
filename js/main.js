@@ -73,6 +73,52 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
+  function menuItem(page, label, currentPage) {
+    var active = currentPage === page || (!currentPage && page === "index.html");
+    return '<li' + (active ? ' class="active"' : '') + '><a href="' + page + '"' + (active ? ' aria-current="page"' : '') + '><span>' + label + '</span></a></li>';
+  }
+
+  function initGlobalMenuTemplate() {
+    var nav = document.getElementById("ut-main-nav");
+    if (!nav) return;
+
+    var currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    nav.setAttribute("role", "navigation");
+    nav.innerHTML = [
+      '<a href="#" class="js-ut-nav-toggle ut-nav-toggle active" aria-label="Закрити меню"><i></i></a>',
+      '<div class="js-fullheight ut-table">',
+      '<div class="js-fullheight ut-table-cell">',
+      '<div class="row no-gutters">',
+      '<div class="col-md-12 text-center">',
+      '<a href="index.html" class="logo-text">URBAN <span class="highlight">T</span>ECH</a>',
+      '<ul>',
+      menuItem("index.html", "Головна", currentPage),
+      menuItem("services.html", "Послуги", currentPage),
+      menuItem("porady-zamovnyku.html", "Поради", currentPage),
+      menuItem("faq.html", "FAQ", currentPage),
+      menuItem("contacts.html", "Контакти", currentPage),
+      '</ul>',
+      '<div class="ut-menu-contacts">',
+      '<a class="ut-menu-phone" href="' + CONTACTS.phoneHref + '">',
+      '<i class="bi bi-telephone"></i>',
+      '<span>' + CONTACTS.phoneDisplay + '</span>',
+      '</a>',
+      '<div class="ut-menu-socials" aria-label="Месенджери">',
+      '<a href="' + CONTACTS.telegram + '" target="_blank" rel="noopener" aria-label="Telegram"><i class="bi bi-telegram"></i><span>Telegram</span></a>',
+      '<span class="ut-menu-dot" aria-hidden="true"></span>',
+      '<a href="' + CONTACTS.viber + '" aria-label="Viber"><i class="bi bi-telephone"></i><span>Viber</span></a>',
+      '<span class="ut-menu-dot" aria-hidden="true"></span>',
+      '<a href="' + CONTACTS.whatsapp + '" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>',
+      '</div>',
+      '</div>',
+      '</div>',
+      '</div>',
+      '</div>',
+      '</div>'
+    ].join("");
+  }
+
   function initMenu() {
     var nav = document.getElementById("ut-main-nav");
     var toggles = document.querySelectorAll(".js-ut-nav-toggle");
@@ -374,6 +420,7 @@
   onReady(function () {
     initMotionBackdrop();
     initHeader();
+    initGlobalMenuTemplate();
     initMenu();
     initContactModalStyle();
     initContactModalTemplate();
