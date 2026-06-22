@@ -1,6 +1,17 @@
 (function () {
   "use strict";
 
+  var CONTACTS = {
+    phoneDisplay: "+38 (075) 663 76 52",
+    phoneHref: "tel:+380756637652",
+    email: "urban.tech.kyiv@gmail.com",
+    instagram: "https://www.instagram.com/urban.tech.kyiv/",
+    tiktok: "https://www.tiktok.com/@urban.tech.kyiv",
+    telegram: "http://t.me/urban_tech_kyiv",
+    viber: "viber://chat?number=%2B380756637652",
+    whatsapp: "https://wa.me/380756637652"
+  };
+
   function onReady(callback) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", callback, { once: true });
@@ -125,6 +136,50 @@
     });
   }
 
+  function initContactModalStyle() {
+    if (document.getElementById("ut-global-contact-style")) return;
+
+    var style = document.createElement("style");
+    style.id = "ut-global-contact-style";
+    style.textContent = [
+      ".ut-contact-modal__dialog{max-width:540px!important;padding:38px 34px 34px!important;border:1px solid rgba(244,190,27,.48)!important;background:linear-gradient(135deg,rgba(16,18,22,.96),rgba(20,18,12,.94))!important;}",
+      ".ut-contact-modal__brand{display:block;margin:0 0 14px;color:#fff;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}",
+      ".ut-contact-modal__dialog h2{margin:0 0 14px!important;font-size:clamp(34px,4.2vw,44px)!important;line-height:.98!important;letter-spacing:-1.2px!important;}",
+      ".ut-contact-modal__dialog>p{max-width:430px;margin:0 0 22px!important;color:rgba(255,255,255,.76)!important;font-size:15px!important;line-height:1.55!important;}",
+      ".ut-contact-list{display:grid!important;gap:10px!important;}",
+      ".ut-contact-item{display:flex!important;align-items:center!important;gap:14px!important;padding:13px 14px!important;text-decoration:none!important;background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.10)!important;}",
+      ".ut-contact-item i{flex:0 0 42px!important;width:42px!important;height:42px!important;display:grid!important;place-items:center!important;color:#f4be1b!important;background:rgba(244,190,27,.10)!important;font-size:19px!important;}",
+      ".ut-contact-item span{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;min-width:0!important;}",
+      ".ut-contact-item b{display:block!important;color:#fff!important;font-size:13px!important;line-height:1.1!important;font-weight:800!important;letter-spacing:1.5px!important;text-transform:uppercase!important;}",
+      ".ut-contact-item small{display:block!important;color:rgba(255,255,255,.78)!important;font-size:15px!important;line-height:1.25!important;}",
+      ".ut-contact-modal__footer-note{margin:18px 0 0!important;color:rgba(255,255,255,.64)!important;font-size:13px!important;line-height:1.45!important;}",
+      "@media(max-width:575.98px){.ut-contact-modal__dialog{width:min(92vw,540px)!important;padding:30px 22px 26px!important}.ut-contact-modal__dialog h2{font-size:34px!important}.ut-contact-item{padding:12px!important}.ut-contact-item small{font-size:14px!important}}"
+    ].join("\n");
+    document.head.appendChild(style);
+  }
+
+  function initContactModalTemplate() {
+    var modal = document.getElementById("utContactModal");
+    if (!modal) return;
+
+    var dialog = modal.querySelector(".ut-contact-modal__dialog");
+    if (!dialog) return;
+
+    dialog.innerHTML = [
+      '<button class="ut-contact-modal__close" type="button" data-contact-close aria-label="Закрити">×</button>',
+      '<span class="ut-contact-modal__brand"><span class="brand-logo-text brand-logo-text--inline">URBAN <span class="highlight">T</span>ECH</span></span>',
+      '<h2 id="ut-contact-title">Зв\'язатися з нами</h2>',
+      '<p>Напишіть або зателефонуйте — підкажемо оптимальне рішення під ваш об’єкт.</p>',
+      '<div class="ut-contact-list">',
+      '<a class="ut-contact-item" href="' + CONTACTS.phoneHref + '"><i class="bi bi-telephone"></i><span><b>Телефон</b><small>' + CONTACTS.phoneDisplay + '</small></span></a>',
+      '<a class="ut-contact-item" href="mailto:' + CONTACTS.email + '"><i class="bi bi-envelope"></i><span><b>Email</b><small>' + CONTACTS.email + '</small></span></a>',
+      '<a class="ut-contact-item" href="' + CONTACTS.telegram + '" target="_blank" rel="noopener"><i class="bi bi-telegram"></i><span><b>Telegram</b><small>Написати в Telegram</small></span></a>',
+      '<a class="ut-contact-item" href="' + CONTACTS.viber + '"><i class="bi bi-chat-dots"></i><span><b>Viber</b><small>Написати у Viber</small></span></a>',
+      '</div>',
+      '<p class="ut-contact-modal__footer-note">Київ та область · Електромонтаж · Безпека · Автоматизація</p>'
+    ].join("");
+  }
+
   function initContactModal() {
     var modal = document.getElementById("utContactModal");
     if (!modal) return;
@@ -199,43 +254,66 @@
     }
   }
 
-  function initHomepageFooterSocials() {
-    var page = window.location.pathname.split("/").pop();
-    if (page && page !== "index.html") return;
+  function setExternalLink(link, href) {
+    if (!link) return;
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
 
-    var footer = document.querySelector(".footer-urban .footer-socials");
-    if (!footer) return;
-
-    var instagram = footer.querySelector('a[aria-label="Instagram"]');
-    if (instagram) {
-      instagram.href = "https://www.instagram.com/urban.tech.kyiv/";
-      instagram.target = "_blank";
-      instagram.rel = "noopener";
-    }
-
-    var telegram = footer.querySelector('a[aria-label="Telegram"]');
-    if (telegram) {
-      telegram.href = "http://t.me/urban_tech_kyiv";
-      telegram.target = "_blank";
-      telegram.rel = "noopener";
-    }
-
-    var tiktok = footer.querySelector('a[aria-label="TikTok"]');
-    if (!tiktok) {
-      tiktok = document.createElement("a");
-      tiktok.className = "footer-social";
-      tiktok.href = "https://www.tiktok.com/@urban.tech.kyiv";
-      tiktok.target = "_blank";
-      tiktok.rel = "noopener";
-      tiktok.setAttribute("aria-label", "TikTok");
-      tiktok.innerHTML = '<i class="bi bi-tiktok"></i>';
-
-      if (instagram && instagram.nextSibling) {
-        footer.insertBefore(tiktok, instagram.nextSibling);
-      } else {
-        footer.insertBefore(tiktok, footer.firstChild);
+  function initGlobalContacts() {
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.href = CONTACTS.phoneHref;
+      if (link.textContent.replace(/\s+/g, " ").trim().match(/^\+?\d|^\+38|^\+ 380/)) {
+        link.textContent = CONTACTS.phoneDisplay;
       }
-    }
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+      link.href = "mailto:" + CONTACTS.email;
+      if (link.textContent.indexOf("@") !== -1) link.textContent = CONTACTS.email;
+    });
+
+    document.querySelectorAll('a[href="https://t.me/"], a[href="http://t.me/"], a[href^="https://t.me/"]').forEach(function (link) {
+      setExternalLink(link, CONTACTS.telegram);
+    });
+
+    document.querySelectorAll('a[href^="viber://chat"]').forEach(function (link) {
+      link.href = CONTACTS.viber;
+    });
+
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (link) {
+      link.href = CONTACTS.whatsapp;
+    });
+  }
+
+  function initGlobalFooterSocials() {
+    document.querySelectorAll(".footer-urban .footer-socials").forEach(function (footer) {
+      var instagram = footer.querySelector('a[aria-label="Instagram"]');
+      var facebook = footer.querySelector('a[aria-label="Facebook"]');
+      var telegram = footer.querySelector('a[aria-label="Telegram"]');
+      var whatsapp = footer.querySelector('a[aria-label="WhatsApp"]');
+      var tiktok = footer.querySelector('a[aria-label="TikTok"]');
+
+      if (facebook) facebook.remove();
+      setExternalLink(instagram, CONTACTS.instagram);
+      setExternalLink(telegram, CONTACTS.telegram);
+      if (whatsapp) whatsapp.href = CONTACTS.whatsapp;
+
+      if (!tiktok) {
+        tiktok = document.createElement("a");
+        tiktok.className = "footer-social";
+        tiktok.setAttribute("aria-label", "TikTok");
+        tiktok.innerHTML = '<i class="bi bi-tiktok"></i>';
+
+        if (instagram && instagram.nextSibling) {
+          footer.insertBefore(tiktok, instagram.nextSibling);
+        } else {
+          footer.insertBefore(tiktok, footer.firstChild);
+        }
+      }
+      setExternalLink(tiktok, CONTACTS.tiktok);
+    });
   }
 
   function initContactButtons() {
@@ -250,9 +328,12 @@
     initMotionBackdrop();
     initHeader();
     initMenu();
+    initContactModalStyle();
+    initContactModalTemplate();
     initContactModal();
     initServicesTabs();
-    initHomepageFooterSocials();
+    initGlobalContacts();
+    initGlobalFooterSocials();
     initContactButtons();
   });
 })();
