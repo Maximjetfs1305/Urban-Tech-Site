@@ -94,3 +94,81 @@ body.services-body [data-service-panel="electro"] .services-electro-card--06 { -
 .brand-logo-text--inline .highlight {
   margin-left: 0.24em;
 }
+
+/* ============================================================================
+   SERVICES: image-card typography alignment
+   Title is fixed around the card center, description stays lower.
+============================================================================ */
+
+body.services-body .ut-image-card {
+  min-height: clamp(260px, 19vw, 315px);
+}
+
+body.services-body .ut-image-card::before {
+  background:
+    linear-gradient(180deg, rgba(2, 4, 8, 0.10) 0%, rgba(2, 4, 8, 0.18) 34%, rgba(2, 4, 8, 0.78) 100%),
+    linear-gradient(90deg, rgba(2, 4, 8, 0.42) 0%, rgba(2, 4, 8, 0.24) 48%, rgba(2, 4, 8, 0.12) 100%),
+    radial-gradient(circle at 18% 0%, rgba(248, 181, 0, 0.14), transparent 38%);
+}
+
+body.services-body .ut-image-card:hover::before {
+  background:
+    linear-gradient(180deg, rgba(2, 4, 8, 0.08) 0%, rgba(2, 4, 8, 0.14) 34%, rgba(2, 4, 8, 0.72) 100%),
+    linear-gradient(90deg, rgba(2, 4, 8, 0.34) 0%, rgba(2, 4, 8, 0.20) 48%, rgba(2, 4, 8, 0.10) 100%),
+    radial-gradient(circle at 18% 0%, rgba(248, 181, 0, 0.18), transparent 38%);
+}
+
+body.services-body .ut-image-card__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px 18px 20px;
+}
+
+body.services-body .ut-image-card__title {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 46%;
+  transform: translateY(-50%);
+  margin: 0;
+  max-width: calc(100% - 36px);
+}
+
+body.services-body .ut-image-card__text {
+  max-width: 96%;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 118px;
+}
+
+@media (max-width: 991.98px) {
+  body.services-body .ut-image-card {
+    min-height: 285px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body.services-body .ut-image-card {
+    min-height: 250px;
+  }
+
+  body.services-body .ut-image-card__content {
+    padding: 20px 15px 17px;
+  }
+
+  body.services-body .ut-image-card__title {
+    left: 15px;
+    right: 15px;
+    top: 43%;
+    max-width: calc(100% - 30px);
+  }
+
+  body.services-body .ut-image-card__text {
+    padding-top: 104px;
+  }
+}
