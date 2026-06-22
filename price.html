@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+  <title>Прайс лист Urban Tech — електромонтаж, безпека та слаботочні системи</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Орієнтовний прайс лист Urban Tech на електромонтаж, слаботочні системи, відеоспостереження, Ajax, мережі та резервне живлення у Києві та області.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#05070c">
+  <link rel="canonical" href="https://urban-tech.com.ua/price.html">
+
+  <meta property="og:site_name" content="Urban Tech">
+  <meta property="og:title" content="Прайс лист Urban Tech">
+  <meta property="og:description" content="Орієнтовні ціни на електромонтаж, відеоспостереження, Ajax, мережі, Smart Home та резервне живлення.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:url" content="https://urban-tech.com.ua/price.html">
+
+  <style id="ut-critical-preloader">
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #202020;
+    }
+
+    #preloader {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100dvh;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #202020;
+      color: #ffffff;
+      font-family: "Montserrat", Arial, sans-serif;
+    }
+
+    #preloader .logo-text {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    #preloader .logo-text .highlight {
+      color: #FFD700;
+      text-shadow: 0 0 5px #FFD700;
+    }
+
+    #preloader .loader {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 20px;
+      border: 4px solid rgba(255, 217, 0, 0.568);
+      border-top: 4px solid #FFD700;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #FFD700;
+      animation: utCriticalSpin 1.6s linear infinite;
+    }
+
+    #preloader .preloader-text {
+      margin-bottom: 6px;
+      color: #FFD700;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px #FFD700;
+    }
+
+    #preloader .preloader-subtext {
+      max-width: 260px;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @keyframes utCriticalSpin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/urban-tech.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body.price-body {
+      background: #05070b;
+      color: #fff;
+    }
+
+    .price-page {
+      position: relative;
+      padding: clamp(120px, 13vw, 170px) 0 clamp(70px, 8vw, 110px);
+    }
+
+    .price-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(2, 4, 8, 0.94), rgba(2, 4, 8, 0.74)),
+        url("assets/img/main/cards/object-offices.webp") center / cover no-repeat;
+      filter: saturate(0.82);
+    }
+
+    .price-page::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 26% 12%, rgba(248, 181, 0, 0.13), transparent 34%),
+        linear-gradient(180deg, rgba(5, 7, 11, 0.08), #05070b 90%);
+      pointer-events: none;
+    }
+
+    .price-hero {
+      padding: clamp(28px, 4vw, 50px);
+      border: 1px solid rgba(248, 181, 0, 0.34);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+        linear-gradient(90deg, rgba(248, 181, 0, 0.08), transparent 55%);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(18px);
+    }
+
+    .price-kicker,
+    .price-category__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: #f8b500;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .price-kicker::before,
+    .price-category__label::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: #f8b500;
+      box-shadow: 0 0 14px rgba(248, 181, 0, 0.65);
+    }
+
+    .price-title {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(36px, 5.7vw, 76px);
+      line-height: 0.98;
+      font-weight: 900;
+      letter-spacing: -0.055em;
+    }
+
+    .price-lead {
+      max-width: 780px;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: clamp(15px, 1.35vw, 18px);
+      line-height: 1.65;
+    }
+
+    .price-note-card {
+      height: 100%;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .price-note-card b {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .price-note-card span {
+      display: block;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .price-category {
+      margin-top: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.058), rgba(255, 255, 255, 0.022)),
+        rgba(5, 7, 11, 0.66);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.26);
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .price-category__head {
+      padding: 28px 28px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .price-category h2 {
+      margin: 0;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.1;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+
+    .price-table-wrap {
+      overflow-x: auto;
+    }
+
+    .price-table {
+      width: 100%;
+      min-width: 760px;
+      margin: 0;
+      border-collapse: collapse;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 17px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.085);
+      vertical-align: top;
+    }
+
+    .price-table th {
+      color: rgba(248, 181, 0, 0.95);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .price-table td {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .price-table td:first-child {
+      color: rgba(255, 255, 255, 0.94);
+      font-weight: 720;
+    }
+
+    .price-table td:nth-child(2) {
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.64);
+    }
+
+    .price-table td:nth-child(3) {
+      white-space: nowrap;
+      color: #ffffff;
+      font-weight: 850;
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .price-disclaimer {
+      margin-top: 26px;
+      padding: 22px 24px;
+      border-left: 3px solid #f8b500;
+      background: rgba(248, 181, 0, 0.07);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .price-cta {
+      margin-top: 34px;
+      padding: clamp(26px, 3.4vw, 40px);
+      border: 1px solid rgba(248, 181, 0, 0.34);
+      background:
+        linear-gradient(135deg, rgba(248, 181, 0, 0.12), rgba(255, 255, 255, 0.035)),
+        rgba(5, 7, 11, 0.72);
+    }
+
+    .price-cta h2 {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 3.3vw, 46px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .price-cta p {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.70);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 767.98px) {
+      .price-page {
+        padding-top: 112px;
+      }
+
+      .price-hero,
+      .price-category__head,
+      .price-cta {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .price-table th,
+      .price-table td {
+        padding: 15px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body class="hero-wrap price-body">
+  <div id="preloader">
+    <a href="index.html" class="logo-text">URBAN <span class="highlight">T</span>ECH</a>
+    <div class="loader"></div>
+    <div class="preloader-text">Завантаження...</div>
+    <div class="preloader-subtext">Дякуємо за очікування та довіру до нашого сервісу</div>
+  </div>
+
+  <nav id="ut-main-nav" role="navigation">
+    <a href="#" class="js-ut-nav-toggle ut-nav-toggle active" aria-label="Закрити меню"><i></i></a>
+    <div class="js-fullheight ut-table">
+      <div class="js-fullheight ut-table-cell">
+        <div class="row no-gutters">
+          <div class="col-md-12 text-center">
+            <a href="index.html" class="logo-text">URBAN <span class="highlight">T</span>ECH</a>
+            <ul>
+              <li><a href="index.html"><span>Головна</span></a></li>
+              <li><a href="services.html"><span>Послуги</span></a></li>
+              <li><a href="porady-zamovnyku.html"><span>Поради</span></a></li>
+              <li><a href="faq.html"><span>FAQ</span></a></li>
+              <li><a href="contacts.html"><span>Контакти</span></a></li>
+            </ul>
+            <div class="ut-menu-contacts">
+              <a class="ut-menu-phone" href="tel:+380756337652">
+                <i class="bi bi-telephone"></i>
+                <span>+38 (075) 633 76 52</span>
+              </a>
+              <div class="ut-menu-socials" aria-label="Месенджери">
+                <a href="http://t.me/urban_tech_kyiv" aria-label="Telegram"><i class="bi bi-telegram"></i><span>Telegram</span></a>
+                <span class="ut-menu-dot" aria-hidden="true"></span>
+                <a href="viber://chat?number=%2B380756337652" aria-label="Viber"><i class="bi bi-chat-dots"></i><span>Viber</span></a>
+                <span class="ut-menu-dot" aria-hidden="true"></span>
+                <a href="https://wa.me/380756337652" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="ut-navbar">
+        <a href="index.html" class="logo-text">URBAN <span class="highlight">T</span>ECH</a>
+      </div>
+      <a href="#" class="js-ut-nav-toggle ut-nav-toggle" aria-label="Відкрити меню"><i></i></a>
+    </div>
+  </header>
+
+  <main class="price-page">
+    <section class="container">
+      <div class="price-hero">
+        <span class="price-kicker">Прайс лист</span>
+        <h1 class="price-title">Орієнтовні ціни на роботи Urban Tech</h1>
+        <p class="price-lead">Ціни вказані як базовий орієнтир для попереднього розрахунку. Фінальна вартість залежить від об’єкта, матеріалів, висоти монтажу, способу прокладання кабелю та складності підключення.</p>
+
+        <div class="row g-3 mt-4">
+          <div class="col-12 col-md-4">
+            <div class="price-note-card">
+              <b>Ціни “від”</b>
+              <span>Вказані мінімальні ставки для типових умов монтажу без складних демонтажів і прихованих робіт.</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="price-note-card">
+              <b>Матеріали окремо</b>
+              <span>Кабель, автоматика, кріплення, коробки, модулі та обладнання рахуються окремо або за погодженим комплектом.</span>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="price-note-card">
+              <b>Точний кошторис</b>
+              <span>Після огляду або плану приміщення формуємо зрозумілий кошторис з переліком робіт і матеріалів.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category__head">
+          <span class="price-category__label">Електромонтаж</span>
+          <h2>Електрика 220В</h2>
+        </div>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Найменування робіт</th>
+                <th>Од. виміру</th>
+                <th>Ціна від</th>
+                <th>Примітка</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Прокладання кабелю відкрито / по готовій трасі</td><td>м.п.</td><td>40 грн</td><td>Без штроблення та складного кріплення.</td></tr>
+              <tr><td>Прокладання кабелю в гофрі / по стелі</td><td>м.п.</td><td>55 грн</td><td>Залежить від висоти та кількості трас.</td></tr>
+              <tr><td>Штроблення газоблоку</td><td>м.п.</td><td>80 грн</td><td>Без закладання штроби.</td></tr>
+              <tr><td>Штроблення цегли</td><td>м.п.</td><td>120 грн</td><td>Вартість залежить від товщини та доступу.</td></tr>
+              <tr><td>Штроблення бетону</td><td>м.п.</td><td>250 грн</td><td>Уточнюється після огляду.</td></tr>
+              <tr><td>Монтаж підрозетника</td><td>шт.</td><td>180 грн</td><td>Без вартості підрозетника та сумішей.</td></tr>
+              <tr><td>Монтаж розетки або вимикача</td><td>шт.</td><td>150 грн</td><td>Механізм і рамка рахуються окремо.</td></tr>
+              <tr><td>Монтаж точкового світильника</td><td>шт.</td><td>180 грн</td><td>Без вирізання складних отворів.</td></tr>
+              <tr><td>Монтаж LED-стрічки в профіль</td><td>м.п.</td><td>150 грн</td><td>Профіль, блок живлення та стрічка окремо.</td></tr>
+              <tr><td>Збірка та підключення електрощита</td><td>компл.</td><td>2 500 грн</td><td>Залежить від кількості модулів і автоматики.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category__head">
+          <span class="price-category__label">Слаботочка</span>
+          <h2>Мережі, Wi‑Fi та відеоспостереження</h2>
+        </div>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Найменування робіт</th>
+                <th>Од. виміру</th>
+                <th>Ціна від</th>
+                <th>Примітка</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Прокладання UTP/FTP кабелю</td><td>м.п.</td><td>40 грн</td><td>У готовому лотку або по підготовленій трасі.</td></tr>
+              <tr><td>Обжим RJ‑45 / підключення лінії</td><td>шт.</td><td>100 грн</td><td>З маркуванням лінії за потреби.</td></tr>
+              <tr><td>Монтаж інтернет-розетки</td><td>шт.</td><td>250 грн</td><td>Механізм і рамка рахуються окремо.</td></tr>
+              <tr><td>Монтаж та розключення патч‑панелі</td><td>шт.</td><td>800 грн</td><td>Залежить від кількості портів.</td></tr>
+              <tr><td>Монтаж Wi‑Fi точки доступу</td><td>шт.</td><td>500 грн</td><td>Налаштування мережі рахується окремо.</td></tr>
+              <tr><td>Монтаж IP/AHD камери</td><td>шт.</td><td>1 000 грн</td><td>Висотні роботи та складний доступ окремо.</td></tr>
+              <tr><td>Підключення відеореєстратора</td><td>шт.</td><td>800 грн</td><td>Без вартості накопичувача та обладнання.</td></tr>
+              <tr><td>Базове налаштування віддаленого доступу</td><td>компл.</td><td>1 000 грн</td><td>Камери, реєстратор, застосунок.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category__head">
+          <span class="price-category__label">Безпека</span>
+          <h2>Ajax, охорона, пожежа та автоматизація</h2>
+        </div>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Найменування робіт</th>
+                <th>Од. виміру</th>
+                <th>Ціна від</th>
+                <th>Примітка</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Монтаж Ajax Hub / центрального пристрою</td><td>шт.</td><td>700 грн</td><td>Підключення до мережі та застосунку.</td></tr>
+              <tr><td>Монтаж охоронного датчика Ajax</td><td>шт.</td><td>300 грн</td><td>Датчики руху, відкриття, розбиття тощо.</td></tr>
+              <tr><td>Монтаж пожежного датчика Ajax</td><td>шт.</td><td>350 грн</td><td>Залежить від типу датчика та місця монтажу.</td></tr>
+              <tr><td>Додавання пристрою в застосунок Ajax</td><td>шт.</td><td>100 грн</td><td>Прив’язка, назва, кімната, базова перевірка.</td></tr>
+              <tr><td>Налаштування користувачів і доступів Ajax</td><td>компл.</td><td>500 грн</td><td>Права доступу, кімнати, сценарії за потреби.</td></tr>
+              <tr><td>Монтаж відеодомофона</td><td>компл.</td><td>1 500 грн</td><td>Панель, монітор, базове підключення.</td></tr>
+              <tr><td>Монтаж контролера СКУД</td><td>шт.</td><td>1 200 грн</td><td>Без вартості замка, кнопок і зчитувачів.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="price-category">
+        <div class="price-category__head">
+          <span class="price-category__label">Резерв</span>
+          <h2>Резервне живлення та підготовка під інвертор</h2>
+        </div>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Найменування робіт</th>
+                <th>Од. виміру</th>
+                <th>Ціна від</th>
+                <th>Примітка</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Закладна лінія під генератор</td><td>компл.</td><td>1 500 грн</td><td>Кабель, автоматика та матеріали окремо.</td></tr>
+              <tr><td>Підготовка ліній під інвертор / EcoFlow</td><td>компл.</td><td>1 500 грн</td><td>Схема залежить від щита та потрібних груп.</td></tr>
+              <tr><td>Монтаж перемикача вводу / резерву</td><td>шт.</td><td>1 800 грн</td><td>Без вартості перемикача та додаткових модулів.</td></tr>
+              <tr><td>Підготовка під сонячні панелі</td><td>компл.</td><td>2 000 грн</td><td>Уточнюється за схемою інвертора та кількістю стрінгів.</td></tr>
+              <tr><td>Діагностика електромережі</td><td>виїзд</td><td>800 грн</td><td>Київ та найближча область, складні випадки окремо.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="price-disclaimer">
+        Остаточна ціна може змінюватися після завершення робіт та перерахунку фактично використаних матеріалів. Перед стартом робіт погоджуємо перелік задач, базову вартість і можливі додаткові позиції.
+      </div>
+
+      <div class="price-cta d-lg-flex align-items-center justify-content-between gap-4">
+        <div>
+          <span class="price-kicker">Консультація</span>
+          <h2>Потрібен точний кошторис?</h2>
+          <p>Надішліть план, фото щита або список задач — підкажемо порядок робіт і підготуємо попередній розрахунок під ваш об’єкт.</p>
+        </div>
+        <a href="#" class="bttn-more bttn-more--gold mt-4 mt-lg-0" data-contact-open>Отримати консультацію</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-urban text-white">
+    <div class="container">
+      <div class="row gy-4 align-items-start">
+        <div class="col-12 col-lg-4">
+          <div class="footer-brand-wrap">
+            <h3 class="footer-brand mb-3">
+              <span class="brand-logo-text">URBAN <span class="highlight">T</span>ECH</span>
+            </h3>
+            <p class="footer-text mb-0">
+              Сучасні інженерні рішення для житлових, комерційних та промислових об'єктів.
+              Електромонтаж, системи безпеки, відеоспостереження, СКУД, мережі та автоматизація.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <h5 class="footer-title">Контакти</h5>
+          <div class="footer-contact-item">
+            <span class="footer-label">Телефон</span>
+            <a href="tel:+380756337652" class="footer-link">+38 (075) 633 76 52</a>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-label">Локація</span>
+            <p class="footer-text mb-0">Київ та область</p>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-label">Email</span>
+            <a href="mailto:urban.tech.kyiv@gmail.com" class="footer-link">urban.tech.kyiv@gmail.com</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <h5 class="footer-title">Зв'язок</h5>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/urban.tech.kyiv/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/@urban.tech.kyiv" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i></a>
+            <a href="http://t.me/urban_tech_kyiv" class="footer-social" aria-label="Telegram" target="_blank" rel="noopener"><i class="bi bi-telegram"></i></a>
+            <a href="https://wa.me/380756337652" class="footer-social" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+            <a href="viber://chat?number=%2B380756337652" class="footer-social footer-social--viber" aria-label="Viber"><i class="bi bi-chat-dots"></i></a>
+          </div>
+          <p class="footer-note mt-3 mb-0">
+            Напишіть у зручний месенджер або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">
+          © 2026 <span class="brand-logo-text brand-logo-text--inline">URBAN <span class="highlight">T</span>ECH</span>.
+          Усі права захищені.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="ut-contact-modal" id="utContactModal" aria-hidden="true">
+    <div class="ut-contact-modal__backdrop" data-contact-close></div>
+    <div class="ut-contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ut-contact-title">
+      <button class="ut-contact-modal__close" type="button" data-contact-close aria-label="Закрити">×</button>
+      <span class="ut-contact-modal__label">URBAN <span class="highlight">T</span>ECH</span>
+      <h2 id="ut-contact-title">Зв'язатися з нами</h2>
+      <p>Напишіть або зателефонуйте — підкажемо оптимальне рішення під ваш об'єкт.</p>
+      <div class="ut-contact-list">
+        <a class="ut-contact-item" href="tel:+380756337652">
+          <i class="bi bi-telephone"></i>
+          <span><b>Телефон</b><small>+38 (075) 633 76 52</small></span>
+        </a>
+        <a class="ut-contact-item" href="mailto:urban.tech.kyiv@gmail.com">
+          <i class="bi bi-envelope"></i>
+          <span><b>Email</b><small>urban.tech.kyiv@gmail.com</small></span>
+        </a>
+        <a class="ut-contact-item" href="http://t.me/urban_tech_kyiv">
+          <i class="bi bi-telegram"></i>
+          <span><b>Telegram</b><small>Написати в Telegram</small></span>
+        </a>
+        <a class="ut-contact-item" href="viber://chat?number=%2B380756337652">
+          <i class="bi bi-chat-dots"></i>
+          <span><b>Viber</b><small>Написати у Viber</small></span>
+        </a>
+        <a class="ut-contact-item" href="https://wa.me/380756337652">
+          <i class="bi bi-whatsapp"></i>
+          <span><b>WhatsApp</b><small>Написати у WhatsApp</small></span>
+        </a>
+      </div>
+      <p class="ut-contact-modal__bottom">Київ та область · Електромонтаж · Безпека · Автоматизація</p>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
