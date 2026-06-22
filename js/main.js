@@ -2,14 +2,14 @@
   "use strict";
 
   var CONTACTS = {
-    phoneDisplay: "+38 (075) 663 76 52",
-    phoneHref: "tel:+380756637652",
+    phoneDisplay: "+38 (075) 633 76 52",
+    phoneHref: "tel:+380756337652",
     email: "urban.tech.kyiv@gmail.com",
     instagram: "https://www.instagram.com/urban.tech.kyiv/",
     tiktok: "https://www.tiktok.com/@urban.tech.kyiv",
     telegram: "http://t.me/urban_tech_kyiv",
-    viber: "viber://chat?number=%2B380756637652",
-    whatsapp: "https://wa.me/380756637652"
+    viber: "viber://chat?number=%2B380756337652",
+    whatsapp: "https://wa.me/380756337652"
   };
 
   function onReady(callback) {
@@ -31,11 +31,8 @@
       }, 350);
     };
 
-    if (document.readyState === "complete") {
-      finish();
-    } else {
-      window.addEventListener("load", finish, { once: true });
-    }
+    if (document.readyState === "complete") finish();
+    else window.addEventListener("load", finish, { once: true });
   }
 
   function initMotionBackdrop() {
@@ -65,9 +62,7 @@
       document.body.insertBefore(media, shade);
     }
 
-    if (media.play) {
-      media.play().catch(function () {});
-    }
+    if (media.play) media.play().catch(function () {});
   }
 
   function initHeader() {
@@ -143,16 +138,16 @@
     style.id = "ut-global-contact-style";
     style.textContent = [
       ".ut-contact-modal__dialog{max-width:540px!important;padding:38px 34px 34px!important;border:1px solid rgba(244,190,27,.48)!important;background:linear-gradient(135deg,rgba(16,18,22,.96),rgba(20,18,12,.94))!important;}",
-      ".ut-contact-modal__brand{display:block;margin:0 0 14px;color:#fff;font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}",
+      ".ut-contact-modal__brand{display:block!important;margin:0 0 14px!important;color:#fff!important;font-size:13px!important;font-weight:800!important;letter-spacing:2px!important;text-transform:uppercase!important;}",
       ".ut-contact-modal__dialog h2{margin:0 0 14px!important;font-size:clamp(34px,4.2vw,44px)!important;line-height:.98!important;letter-spacing:-1.2px!important;}",
-      ".ut-contact-modal__dialog>p{max-width:430px;margin:0 0 22px!important;color:rgba(255,255,255,.76)!important;font-size:15px!important;line-height:1.55!important;}",
+      ".ut-contact-modal__dialog>p{max-width:430px!important;margin:0 0 22px!important;color:rgba(255,255,255,.76)!important;font-size:15px!important;line-height:1.55!important;}",
       ".ut-contact-list{display:grid!important;gap:10px!important;}",
-      ".ut-contact-item{display:flex!important;align-items:center!important;gap:14px!important;padding:13px 14px!important;text-decoration:none!important;background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.10)!important;}",
+      ".ut-contact-item{display:flex!important;align-items:center!important;gap:14px!important;width:100%!important;padding:13px 14px!important;text-decoration:none!important;background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.10)!important;color:#fff!important;}",
       ".ut-contact-item__icon{flex:0 0 42px!important;width:42px!important;height:42px!important;display:grid!important;place-items:center!important;color:#f4be1b!important;background:rgba(244,190,27,.10)!important;font-size:19px!important;}",
       ".ut-contact-item__icon i{display:block!important;color:inherit!important;font-size:19px!important;line-height:1!important;}",
-      ".ut-contact-item__content{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;min-width:0!important;}",
+      ".ut-contact-item__content{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:3px!important;min-width:0!important;}",
       ".ut-contact-item b{display:block!important;color:#fff!important;font-size:13px!important;line-height:1.1!important;font-weight:800!important;letter-spacing:1.5px!important;text-transform:uppercase!important;}",
-      ".ut-contact-item small{display:block!important;color:rgba(255,255,255,.78)!important;font-size:15px!important;line-height:1.25!important;}",
+      ".ut-contact-item small{display:block!important;color:rgba(255,255,255,.78)!important;font-size:15px!important;line-height:1.25!important;word-break:break-word!important;}",
       ".ut-contact-modal__footer-note{margin:18px 0 0!important;color:rgba(255,255,255,.64)!important;font-size:13px!important;line-height:1.45!important;}",
       "@media(max-width:575.98px){.ut-contact-modal__dialog{width:min(92vw,540px)!important;padding:30px 22px 26px!important}.ut-contact-modal__dialog h2{font-size:34px!important}.ut-contact-item{padding:12px!important}.ut-contact-item small{font-size:14px!important}}"
     ].join("\n");
@@ -274,13 +269,22 @@
   function initGlobalContacts() {
     document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
       link.href = CONTACTS.phoneHref;
-      if (link.textContent.replace(/\s+/g, " ").trim().match(/^\+?\d|^\+38|^\+ 380/)) {
+      if (!link.classList.contains("ut-contact-item") && link.textContent.replace(/\s+/g, " ").trim().match(/^\+?\d|^\+38|^\+ 380/)) {
         link.textContent = CONTACTS.phoneDisplay;
+      }
+      if (link.classList.contains("ut-contact-item")) {
+        var phoneSmall = link.querySelector(".ut-contact-item__content small");
+        if (phoneSmall) phoneSmall.textContent = CONTACTS.phoneDisplay;
       }
     });
 
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
       link.href = "mailto:" + CONTACTS.email;
+      if (link.classList.contains("ut-contact-item")) {
+        var emailSmall = link.querySelector(".ut-contact-item__content small");
+        if (emailSmall) emailSmall.textContent = CONTACTS.email;
+        return;
+      }
       if (link.textContent.indexOf("@") !== -1) link.textContent = CONTACTS.email;
     });
 
